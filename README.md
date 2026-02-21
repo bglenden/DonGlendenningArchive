@@ -28,7 +28,7 @@ Items marked **HIGH** relevance are especially meaningful for understanding Don'
 | 08 | Correspondence | 9 | Personal and professional letters |
 | 09 | Community Foundation & Civic Life | 220 | CFPEI, community involvement, and civic engagement |
 | 10 | Creative Writing | 94 | Poetry, humour, literary works, and personal reflections |
-| 11 | Personal & Household | 75 | Recipes, health records, practical documents, and everyday life |
+| 11 | Personal & Household | 75 | Recipes, practical documents, and everyday life |
 
 ## About Don Glendenning
 
