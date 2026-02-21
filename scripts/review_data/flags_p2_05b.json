@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "2015-budget-2015-03-11t16-39-21",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "Contains personal financial contribution details",
+    "criterion": 7
+  },
+  {
+    "slug": "2016-expense-claim-1",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Expense claim form - routine administrative",
+    "criterion": 8
+  },
+  {
+    "slug": "2017-award-announcement",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "Contains personal phone number",
+    "criterion": 7
+  }
+]

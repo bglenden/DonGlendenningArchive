@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review: Community Foundation &amp; Civic Life</title>
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+  .flag-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin: 0.8rem 0;
+    border-left: 4px solid var(--card-border);
+    transition: opacity 0.2s;
+  }
+  .flag-card.dimmed { opacity: 0.45; }
+  .flag-exclude { border-left-color: #c0392b; }
+  .flag-review { border-left-color: #e67e22; }
+  .flag-header {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .flag-check {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .flag-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #c0392b;
+  }
+  .flag-badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-exclude { background: #c0392b; color: #fff; }
+  .badge-review { background: #e67e22; color: #fff; }
+  .flag-criterion {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-size, .flag-garbage {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-garbage { color: #c0392b; }
+  .flag-card h3 {
+    margin: 0.3rem 0;
+    font-size: 1.1rem;
+  }
+  .flag-summary {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+  }
+  .flag-reason {
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0;
+  }
+  .theme-section {
+    margin: 2rem 0;
+  }
+  .theme-section h2 {
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+  .stats-bar {
+    display: flex;
+    gap: 2rem;
+    background: var(--sidebar-bg);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0 2rem;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .stats-bar .stat-num {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    columns: 2;
+    column-gap: 2rem;
+  }
+  .toc-list li {
+    padding: 0.3rem 0;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.95rem;
+  }
+  .toc-count {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  /* Sticky toolbar */
+  .review-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #1a1a2e;
+    border-bottom: 2px solid var(--accent, #e67e22);
+    padding: 0.7rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  .review-toolbar .toolbar-count {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff;
+    min-width: 140px;
+  }
+  .review-toolbar .toolbar-count .num { color: var(--accent, #e67e22); }
+  .review-toolbar button {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: #2a2a4a;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: -apple-system, sans-serif;
+    transition: background 0.15s;
+  }
+  .review-toolbar button:hover { background: #3a3a6a; }
+  .review-toolbar button.primary {
+    background: #c0392b;
+    border-color: #c0392b;
+    color: #fff;
+  }
+  .review-toolbar button.primary:hover { background: #e74c3c; }
+  .toolbar-spacer { flex: 1; }
+</style>
+
+</head>
+<body>
+
+<div class="review-toolbar">
+  <span class="toolbar-count"><span class="num">0</span> of 0 selected for exclusion</span>
+  <span class="toolbar-spacer"></span>
+  <button id="select-all">Select All</button>
+  <button id="deselect-all">Deselect All</button>
+  <button id="download-exclusions" class="primary">Download Exclusions</button>
+</div>
+
+<header class="site-header">
+  <h1>Review: Community Foundation &amp; Civic Life</h1>
+  <div class="subtitle">15 documents flagged for review</div>
+</header>
+<main class="container">
+<div class="breadcrumb"><a href="index.html">Review Home</a> <span class="sep">&rsaquo;</span> Community Foundation &amp; Civic Life</div>
+<div class="stats-bar">
+  <div><span class="stat-num">15</span> flagged</div>
+  <div><span class="stat-num">9</span> exclude</div>
+  <div><span class="stat-num">6</span> review</div>
+</div>
+<div class="flag-card flag-exclude" data-slug="12-preparedness" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="12-preparedness" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">15 KB</span>
+  </div>
+  <h3><a href="../09-community-civic/read/12-preparedness.html" target="_blank">12-preparedness</a></h3>
+  <p class="flag-summary">Duplicate of File 1 (Report No. 1 on preparedness). Documents Community Foundation survey findings, workshop structure, and recommendations for closing preparedness gaps between school and workplace/postsecondary study. Shows Don's systematic approach to identifying and addressing education system deficiencies.</p>
+  <p class="flag-reason"><strong>Reason:</strong> AI summary explicitly states 'Duplicate of File 1' — identical content to the preparedness occasional paper from Education 20/20 Inc. (slug: 01-preparedness).</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2015-seaward-gap-fillow-after" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2015-seaward-gap-fillow-after" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../09-community-civic/read/2015-seaward-gap-fillow-after.html" target="_blank">2015-seaward-gap-fillow-after</a></h3>
+  <p class="flag-summary">Duplicate of File 17 with minor variations. Identical content promoting Holland College Adult Basic Education program addressing preparedness gaps identified in Community Foundation survey.
+- **Key People**: Don Glendenning, Gerry Seaward, Steve McQuaid, Katherine MacDonald
+- **Key Organizations**: Education 20/20 Inc., Holland College, Community Foundation of PEI
+- **Tags**: PROFESSIONAL, EDUCATION, HOLLAND_COLLEGE, COMMUNITY, FOUNDATION
+- **Eulogy Relevance**: MEDIUM - Variant of same initiative</p>
+  <p class="flag-reason"><strong>Reason:</strong> AI summary explicitly states 'Duplicate of File 17 with minor variations.' Near-identical content warranting exclusion.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="5-based-on-objectives-proposed-for-new-non-profit-act-2014-08-16t15-19-56" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="5-based-on-objectives-proposed-for-new-non-profit-act-2014-08-16t15-19-56" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../09-community-civic/read/5-based-on-objectives-proposed-for-new-non-profit-act-2014-08-16t15-19-56.html" target="_blank">5-based-on-objectives-proposed-for-new-non-profit-act-2014-08-16t15-19-56</a></h3>
+  <p class="flag-summary">A dated version of Don's framework for a non-profit education organization's objectives, identical in content to the first document. It outlines initiatives for public education, policy engagement, community involvement, learner support, and educator professional development.</p>
+  <p class="flag-reason"><strong>Reason:</strong> AI summary explicitly states this document is 'identical in content to the first document' in the sequence. Exact duplicate warranting exclusion.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="cfpei-58-cumberland-wi" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="cfpei-58-cumberland-wi" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../09-community-civic/read/cfpei-58-cumberland-wi.html" target="_blank">cfpei-58-cumberland-wi</a></h3>
+  <p class="flag-summary">This is a duplicate of File 7 with minor content variations. It announces the Cumberland-Rocky Point Women's Institute Legacy Fund supporting literacy initiatives in the area. The WI converted proceeds from selling their schoolhouse into an endowment supporting Westwood Primary and Eliot River Elementary Schools. The document includes the same signing ceremony photo and demonstrates the institutional importance of preserving community institutions through philanthropic mechanisms. The duplication suggests editorial iterations or different distribution versions of the same announcement.</p>
+  <p class="flag-reason"><strong>Reason:</strong> AI summary explicitly states 'This is a duplicate of File 7 with minor content variations.' Near-identical content warranting exclusion.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="cfpei-proposal-journal" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="cfpei-proposal-journal" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../09-community-civic/read/cfpei-proposal-journal.html" target="_blank">cfpei-proposal-journal</a></h3>
+  <p class="flag-summary">A formal letter from Don Glendenning, President of Education 20/20 Inc., to the Community Foundation of Prince Edward Island regarding a proposal. The brief letter contains standard opening/closing but specific proposal content is not detailed in the text snippet.</p>
+  <p class="flag-reason"><strong>Reason:</strong> content_length of 534. Content preview shows only letterhead, 'Dear Sir:', and 'Sincerely Don Glendenning President' with no actual proposal body. The summary confirms 'specific proposal content is not detailed in the text snippet.' The file is essentially an empty letter shell.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="fund-values-mch-03-2005" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="fund-values-mch-03-2005" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">7 KB</span>
+    <span class="flag-garbage">15.0% garbage</span>
+  </div>
+  <h3><a href="../09-community-civic/read/fund-values-mch-03-2005.html" target="_blank">fund-values-mch-03-2005</a></h3>
+  <p class="flag-summary">Consolidated Trust Fund allocation and valuation statement for the Community Foundation of PEI as of March 3, 2005, showing book values, units held, and fair market values for various named funds including the Glendenning Family Fund.</p>
+  <p class="flag-reason"><strong>Reason:</strong> garbage_ratio of 0.1504 significantly exceeds the 0.05 threshold. Document is a financial table with heavy whitespace formatting artifacts producing high garbage ratio.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="hugh-black" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="hugh-black" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../09-community-civic/read/hugh-black.html" target="_blank">hugh-black</a></h3>
+  <p class="flag-summary">Duplicate of File 12 (Hugh Black legacy.docx) containing identical content proposing memorial endowment options for Roger through the Community Foundation. Same three legacy opportunities related to art, investment education, and healthcare/arts philanthropy.</p>
+  <p class="flag-reason"><strong>Reason:</strong> AI summary explicitly states 'Duplicate of File 12 (Hugh Black legacy.docx) containing identical content.' Exact duplicate warranting exclusion.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="information-project-1" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="information-project-1" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">13 KB</span>
+  </div>
+  <h3><a href="../09-community-civic/read/information-project-1.html" target="_blank">information-project-1</a></h3>
+  <p class="flag-summary">Duplicate of File 1 (D 34 Information Project-1.docx) - same proposal titled &quot;Bridging the Gap&quot; with identical content regarding addressing educational change in PEI through information dissemination strategy.
+- **Key People**: Don Glendenning
+- **Key Organizations**: Community Foundation of Prince Edward Island, Education 20/20 Inc.
+- **Tags**: PROFESSIONAL, EDUCATION, COMMUNITY, FOUNDATION
+- **Eulogy Relevance**: HIGH - [Same as File 1]</p>
+  <p class="flag-reason"><strong>Reason:</strong> AI summary explicitly states 'Duplicate of File 1 (D 34 Information Project-1.docx) — same proposal titled Bridging the Gap with identical content.' Exact duplicate warranting exclusion.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="roma-insert" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="roma-insert" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">10 KB</span>
+    <span class="flag-garbage">6.1% garbage</span>
+  </div>
+  <h3><a href="../09-community-civic/read/roma-insert.html" target="_blank">roma-insert</a></h3>
+  <p class="flag-summary">Promotional insert for the First Annual Fundraising Dinner celebrating fifteen years of service and one million dollar contribution to PEI. Features CFPEI's mission and board information including Don Glendenning as Director. Notes administrative costs funded through small trust administration fee and donations from directors, individuals, and businesses, explaining the need for fundraising dinner.</p>
+  <p class="flag-reason"><strong>Reason:</strong> garbage_ratio of 0.0606 exceeds the 0.05 threshold. The document is a fundraising dinner promotional insert with heavy tabular layout that produced significant formatting artifacts.</p>
+</div>
+<div class="flag-card flag-review" data-slug="0-1-cover" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="0-1-cover" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../09-community-civic/read/0-1-cover.html" target="_blank">0-1-cover</a></h3>
+  <p class="flag-summary">Cover page for the Community Foundation of Prince Edward Island's Secretary's Handbook for 2007. Simple title page marking the formal documentation of governance and operational procedures developed under Don's leadership during his final full year as Director.</p>
+  <p class="flag-reason"><strong>Reason:</strong> content_length of 193. Document is described as a simple title/cover page with date for a handbook. Extremely thin content — may not add value beyond the handbook itself.</p>
+</div>
+<div class="flag-card flag-review" data-slug="a-5-changing-policy" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="a-5-changing-policy" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../09-community-civic/read/a-5-changing-policy.html" target="_blank">a-5-changing-policy</a></h3>
+  <p class="flag-summary">Community Foundation policy procedure documentation establishing that &quot;Board policies may be withdrawn, amended or reversed. No policy may be reversed, however, unless it appears on the agenda of at least two Board meetings for discussion prior to a vote being taken.&quot; Reflects deliberative governance approach.</p>
+  <p class="flag-reason"><strong>Reason:</strong> content_length of 524. AI summary describes it as a one-sentence policy statement ('Board policies may be withdrawn...'). Extremely thin content for a standalone document.</p>
+</div>
+<div class="flag-card flag-review" data-slug="contents" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="contents" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../09-community-civic/read/contents.html" target="_blank">contents</a></h3>
+  <p class="flag-summary">Table of contents for a 2007 handbook listing 12 major sections including contact lists, to-do items, Board and Executive minutes, Living Memorial, Souris/Wilmot, Agriculture, Admin Decisions 2007, current statistics, and speaking notes. This administrative document indicates the scope of information Don organized for Community Foundation business.</p>
+  <p class="flag-reason"><strong>Reason:</strong> content_length of 322. Document is a bare table of contents for a handbook with no substantive text. Value is minimal without the accompanying handbook pages.</p>
+</div>
+<div class="flag-card flag-review" data-slug="d-auld-scholarship" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="d-auld-scholarship" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../09-community-civic/read/d-auld-scholarship.html" target="_blank">d-auld-scholarship</a></h3>
+  <p class="flag-summary">A press release or promotional piece about the Joan Auld Scholarship Fund, managed by the Community Foundation of Prince Edward Island. This document exemplifies Don's work building philanthropic infrastructure to support PEI's cultural and educational initiatives, specifically craft training.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Content preview contains unfilled template placeholders: 'Holly, a daughter of cvbnm, is a graduate of bbb High School.' This is an incomplete draft with gibberish stand-in text, not a finished document.</p>
+</div>
+<div class="flag-card flag-review" data-slug="foundations-pei" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="foundations-pei" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Criterion 0</span>
+    <span class="flag-size">52 KB</span>
+  </div>
+  <h3><a href="../09-community-civic/read/foundations-pei.html" target="_blank">foundations-pei</a></h3>
+  <p class="flag-summary">Database search results listing 27 registered charitable foundations in Prince Edward Island. Includes organizations like Alzheimer Society of PEI Foundation, Cooper Foundation, Holland College Foundation (Don's own institution), Kings County Memorial Hospital Auxiliary Foundation, and others. Registration dates range from 1983-2006. Appears to be research for charitable sector mapping or competitive analysis.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Content is Canada Revenue Agency database search results listing 27 registered charitable foundations with registration numbers and dates. Purely tabular/database output. Size 53,744 bytes with content_length 5,058. May be research Don compiled, but the content itself is a raw CRA data export.</p>
+</div>
+<div class="flag-card flag-review" data-slug="upson-draft-letter" data-theme="09-community-civic">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="upson-draft-letter" data-theme="09-community-civic"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../09-community-civic/read/upson-draft-letter.html" target="_blank">upson-draft-letter</a></h3>
+  <p class="flag-summary">Personal letter from Don Glendenning to Mr. Upson (possibly &quot;Upsen&quot;) following a visit to his home with Norman (Carruthers), Diane, and Carol (Don's wife). Enclosing draft endowment agreement and proposing a reception at Upson's home for summer visitors interested in CFPEI. Reflects Don's personal cultivation of major donors, strategic relationship-building, and planning for the 2007 US Citizens Day follow-up event.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains private donor details (name, home address/description, family member name, donation intentions)</p>
+</div>
+</main>
+<footer class="site-footer">
+  <a href="../index.html">Archive Home</a>
+</footer>
+
+<script>
+(function() {
+  const STORAGE_KEY = 'archiveReviewSelections';
+
+  function loadState() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    } catch(e) { return {}; }
+  }
+
+  function saveState(state) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function updateCounts() {
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+    const checked = document.querySelectorAll('.flag-card input[type="checkbox"]:checked');
+    const countEl = document.querySelector('.toolbar-count');
+    if (countEl) {
+      countEl.innerHTML = '<span class="num">' + checked.length + '</span> of ' + boxes.length + ' selected for exclusion';
+    }
+  }
+
+  function applyDimming() {
+    document.querySelectorAll('.flag-card').forEach(function(card) {
+      const cb = card.querySelector('input[type="checkbox"]');
+      if (cb) card.classList.toggle('dimmed', !cb.checked);
+    });
+  }
+
+  function init() {
+    const state = loadState();
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+
+    // Restore saved state (overrides default checked/unchecked)
+    boxes.forEach(function(cb) {
+      const key = cb.dataset.theme + '/' + cb.dataset.slug;
+      if (key in state) cb.checked = state[key];
+    });
+
+    // Listen for changes
+    boxes.forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var st = loadState();
+        st[cb.dataset.theme + '/' + cb.dataset.slug] = cb.checked;
+        saveState(st);
+        updateCounts();
+        applyDimming();
+      });
+    });
+
+    applyDimming();
+    updateCounts();
+
+    // Select all / deselect all
+    var selAll = document.getElementById('select-all');
+    if (selAll) selAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = true; st[cb.dataset.theme + '/' + cb.dataset.slug] = true; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    var deselAll = document.getElementById('deselect-all');
+    if (deselAll) deselAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = false; st[cb.dataset.theme + '/' + cb.dataset.slug] = false; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    // Download exclusion list
+    var dlBtn = document.getElementById('download-exclusions');
+    if (dlBtn) dlBtn.addEventListener('click', function() {
+      var exclusions = [];
+      document.querySelectorAll('.flag-card input[type="checkbox"]:checked').forEach(function(cb) {
+        exclusions.push({ slug: cb.dataset.slug, theme: cb.dataset.theme });
+      });
+      var blob = new Blob([JSON.stringify(exclusions, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'exclusions.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

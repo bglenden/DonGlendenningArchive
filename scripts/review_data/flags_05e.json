@@ -1,0 +1,149 @@
+[
+  {
+    "slug": "other-provinces-department",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Garbage ratio of 0.1039 indicates significant encoding artifacts. The content is a sparse notes fragment with extensive whitespace corruption from formatting extraction.",
+    "criterion": 1
+  },
+  {
+    "slug": "number-2014-08-29t19-34-18",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "This is a verbatim copy of the PEI Grade 9 Mathematics Curriculum Guide \u2014 a government-published curriculum document with no narrative or personal content from Don. It is a machine-structured data dump of specific curriculum outcomes, not Don's writing.",
+    "criterion": 3
+  },
+  {
+    "slug": "newsletter-2020-6",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "This is a Glenway Estates cottage association newsletter about road maintenance, stump removal, and beach access \u2014 entirely unrelated to education reform. It belongs to a personal/household category, not education philosophy.",
+    "criterion": 6
+  },
+  {
+    "slug": "work-plan",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "This is a Glenway Estates Association workplan for 2021 covering cottage community maintenance (road gravel, gate repairs, beach access stairs) \u2014 entirely unrelated to education reform and misclassified in this collection.",
+    "criterion": 6
+  },
+  {
+    "slug": "schools-tomorrow",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "This is a Washington Post article by journalist Jay Mathews about Theodore Sizer's book on high schools, not written by Don Glendenning. There is no framing, annotation, or connection to Don's own work.",
+    "criterion": 5
+  },
+  {
+    "slug": "teaching-leaving-academia",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "This is a first-person article by Constantina Katsari published in The Guardian about leaving academia \u2014 written entirely by someone else with no connection to Don Glendenning or his education reform work.",
+    "criterion": 5
+  },
+  {
+    "slug": "young",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "This letter is signed by Norman Carruthers as President of the Community Foundation of PEI, not by Don Glendenning. While Don was associated with CFPEI, this is not his writing and has no clear connection to his education reform work.",
+    "criterion": 5
+  },
+  {
+    "slug": "org-sterring-committee",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "This document contains only a bare list of nine steering committee member names with no context, dates, purpose, or substantive content. It is a stub with no meaningful archival value beyond what is captured in meeting minutes.",
+    "criterion": 2
+  },
+  {
+    "slug": "transction-record",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "This is a blank administrative transaction record form template with empty rows for date, amount, and notes \u2014 no actual data or personal content. It is a generic template with no substantive value.",
+    "criterion": 2
+  },
+  {
+    "slug": "life-road-brochure",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "The extracted text content is only the organization's address and phone number repeated, indicating a visually-designed brochure whose text content was not captured. There is no substantive text content in this entry.",
+    "criterion": 2
+  },
+  {
+    "slug": "life-road-card",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "The extracted text contains only Education 20/20's contact information repeated, with no substantive content. This is a contact card whose visual design elements were not captured in text extraction.",
+    "criterion": 2
+  },
+  {
+    "slug": "zassess-ingredients",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "This appears to be a fragment from an Australian Department of Employment, Education and Training (DEET) document listing assessment system ingredients \u2014 likely a reference document gathered by Don rather than his own writing. The high garbage ratio (0.0284) and the OCR artifacts (dashed border lines) suggest a scanned external document.",
+    "criterion": 5
+  },
+  {
+    "slug": "zguide-1b",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "Performance assessment guide for time management using placeholder names (Mr. Smith, Mrs. Green) and a 1996 magazine reference \u2014 appears to be a generic instructional template or external DACUM-related resource, not Don's original writing. OCR artifacts and high garbage ratio support this.",
+    "criterion": 5
+  },
+  {
+    "slug": "zguide-1c",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "Generic learning activities guide for time management with the same placeholder names and external references as zguide-1b and zguide-1g \u2014 appears to be an externally sourced instructional template, not Don's original work.",
+    "criterion": 5
+  },
+  {
+    "slug": "zguide-1f",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "Near-duplicate of zguide-1g with severe OCR corruption (\"LEARN.G RESOURCES\", \"Ti e Manag ment\") and the same generic placeholder content. Likely an external DACUM reference guide, not Don's work.",
+    "criterion": 5
+  },
+  {
+    "slug": "zguide-1g",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "Generic learning resources list for time management with placeholder names (Mr. Smith, Mrs. Green) and a 1996 Canadian Advocate article citation \u2014 appears to be an externally sourced reference guide template rather than Don's original writing, with OCR artifacts.",
+    "criterion": 5
+  },
+  {
+    "slug": "poster-2014-learning-2014-08-30t23-11-49",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of poster-2014-learning \u2014 both have identical content (same workshop poster for October 22, 2014), differing only in the timestamp appended to the filename.",
+    "criterion": 4
+  },
+  {
+    "slug": "mtg-26-agenda-2015-09-13t13-13-10",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of mtg-26-agenda \u2014 both contain identical text for the September 16, 2015 board meeting, differing only in the timestamp appended to the filename.",
+    "criterion": 4
+  },
+  {
+    "slug": "minutes-2016-2016-05-17t00-36-31",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Near-exact duplicate of minutes-2016 \u2014 both documents cover the same May 12, 2016 Awards Committee meeting, differing only in the timestamp appended to the filename.",
+    "criterion": 4
+  },
+  {
+    "slug": "vision-2-tom-2016-04-20t02-01-41",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "The summary explicitly identifies this as a timestamped duplicate of another Vision-2 document with identical content, differing only in the timestamp appended to the filename.",
+    "criterion": 4
+  },
+  {
+    "slug": "purpose-schools-and-educ",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "The summary explicitly identifies this as a duplicate of File 1 (purpose-f-schooling-1) with identical content examining educational philosophies and purposes of schooling.",
+    "criterion": 4
+  }
+]

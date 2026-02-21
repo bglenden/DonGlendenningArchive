@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review: Family History &amp; Genealogy</title>
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+  .flag-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin: 0.8rem 0;
+    border-left: 4px solid var(--card-border);
+    transition: opacity 0.2s;
+  }
+  .flag-card.dimmed { opacity: 0.45; }
+  .flag-exclude { border-left-color: #c0392b; }
+  .flag-review { border-left-color: #e67e22; }
+  .flag-header {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .flag-check {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .flag-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #c0392b;
+  }
+  .flag-badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-exclude { background: #c0392b; color: #fff; }
+  .badge-review { background: #e67e22; color: #fff; }
+  .flag-criterion {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-size, .flag-garbage {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-garbage { color: #c0392b; }
+  .flag-card h3 {
+    margin: 0.3rem 0;
+    font-size: 1.1rem;
+  }
+  .flag-summary {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+  }
+  .flag-reason {
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0;
+  }
+  .theme-section {
+    margin: 2rem 0;
+  }
+  .theme-section h2 {
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+  .stats-bar {
+    display: flex;
+    gap: 2rem;
+    background: var(--sidebar-bg);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0 2rem;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .stats-bar .stat-num {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    columns: 2;
+    column-gap: 2rem;
+  }
+  .toc-list li {
+    padding: 0.3rem 0;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.95rem;
+  }
+  .toc-count {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  /* Sticky toolbar */
+  .review-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #1a1a2e;
+    border-bottom: 2px solid var(--accent, #e67e22);
+    padding: 0.7rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  .review-toolbar .toolbar-count {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff;
+    min-width: 140px;
+  }
+  .review-toolbar .toolbar-count .num { color: var(--accent, #e67e22); }
+  .review-toolbar button {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: #2a2a4a;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: -apple-system, sans-serif;
+    transition: background 0.15s;
+  }
+  .review-toolbar button:hover { background: #3a3a6a; }
+  .review-toolbar button.primary {
+    background: #c0392b;
+    border-color: #c0392b;
+    color: #fff;
+  }
+  .review-toolbar button.primary:hover { background: #e74c3c; }
+  .toolbar-spacer { flex: 1; }
+</style>
+
+</head>
+<body>
+
+<div class="review-toolbar">
+  <span class="toolbar-count"><span class="num">0</span> of 0 selected for exclusion</span>
+  <span class="toolbar-spacer"></span>
+  <button id="select-all">Select All</button>
+  <button id="deselect-all">Deselect All</button>
+  <button id="download-exclusions" class="primary">Download Exclusions</button>
+</div>
+
+<header class="site-header">
+  <h1>Review: Family History &amp; Genealogy</h1>
+  <div class="subtitle">30 documents flagged for review</div>
+</header>
+<main class="container">
+<div class="breadcrumb"><a href="index.html">Review Home</a> <span class="sep">&rsaquo;</span> Family History &amp; Genealogy</div>
+<div class="stats-bar">
+  <div><span class="stat-num">30</span> flagged</div>
+  <div><span class="stat-num">4</span> exclude</div>
+  <div><span class="stat-num">26</span> review</div>
+</div>
+<div class="flag-card flag-exclude" data-slug="13-letter-revised" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="13-letter-revised" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">2 KB</span>
+    <span class="flag-garbage">2.0% garbage</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/13-letter-revised.html" target="_blank">13-letter-revised</a></h3>
+  <p class="flag-summary">This is a temporary file (indicated by the ~$ prefix) containing a revised letter from Don Glendenning. The file content is in binary format and cannot be read. Based on the filename pattern, this appears to be related to fund correspondence from 2013.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Microsoft Office temporary lock file (~$ prefix). Content is entirely binary garbage (content_length=49, size=1950 bytes). Title '~$13-Letter-revised' confirms it is an auto-generated temp file that was never meant to be a real document.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2010-1outline" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2010-1outline" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">287 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/2010-1outline.html" target="_blank">2010-1outline</a></h3>
+  <p class="flag-summary">Brief outline genealogical reference for Glendinning/Glendenning family focusing on generations 1-3 (circa 1755-1812). Provides simplified tabular format showing John Glendinning (1755-1830) and descendants including John, Irvine, Nancy, William Park, Mary, and William. Minimal biographical content; primarily reference material for genealogical chart navigation. Similar in purpose to File 12.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Near-exact duplicate of '2010-1d-glendenning-outline-all'. Both have identical content_length (104903) and garbage_ratio (0.0044), sizes differ by only 142 bytes (293773 vs 293915), and the content_preview openings are character-for-character identical. The sibling file '2010-1d-glendenning-outline-all' has the more complete and descriptive title.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="glendenning-big-cove" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="glendenning-big-cove" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">9 KB</span>
+    <span class="flag-garbage">12.3% garbage</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/glendenning-big-cove.html" target="_blank">glendenning-big-cove</a></h3>
+  <p class="flag-summary">Genealogical family group sheet for Richard R. Glendenning (b. 1806, d. before 1891) and Mary Boyd (b. 1816, m. 1837, d. June 1891). Lists eight children including Isabella Brown, John Glendenning (m. Margaret Fletcher, 1872), James Boyd, George R. (1850-1918, m. Mary Pentland), Richard Richardson, Anne Harris, Margaret (m. Edwin L. Simonton, 1882), and Jane. Represents a collateral branch of the Glendenning family that Don researched, showing his documentation of extended family lines beyond his direct ancestors.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Garbage ratio 0.1234 substantially exceeds the 0.05 threshold, indicating significant corruption or binary encoding artifacts. The document is a family group sheet from correspondent Irma Downing with heavily corrupted text.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="notes2" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="notes2" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">4 KB</span>
+    <span class="flag-garbage">1.0% garbage</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/notes2.html" target="_blank">notes2</a></h3>
+  <p class="flag-summary">Don's genealogical research documenting postmasters of Little Branch Post Office (1871-1928), including his ancestors Elmer Glendenning (1914-1916) and Jubal Watling (1903-1910). Don notes that his parents Elmer and Jeannie likely ran the post office but had relocated to Tennessee (1911-1912) and then Connecticut before returning briefly to New Brunswick. Includes records of the separate Watling Post Office (1911-1928) with its postmasters.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Confirmed exact duplicate of 'mail'. Both have identical content_length (1664) and identical content_preview text (confirmed character-by-character). Both cover the same Little Branch Post Office postmaster records. 'mail' is the larger, more complete file (5182 vs 4464 bytes) and has a more descriptive title.</p>
+</div>
+<div class="flag-card flag-review" data-slug="15-life-at-little-branch" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="15-life-at-little-branch" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">46 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/15-life-at-little-branch.html" target="_blank">15-life-at-little-branch</a></h3>
+  <p class="flag-summary">Comprehensive account by Don of family's permanent settlement and farming operation at Little Branch (1919-1938). Details property acquisition (Jessie MacDonald property, $800, 1914), house renovation and barn expansion, acquisition of five properties for his sons, mixed farm operations (animals, crops, products), sheep shearing practices, Model T and Model A Ford automobiles, agricultural society involvement (Secretary-Treasurer 14 years), community roles (church trustee, hall construction, pulp business partnership with John W. MacNaughton). Includes his father's final illness (pernicious anemia/leukemia, diagnosed 1933) and death (1938). Rich detail of rural life, farm management, and family structure. Essential for understanding Don's formative years and his father's legacy.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected:    health information  </p>
+</div>
+<div class="flag-card flag-review" data-slug="16-jane-glendenning" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="16-jane-glendenning" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">17 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/16-jane-glendenning.html" target="_blank">16-jane-glendenning</a></h3>
+  <p class="flag-summary">Don's intimate portrait of his mother Jane Elizabeth (Jardine) Glendenning as widow (1938-1964), post-father's death. Describes wartime changes to Black River (Miramichi Rural High School, airbase, radar station), her church activism (Women's Missionary Society, Presbyterian League, Women's Institute), educational advocacy, knitting practices, bread-making, wool processing at Brown's Woolen Mills (Nelson), hospitality, oil lamp maintenance, food preservation/canning techniques, and community nursing. Recounts her announcement of war's end to Little Branch School (VE Day 1945), continued residence with son Norman and wife Jean, death from pancreatic cancer (March 24, 1964, Miramichi Hospital). Poetry and vignettes illuminate her character, values, and domestic expertise. Final portrait shows her impact on family and community.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected:    health information  </p>
+</div>
+<div class="flag-card flag-review" data-slug="2004-card" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2004-card" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">12 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/2004-card.html" target="_blank">2004-card</a></h3>
+  <p class="flag-summary">Christmas card featuring a New Brunswick winter scene photograph from 1934 showing Don's parents Walter and Venetia Glendenning in front of the Glendenning residence at Little Branch, N.B. Photo sourced from collection of Venetia (Glendenning) Russell. Card expresses traditional seasonal wishes: &quot;a joyful heart, a loving home, a peaceful world.&quot; Reflects Don's connection to family history and his childhood home in New Brunswick. Touching choice to feature his parents in yuletide greeting.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected:    health information  </p>
+</div>
+<div class="flag-card flag-review" data-slug="2009-notes-mum-and-dad" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2009-notes-mum-and-dad" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">24 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/2009-notes-mum-and-dad.html" target="_blank">2009-notes-mum-and-dad</a></h3>
+  <p class="flag-summary">Detailed biographical essay by Don about his father Elmer Alton Glendenning (1875-1938) and mother Jane Elizabeth Jardine Watling (1890-1964). Covers Elmer's early years in Canobie, family values regarding education, Portland cartage and lumber business, dam construction work across North America (Tennessee, Virginia, Connecticut, Texas, Alabama), return to Little Branch farming, pulp business, community involvement (church, Agricultural Society, Masonic Lodge), and final illness. Documents Jane's early life in Portland, her devotion to church and community, hospitality to visitors, food preservation, yarn trading, bread-making, and care of oil lamps. Captures wartime community changes and parents' influence on Don's life.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected:    health information  </p>
+</div>
+<div class="flag-card flag-review" data-slug="2009-plaque" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2009-plaque" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/2009-plaque.html" target="_blank">2009-plaque</a></h3>
+  <p class="flag-summary">Draft text for commemorative plaques funded by the Glendenning Family Fund, dated July 2009. Three plaque versions shown: &quot;A Gift From Glendenning Family Fund,&quot; &quot;Given by The Glendenning Family,&quot; and &quot;A Place to Pause and Reflect Made possible by The Glendenning Family Fund.&quot; Likely relates to cemetery bench or community space. Non-authored document (template/draft).</p>
+  <p class="flag-reason"><strong>Reason:</strong> Very minimal content (content_length=317, size=2734 bytes). The AI summary describes it as 'Non-authored document (template/draft)' — just three variants of draft commemorative plaque text with almost no original biographical or genealogical substance.</p>
+</div>
+<div class="flag-card flag-review" data-slug="2011-card-1" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2011-card-1" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">7 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/2011-card-1.html" target="_blank">2011-card-1</a></h3>
+  <p class="flag-summary">Christmas card template or draft showing &quot;Thinking of you at Christmas!&quot; greeting from Little Branch, N.B. (undated). Contains full text of 2011 Christmas letter message. Appears to be a card version with photo reference (Little Branch School with snowplow heading towards Escuminac taken from Glendenning front yard).</p>
+  <p class="flag-reason"><strong>Reason:</strong> The AI summary states the document 'contains full text of 2011 Christmas letter message' and characterizes it as a 'Christmas card template or draft.' The same content exists in '2011-letter'. Likely redundant.</p>
+</div>
+<div class="flag-card flag-review" data-slug="2011-message" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2011-message" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">7 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/2011-message.html" target="_blank">2011-message</a></h3>
+  <p class="flag-summary">Duplicate/alternative version of 2011 Christmas message with same content but slight variations in wording. References Christmas cruise, Carol's recovery, 34th consecutive Glendenning Family Reunion, New Mexico visit with Brian and Marie, Sonoma wine country visit. Includes reference to Little Branch School and Escuminac in New Brunswick. Contains identical family updates about Janet and Mike's marriage, Brian's astronomical work, Marie at NRAO computers, and Holland College Recollections.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The AI summary explicitly describes this as a 'Duplicate/alternative version of 2011 Christmas message with same content but slight variations' relative to '2011-letter'. Likely redundant given the existence of the 2011-letter document.</p>
+</div>
+<div class="flag-card flag-review" data-slug="2012-reunion-elmer-and-jane" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2012-reunion-elmer-and-jane" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">38 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/2012-reunion-elmer-and-jane.html" target="_blank">2012-reunion-elmer-and-jane</a></h3>
+  <p class="flag-summary">Extensive genealogical work by Don on his parents Elmer Alton and Jane Watling Glendenning, tracing their lives from 1875–1938 and 1890–1964. Covers family values around education, work in US lumber/construction, and community roles—foundational family history research.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Appears to be superseded by '2012-reunion-elmer-and-jane-minor-edit-2018', a revised 2018 edition of the same document covering the same biographical content about Elmer and Jane for the 2012 reunion. Sizes are very close (38748 vs 39216 bytes). The 2018 revision is likely the preferred, more complete version.</p>
+</div>
+<div class="flag-card flag-review" data-slug="2014-agreement-with-charlottetown" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2014-agreement-with-charlottetown" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">12 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/2014-agreement-with-charlottetown.html" target="_blank">2014-agreement-with-charlottetown</a></h3>
+  <p class="flag-summary">A template Community Foundation agreement document for establishing the Dr. Marlene Bryenton - Ghiz Park Fund. This is NOT Don's personal document but a reference template showing the standard format for endowment agreements. Contains boilerplate terms regarding endowment establishment, investment policies, granting procedures, and annual reporting. Likely saved for reference in managing the Glendenning Family Fund.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The AI summary explicitly states 'This is NOT Don's personal document but a reference template showing the standard format for endowment agreements.' It describes the agreement for Dr. Marlene Bryenton's fund, not the Glendenning Family Fund. Don appears to have retained this as a reference template rather than as his own authored work.</p>
+</div>
+<div class="flag-card flag-review" data-slug="2014-amended-2-agreement-2014-12-03t14-00-14" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2014-amended-2-agreement-2014-12-03t14-00-14" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">12 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/2014-amended-2-agreement-2014-12-03t14-00-14.html" target="_blank">2014-amended-2-agreement-2014-12-03t14-00-14</a></h3>
+  <p class="flag-summary">Amendment to the Glendenning Family Fund agreement establishing a permanent endowment for Black River Bridge, Northumberland County, New Brunswick. Documents the fund's origins in a 2000 family reunion discussion and honors Don's parents, Elmer and Jane (Watling) Glendenning, who purchased the Little Branch property in 1914. Establishes advisory committee with Lois Anne Gregan as chair and reflects Don's commitment to supporting his community of origin.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected: phone numbers     </p>
+</div>
+<div class="flag-card flag-review" data-slug="2014-letter" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2014-letter" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/2014-letter.html" target="_blank">2014-letter</a></h3>
+  <p class="flag-summary">2014 Christmas letter detailing year of health, mobility, and independence. Don describes annual foray into PEI wilds to cut spindly balsam fir Christmas tree. Notes Charlottetown received record 20-25 cm snow. Don and Carol grateful for good health, Carol with bridge and book club, Don with vegetable garden and letters to editor/coffee group meetings. Mentions they didn't leave PEI over winter (Carol had medicine change, insurance concerns). May trip to Pennsylvania. Cottage summer highlighted by family visits. Family photo from 2012 at cottage flagpole: Don, Carol, Brian, Mike, Janet (Marie photographer). Granddaughters Lisa/Kevin in Seattle, Laura in Columbia Maryland. Brian and Marie home August, Janet early September (first visit since seeing granddaughters). Home renovations: painted house, added room, stained cottage, replaced fridge, wall oven repair. Brian and Janet recently returned from 3-week India sojourn. Note: file shows text corruption with embedded formatting.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected:   insurance details health information  </p>
+</div>
+<div class="flag-card flag-review" data-slug="2015-christmas-letter-2015-12-08t18-23-18" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2015-christmas-letter-2015-12-08t18-23-18" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/2015-christmas-letter-2015-12-08t18-23-18.html" target="_blank">2015-christmas-letter-2015-12-08t18-23-18</a></h3>
+  <p class="flag-summary">A heartfelt Christmas letter from Don and Carol reflecting on their year at age 86, including travel to Cuba and Victoria BC, summer cottage life, family visits including grandchildren, and continued good health and community involvement. The letter reveals Don's appreciation for family, travel, gardening, and maintaining deep connections across a lifetime.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected:    health information  </p>
+</div>
+<div class="flag-card flag-review" data-slug="35" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="35" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">15 KB</span>
+    <span class="flag-garbage">2.2% garbage</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/35.html" target="_blank">35</a></h3>
+  <p class="flag-summary">Family Chronicle (No. 35, February 28, 2003) featuring reader follow-ups and nostalgic recollections. Confirms the family card game &quot;Flinch&quot; originated with his sister Grace. Clarifies &quot;Ken's Hill&quot; geography near Little Branch School—identifies Ken MacDonald property and Weldon MacDonald's bungalow. Includes an anecdote about classmate Ken's comment on &quot;slipgut&quot; porridge in health class, and stories about John's 1939-42 Ford truck service transporting community members to town, including a skunk strike and a recovered set of false teeth. Recounts Don's first dance (summer 1946) with Norma Williston at Black River Hall, followed by frequent dances 2-3 times weekly. Includes portrait of Jim Finno (a blind neighbor with prized transparent apples) and a failed theft attempt that resulted in Don's sprained ankle. Captures small-town social life and youthful adventures.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected:    health information  </p>
+</div>
+<div class="flag-card flag-review" data-slug="family-of-dr-hesta" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="family-of-dr-hesta" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/family-of-dr-hesta.html" target="_blank">family-of-dr-hesta</a></h3>
+  <p class="flag-summary">A template or reference document about the Hesta MacDonald Fund established with the Community Foundation of Prince Edward Island. The fund aimed to support school libraries with annual grants to Belfast Consolidated School and another unnamed school. This document is NOT personally authored by Don but serves as a reference model, likely for understanding how his family's charitable giving works.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The AI summary explicitly states 'This document is NOT personally authored by Don but serves as a reference model' — it is a template letter for the Hesta MacDonald Fund, not authored by Don. Retained as a reference template rather than representing Don's own work or family history.</p>
+</div>
+<div class="flag-card flag-review" data-slug="friends-addresses-don" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="friends-addresses-don" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">12 KB</span>
+    <span class="flag-garbage">4.3% garbage</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/friends-addresses-don.html" target="_blank">friends-addresses-don</a></h3>
+  <p class="flag-summary">Extensive address list compiled for Don's personal use, showing his network of lifelong friends and extended family connections across Canada, USA, UK, Australia, and New Zealand. Includes relatives in New Brunswick (Ada Glendenning in Englewood, FL; Eileen Glendenning in Black River Bridge, NB; Eric &amp; Jeanie Glendenning; Keith &amp; Ruth Glendenning). Lists close friends like Ray &amp; Lois Presley (Ottawa), Russ and Doreen Saunders (Ottawa), David &amp; Diane Campbell (Stratford, PE), and many others from university/professional circles. Includes Carol's Christmas list names (Carol Schlepp, Irma Comegys, Bill &amp; Laine, Fords, Janet, Brian). Also contains &quot;Electronic List&quot; and &quot;Directors&quot;/&quot;Past Directors&quot; entries suggesting professional/institutional affiliations. Valuable genealogical and social network record.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected:      living address</p>
+</div>
+<div class="flag-card flag-review" data-slug="glendenning-roots-complete-2015-10-10t16-59-01" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="glendenning-roots-complete-2015-10-10t16-59-01" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">39287 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/glendenning-roots-complete-2015-10-10t16-59-01.html" target="_blank">glendenning-roots-complete-2015-10-10t16-59-01</a></h3>
+  <p class="flag-summary">Genealogical documentation of the Glendenning family. File appears corrupted with encoding issues but likely contains family history and ancestral information.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Enormous file (40,229,774 bytes / 40 MB) with binary encoding garbage at the start of the content_preview. The AI summary notes 'File appears corrupted with encoding issues.' The archive contains smaller, readable versions of the Glendenning Roots genealogical material (e.g. glendenning-2007-body at 334 KB). This bloated file is likely a corrupt or redundant version.</p>
+</div>
+<div class="flag-card flag-review" data-slug="glendinning-front-pages" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="glendinning-front-pages" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">19 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/glendinning-front-pages.html" target="_blank">glendinning-front-pages</a></h3>
+  <p class="flag-summary">Front matter of major genealogical work titled &quot;Family Series - 2: Descendants of Jubal Watling&quot; authored by Donald E. M. Glendenning (2010). Includes extensive introduction by Don describing his 60+ years of family information collection, explaining his genealogical methodology (census records, newspapers, church documents, cemetery visits), and justifying his focus on Watling and Glendenning families. Dedication to Carol and children Brian, Marie, Lisa, Laura, and Janet. Acknowledges family contributors, historians, and provides contact information (62 Queen Elizabeth Drive, Charlottetown; don@glendenning.net; 902-892-5859). Traces author's lineage back to Jubal Watling (1790-1845) of Norfolk, England through to Don (b. 1929). Demonstrates Don's scholarly approach to family history and deep commitment to documenting heritage.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected: phone numbers     </p>
+</div>
+<div class="flag-card flag-review" data-slug="macnaughton-john-ward" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="macnaughton-john-ward" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/macnaughton-john-ward.html" target="_blank">macnaughton-john-ward</a></h3>
+  <p class="flag-summary">Community obituary of John W. MacNaughton, age 86, widely known farmer, lumberman, surveyor, and timber cruiser for A and R. Loggie Company Loggieville. Active Liberal, district party chairman, county council member representing Glenelg parish 37 years, county warden, Miramichi Hospital board member. Elder of St. Stephen's United Church since 1926, chair of 1907 building committee, cemetery improvement manager. Masonic, Orange Lodge, IOOF, Highland Society member. Wife Elspeth (daughter of Grace and Jubal Watling, Don's maternal grandparents) predeceased 1943. Eight daughters, three sons, 22 grandchildren, six great-grandchildren. Submitted by Dorothy Lind December 29, 2004. Community figure connected by marriage.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected:    health information  </p>
+</div>
+<div class="flag-card flag-review" data-slug="nancy-harter-2020" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="nancy-harter-2020" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/nancy-harter-2020.html" target="_blank">nancy-harter-2020</a></h3>
+  <p class="flag-summary">A warm family letter from Don to his niece Nancy Harter, recounting family news, Carol's recent health challenges (pneumonia), updates on their children and grandchildren, and reflecting on shared memories. The letter shows Don's family bonds and concern for younger generations, including his first great-grandchild Astrid.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected:    health information  </p>
+</div>
+<div class="flag-card flag-review" data-slug="neighbours-2023" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="neighbours-2023" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/neighbours-2023.html" target="_blank">neighbours-2023</a></h3>
+  <p class="flag-summary">A directory of 15 lots in the Glenway subdivision with owners' names and phone numbers. Don and Carol are listed as Lot 10 (147 Glenway Drive, 902-651-2186). Notable neighbours include Iain and Annette Galloway (Lot 9), Gordon and Elizabeth Lang (Lot 1), and Brenda and Brian Reid (Lot 14). Also notes Carol Glendenning as Lot 13 owner. Shows Don maintained detailed knowledge of his community at the cottage.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected: phone numbers     </p>
+</div>
+<div class="flag-card flag-review" data-slug="revised-friends-2" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="revised-friends-2" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/revised-friends-2.html" target="_blank">revised-friends-2</a></h3>
+  <p class="flag-summary">Updated version of Carol's friends contact list (19 entries), appears to be cleaned up and reorganized version of File 7. Includes Marjorie Ballem, Helen Bartlett, Maida Campbell, Jean Carr, Elva Costello, Susan Green, Margie Jardine, Arleon Kelley, Charlotte Lantz, Eve Leon, Ethel MacLeod, Charlotte MacLeod, Marion Morrison, Wayne &amp; Sandra Rhodenizer, Marg Romcke, Kay Smith, Alma Steeves, Wayne Storey. Represents Carol's close social circle.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected: phone numbers     </p>
+</div>
+<div class="flag-card flag-review" data-slug="roma-insert-2" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="roma-insert-2" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">16 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/roma-insert-2.html" target="_blank">roma-insert-2</a></h3>
+  <p class="flag-summary">Comprehensive promotional document for the First Annual Fundraising Dinner celebrating fifteen years of CFPEI service and over one million dollars in grants. Explains administrative costs shortfall necessitating fundraising dinner. Details $90 ticket price, reception with steamed mussels and period bread, multi-course dinner with wine inclusion, Singing Strings entertainment, and silent auction. Lists all 50+ funds under management including Glendenning Family Fund. Names board of directors and professional advisors.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected:     financial details </p>
+</div>
+<div class="flag-card flag-review" data-slug="roma-insert-8-x-11-master" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="roma-insert-8-x-11-master" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">16 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/roma-insert-8-x-11-master.html" target="_blank">roma-insert-8-x-11-master</a></h3>
+  <p class="flag-summary">Marketing insert for Roma event featuring CFPEI mission statement &quot;Connecting People Who Care with Causes That Matter.&quot; Shows board of directors including Don Glendenning, C.M. Lists 50+ funds under management including Glendenning Family Fund. Details August 20, 2008 dinner at $90/person with $50 tax receipt, featuring steamed mussels reception, choice of roast pork or salmon, and entertainment by Singing Strings.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected:     financial details </p>
+</div>
+<div class="flag-card flag-review" data-slug="sources-of-information" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="sources-of-information" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/sources-of-information.html" target="_blank">sources-of-information</a></h3>
+  <p class="flag-summary">A comprehensive bibliography and source list for &quot;Glendenning Family Memories,&quot; dated June 19, 2005, written by Don Glendenning. Lists books, maps, family documents, church records, archives, newspapers, and personal contacts used in researching the family history. Includes references to his own work on &quot;Presbyterians in Black River&quot; (2004). Provides contact information (62 Queen Elizabeth Drive, Charlottetown; 902-892-5859; dglende@attglobal.net). **NOT originally written by Don** — this is a reference/administrative document.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected: phone numbers     </p>
+</div>
+<div class="flag-card flag-review" data-slug="to-do-2" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="to-do-2" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">11 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/to-do-2.html" target="_blank">to-do-2</a></h3>
+  <p class="flag-summary">To-do list dated October 23, 2015, tracking Education 20/20 priorities including newsletter production, genealogy research (with Alton), learning framework development, film screening (&quot;Most Likely to Succeed&quot;), and fundraising. References key figures like Wayne Thibodeau (Guardian contact), Fred Osborn, MLA Jordan Brown, and UPEI's Michelle Moffat. Personal notes mention iPad and wireless setup challenges.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Low archival value: routine administrative content without historical or research significance</p>
+</div>
+<div class="flag-card flag-review" data-slug="together-in-usa" data-theme="03-family-genealogy">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="together-in-usa" data-theme="03-family-genealogy"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">76 KB</span>
+  </div>
+  <h3><a href="../03-family-genealogy/read/together-in-usa.html" target="_blank">together-in-usa</a></h3>
+  <p class="flag-summary">Comprehensive historical narrative of Glendenning and Watling families' migration to USA and establishment in Tennessee during 1910-1913. Opens with post-WW2 context of Maritimer emigration patterns (woods work in Maine/New Hampshire initially, then year-round settlement). Describes Portland's historical significance as Atlantic &amp; St. Lawrence Railroad terminus (&quot;Canada's winter port&quot;), industrial development (locomotives, docks, construction jobs), 1866 fire (1500 buildings destroyed, 12,000 homeless), Promenade grand homes. Chronicles Glendenning family's Portland settlement with siblings' roles and occupations. Extensively documents Elmer and Frank's cartage business (Glendenning Bros. &amp; Co., 24 Hammond Street, ice delivery, general team work). Details Elmer's work progression in woods (Maine/New Hampshire near Skowhegan, Millinocket, Berlin; lumbering with horses; record lumber cut). Parallels with Jane Watling's Portland arrival (January 24, 1908, City Hall fire day), employment as nanny/housekeeper with Jennison family. Covers marriage ceremony (October 18, 1910 at Little Branch home of parents by Rev. George Grant), honeymoon in Montreal, residence in Bonny Eagle, Maine. Describes Jane's household journal/purchase record (January 1911 entries documenting domestic economy). Extensive section on Parksville, Tennessee: geographic/historic context (Polk County, Ocoee River, southeast of Chattanooga); technical details on dam construction (Ocoee No. 1 and No. 2 developments, Tennessee Power Authority documents); construction timeline (August 1910 commencement, February 1911 concrete placement, January 27, 1912 plant start); employment scale (1500+ workers); infrastructure (constructed town with waterworks, stores, hospital, police); concrete placement rates (12-15 hundred cubic yards daily). Details relocation from Ocoee No. 1 to Ocoee No. 2 (Caney Creek, May-October 1912). Contains repeated sections (FILE 8 duplicates FILE 5 and FILE 6 content). TRUNCATED in extraction (original ~6345 words).</p>
+  <p class="flag-reason"><strong>Reason:</strong> Potential private/sensitive information detected:    health information  </p>
+</div>
+</main>
+<footer class="site-footer">
+  <a href="../index.html">Archive Home</a>
+</footer>
+
+<script>
+(function() {
+  const STORAGE_KEY = 'archiveReviewSelections';
+
+  function loadState() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    } catch(e) { return {}; }
+  }
+
+  function saveState(state) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function updateCounts() {
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+    const checked = document.querySelectorAll('.flag-card input[type="checkbox"]:checked');
+    const countEl = document.querySelector('.toolbar-count');
+    if (countEl) {
+      countEl.innerHTML = '<span class="num">' + checked.length + '</span> of ' + boxes.length + ' selected for exclusion';
+    }
+  }
+
+  function applyDimming() {
+    document.querySelectorAll('.flag-card').forEach(function(card) {
+      const cb = card.querySelector('input[type="checkbox"]');
+      if (cb) card.classList.toggle('dimmed', !cb.checked);
+    });
+  }
+
+  function init() {
+    const state = loadState();
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+
+    // Restore saved state (overrides default checked/unchecked)
+    boxes.forEach(function(cb) {
+      const key = cb.dataset.theme + '/' + cb.dataset.slug;
+      if (key in state) cb.checked = state[key];
+    });
+
+    // Listen for changes
+    boxes.forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var st = loadState();
+        st[cb.dataset.theme + '/' + cb.dataset.slug] = cb.checked;
+        saveState(st);
+        updateCounts();
+        applyDimming();
+      });
+    });
+
+    applyDimming();
+    updateCounts();
+
+    // Select all / deselect all
+    var selAll = document.getElementById('select-all');
+    if (selAll) selAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = true; st[cb.dataset.theme + '/' + cb.dataset.slug] = true; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    var deselAll = document.getElementById('deselect-all');
+    if (deselAll) deselAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = false; st[cb.dataset.theme + '/' + cb.dataset.slug] = false; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    // Download exclusion list
+    var dlBtn = document.getElementById('download-exclusions');
+    if (dlBtn) dlBtn.addEventListener('click', function() {
+      var exclusions = [];
+      document.querySelectorAll('.flag-card input[type="checkbox"]:checked').forEach(function(cb) {
+        exclusions.push({ slug: cb.dataset.slug, theme: cb.dataset.theme });
+      });
+      var blob = new Blob([JSON.stringify(exclusions, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'exclusions.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

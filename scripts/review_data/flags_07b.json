@@ -1,0 +1,149 @@
+[
+  {
+    "slug": "speaking-notes-2016",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "This is a Word temporary file (tilde-prefixed filename) containing only 49 characters of binary/corrupted content: 'DonDon\u00d4(\u00c6\u00d4?5\u00e0P\u2020\u00bb3j&\u00af\u00e0{?6\u00e0MingLiU...' \u2014 no recoverable content exists.",
+    "criterion": 1
+  },
+  {
+    "slug": "norton-antivirus-2006-key",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Software product key file for Norton AntiVirus 2006 on Carol Glendenning's PC \u2014 a saved license key text file with no biographical, professional, or personal significance to Don's work.",
+    "criterion": 6
+  },
+  {
+    "slug": "ratng-scl",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of rating-sc: both contain the identical definition and characteristics of a rating scale with identical content_length (293 vs 296) and identical wording; the AI summary itself identifies this as a duplicate.",
+    "criterion": 4
+  },
+  {
+    "slug": "invoice-25-may-26-2016-external-criteria",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of invoice-25-dg-may-26-2016-external-criteria: same invoice #25, same date (5/26/2016), same word count (3028), same translator, same content \u2014 AI summary explicitly identifies it as a duplicate.",
+    "criterion": 4
+  },
+  {
+    "slug": "zdacum-hc-chronology",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of dacum-hc-chronology: identical content_length (1227) and identical content preview text about the DACUM chronology at Holland College from 1970\u20131976; slug prefix 'z' appears to be an organizational prefix only.",
+    "criterion": 4
+  },
+  {
+    "slug": "points-of-view-2015-02-03t16-44-10",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Duplicate of points-of-view: identical content_length (4469) and identical content preview; the timestamp in the filename indicates this is an auto-saved version of the same document.",
+    "criterion": 4
+  },
+  {
+    "slug": "webinar-notes-1",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Duplicate of notes-about-webinar and webinar-notes: identical content_length (1502) and identical content preview; AI summary identifies it as a 'Duplicate of File 8/13.'",
+    "criterion": 4
+  },
+  {
+    "slug": "d-8-3-qualification-authority-v2",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Duplicate of d-8-2-qualification-authority-v2: identical content_length (8410) and identical content preview \u2014 same Occasional Paper D-8 on qualification frameworks dated June 28, 2015; AI summary explicitly identifies it as a 'Duplicate/revision' with same content.",
+    "criterion": 4
+  },
+  {
+    "slug": "de-organisation-chart-november-2022-accessible-word-version",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Australian Department of Education organizational chart from November 2022 \u2014 a third-party government accessibility document with no connection to Don's work, apparently downloaded for reference; AI summary confirms it is a 'third-party government document.'",
+    "criterion": 5
+  },
+  {
+    "slug": "governance-eric-digest-141",
+    "theme": "07-professional-career",
+    "recommendation": "REVIEW",
+    "reason": "Full-text ERIC Digest article by Ron Renchler (October 2000) on new patterns of school governance \u2014 clearly third-party content not authored by Don, though saved as reference material related to his governance work.",
+    "criterion": 5
+  },
+  {
+    "slug": "governance-he-role-of-board-chairperson-in-a-nonprofit-organisation",
+    "theme": "07-professional-career",
+    "recommendation": "REVIEW",
+    "reason": "Comprehensive third-party guide by Jean Roberts (2007) on nonprofit board chairperson responsibilities \u2014 not authored by Don, with no clear annotation or connection to his specific work beyond general governance interest.",
+    "criterion": 5
+  },
+  {
+    "slug": "post-sec-csm-how-higher-education-is-leading-us-astray",
+    "theme": "07-professional-career",
+    "recommendation": "REVIEW",
+    "reason": "Guest column by Bill Bonner critiquing higher education \u2014 entirely third-party content with no Don authorship or annotation visible in the content preview; saved as reference material only.",
+    "criterion": 5
+  },
+  {
+    "slug": "oecd-autonomy",
+    "theme": "07-professional-career",
+    "recommendation": "REVIEW",
+    "reason": "OECD PISA research document (2011) on school autonomy and accountability \u2014 third-party institutional publication with no Don authorship or annotation; saved purely as reference material.",
+    "criterion": 5
+  },
+  {
+    "slug": "op-man-amalgamating-school-boards-not-answer",
+    "theme": "07-professional-career",
+    "recommendation": "REVIEW",
+    "reason": "Manitoba policy brief (March 2003) on school division amalgamation efficiency \u2014 entirely third-party content with no Don authorship, annotation, or PEI connection visible in content preview.",
+    "criterion": 5
+  },
+  {
+    "slug": "grade-levels-profession-takes-lead-on-assessment-after-the-end-of-levels",
+    "theme": "07-professional-career",
+    "recommendation": "REVIEW",
+    "reason": "NAHT (UK school leaders union) press release/article on assessment reform \u2014 entirely third-party content from a UK organization with no Don authorship or visible annotation.",
+    "criterion": 5
+  },
+  {
+    "slug": "gallup-student-poll-measures-and-sample-questions",
+    "theme": "07-professional-career",
+    "recommendation": "REVIEW",
+    "reason": "Newspaper article by Lynh Bui describing the Gallup Student Poll \u2014 entirely third-party content with byline 'By Lynh Bui, Published: July 17' and no Don authorship or annotation visible.",
+    "criterion": 5
+  },
+  {
+    "slug": "speed-of-change",
+    "theme": "07-professional-career",
+    "recommendation": "REVIEW",
+    "reason": "Email forward attributed to Udo Gollub on technological disruption \u2014 appears to be a forwarded chain email with no Don authorship; content is entirely third-party and unrelated to his professional education work.",
+    "criterion": 5
+  },
+  {
+    "slug": "maxims-f0r-teachers",
+    "theme": "07-professional-career",
+    "recommendation": "REVIEW",
+    "reason": "58 instructional maxims written by Bronson Alcott in 1826\u20131827 \u2014 entirely third-party historical content with no Don authorship or annotation; saved as reference material only.",
+    "criterion": 5
+  },
+  {
+    "slug": "island-wide-april-28",
+    "theme": "07-professional-career",
+    "recommendation": "REVIEW",
+    "reason": "Event agenda for an agricultural heritage meeting at the Dutch Inn with a garbage_ratio of 0.1241 (highest in the batch) \u2014 content is recoverable but the high corruption ratio and specialized event agenda make this a borderline case for the professional career theme.",
+    "criterion": 1
+  },
+  {
+    "slug": "math-tabulation-1",
+    "theme": "07-professional-career",
+    "recommendation": "REVIEW",
+    "reason": "At 533KB this is primarily a blank tabulation template with spreadsheet-style rows and columns for 127 mathematical competencies and demographic categories \u2014 61,739 characters of content length but mostly empty table structure with minimal narrative.",
+    "criterion": 3
+  },
+  {
+    "slug": "names-march-2007",
+    "theme": "07-professional-career",
+    "recommendation": "REVIEW",
+    "reason": "Raw contact database export for the Agricultural Heritage Project \u2014 tabular data (FirstLastCompanyPEIAddr1PEICityPEIProvPEIPostalCode...) with no narrative, formatted as a machine-generated spreadsheet dump.",
+    "criterion": 3
+  }
+]

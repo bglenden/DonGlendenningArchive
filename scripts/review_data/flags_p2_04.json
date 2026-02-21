@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "macdonald-brothers-notes",
+    "theme": "04-holland-college",
+    "recommendation": "REVIEW",
+    "reason": "Contains address, postal code, phone number, and personal location details of private individuals (the MacDonald brothers)",
+    "criterion": 7
+  },
+  {
+    "slug": "mailing-list-nov-2017",
+    "theme": "04-holland-college",
+    "recommendation": "REVIEW",
+    "reason": "Contains personal email addresses and full names of living individuals in professional network",
+    "criterion": 7
+  }
+]

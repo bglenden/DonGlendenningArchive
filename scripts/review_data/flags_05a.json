@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "00-about-educ-masthead-2014-09-05t09-43-25",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains only a title page header: 'About Education / Preparedness / Occasional paper No. 1 / April 27, 2014' with no substantive content. The actual occasional paper is archived separately.",
+    "criterion": 2
+  },
+  {
+    "slug": "00-masthead-2015-03-29t14-55-01",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains only a publication masthead footer with disclaimer text and Education 20/20 contact information; no substantive written content beyond boilerplate.",
+    "criterion": 2
+  },
+  {
+    "slug": "00-newsletter-masthead",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains only a newsletter masthead header (Open Education issue 01) with a Plutarch quote and organization contact details; no substantive content.",
+    "criterion": 2
+  },
+  {
+    "slug": "1-expense-claim-form",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "An unfilled blank expense reimbursement form template with Don's name and address pre-printed but no actual data entered; a bureaucratic form with no substantive content.",
+    "criterion": 2
+  },
+  {
+    "slug": "1997-11-26",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Near-exact duplicate of slug '1997-1-challenge' (same November 1997 Journal Pioneer letter on challenge for credit), but with OCR artifacts including a garbled prefix '-fa!:r|3G - oZK?' at the start. The clean version is preserved in '1997-1-challenge'.",
+    "criterion": 4
+  },
+  {
+    "slug": "2-2-qualification-navigator-2015-06-26t02-30-52",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of slug '00-qualification-navigator' (same May 31, 2012 Qualification Navigator proposal), differing only by an internal reference code prefix '2-2-2-7 quali' prepended to the content.",
+    "criterion": 4
+  },
+  {
+    "slug": "2-2-qualifications-1-pager",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Near-exact duplicate of slug '2-2-1-4-qualifications-1-pager' (Qualification Framework one-pager), differing only by a file reference code prefix; identical body content on tasks and benefits of an independent qualification authority.",
+    "criterion": 4
+  },
+  {
+    "slug": "2014-a-board-list-a",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains only a bare list of eight Education 20/20 Inc. board members with their titles and no narrative, description, or substantive content beyond this directory listing.",
+    "criterion": 2
+  },
+  {
+    "slug": "2-employability-skills-2000",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "The full text reproduces the Conference Board of Canada's 'Employability Skills 2000+' framework verbatim, which is not Don's writing. While Don clearly used this framework in his Education 20/20 work, the document itself is external reference material rather than Don's personal writing.",
+    "criterion": 5
+  }
+]

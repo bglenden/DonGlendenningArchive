@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "78-teaching",
+    "theme": "04-holland-college",
+    "recommendation": "EXCLUDE",
+    "reason": "Near-duplicate of '78-a-misnomer-autorecovered'; both are Newsletter No. 78 dated July 20, 2019 covering the same content about teaching versus instruction. The autorecovered version should be preferred as the base copy.",
+    "criterion": 4
+  },
+  {
+    "slug": "2014-employers-have-choices",
+    "theme": "04-holland-college",
+    "recommendation": "EXCLUDE",
+    "reason": "Duplicate of '10-2014-employers-have-choices'; both are the same November 24, 2014 letter to The Guardian editor about employer-led assessment and the Challenge for Credit campaign.",
+    "criterion": 4
+  },
+  {
+    "slug": "2018-2-history-first-in-its-class",
+    "theme": "04-holland-college",
+    "recommendation": "EXCLUDE",
+    "reason": "Near-duplicate of '2018-1-history-first-in-its-class' and '2018-3-history-first-in-its-class'; all three are versions of the same MRHS (Mount Royal High School) history document. The third version ('2018-3') appears to be the most complete draft and should be retained.",
+    "criterion": 4
+  },
+  {
+    "slug": "2018-3-history-first-in-its-class",
+    "theme": "04-holland-college",
+    "recommendation": "REVIEW",
+    "reason": "One of three near-duplicate versions of the same MRHS history document ('2018-1', '2018-2', '2018-3'). If '2018-1' is confirmed to be the most complete or final version, this should be excluded. Flagging for human review to determine which version to retain.",
+    "criterion": 4
+  },
+  {
+    "slug": "teacher-role-r",
+    "theme": "04-holland-college",
+    "recommendation": "EXCLUDE",
+    "reason": "Near-duplicate of 'rreading-shrt-r'; both are short letters to the editor on teacher roles ('Sage on the Stage', 'Guide on the Side', 'Meddler-in-the-Middle'). The summary of this entry explicitly notes it is 'nearly identical to File 5' (rreading-shrt-r) with only slight rewording.",
+    "criterion": 4
+  },
+  {
+    "slug": "x-d-2012-06-education-and-development",
+    "theme": "04-holland-college",
+    "recommendation": "EXCLUDE",
+    "reason": "The document's own AI-generated summary explicitly labels it '[Duplicate of File 2]'. Both documents are the same May 29, 2012 letter to The Guardian editor about education and community development.",
+    "criterion": 4
+  },
+  {
+    "slug": "meeting-1-notes-2015-11-03t13-23-28",
+    "theme": "04-holland-college",
+    "recommendation": "EXCLUDE",
+    "reason": "Near-duplicate of 'meeting-1-c-notes'; both are meeting notes/agendas for the same November 2015 Education 20/20 meeting with substantially overlapping content. The 'meeting-1-c-notes' version appears more complete.",
+    "criterion": 4
+  },
+  {
+    "slug": "7-glossary-2",
+    "theme": "04-holland-college",
+    "recommendation": "EXCLUDE",
+    "reason": "Near-duplicate of '200-glossary-2'; both are glossaries of education terms covering the same definitions. The '200-glossary-2' entry is dated January 2016 and appears to be the later, more refined version.",
+    "criterion": 4
+  },
+  {
+    "slug": "d-34-challenge-for-credit-campaign",
+    "theme": "04-holland-college",
+    "recommendation": "EXCLUDE",
+    "reason": "Only 178 characters of content — essentially a title and a single sentence concept statement ('A campaign to promote the principle of Challenge for Credit'). No substantive content to preserve.",
+    "criterion": 2
+  },
+  {
+    "slug": "contnts-math-3-2015-11-24t14-36-49",
+    "theme": "04-holland-college",
+    "recommendation": "EXCLUDE",
+    "reason": "Only 352 characters of content consisting of a sparse table of contents with stray keyboard characters ('Sdfghjkl;', '/.,mnbhgvfds') appended, indicating a corrupt or unfinished document. No meaningful content to preserve.",
+    "criterion": 2
+  },
+  {
+    "slug": "zguide-1a",
+    "theme": "04-holland-college",
+    "recommendation": "EXCLUDE",
+    "reason": "Only 247 characters of content — an essentially empty draft template with field/competency/code label headers but no actual content filled in. The document is a blank shell with one example entry.",
+    "criterion": 2
+  },
+  {
+    "slug": "extending-school-far-beyond-the-classroom-walls",
+    "theme": "04-holland-college",
+    "recommendation": "EXCLUDE",
+    "reason": "Article written by Tara Garcia Mathewson (December 7, 2017), a third-party journalist. Don does not appear as author, subject, or cited source in the content preview. This is external reference material saved by Don, not his own writing.",
+    "criterion": 5
+  }
+]

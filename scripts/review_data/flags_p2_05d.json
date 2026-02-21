@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "directors-2013-add-dob-b",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Administrative roster containing personal information (addresses, phone numbers, dates of birth): Directors- 2013 Add & DOB B",
+    "criterion": 7
+  },
+  {
+    "slug": "directors-add-ph-email-2017",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Administrative roster containing personal information (addresses, phone numbers, dates of birth): Directors  Add-Ph-Email 2017",
+    "criterion": 7
+  },
+  {
+    "slug": "directors-and-offices",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Administrative roster containing personal information (addresses, phone numbers, dates of birth): Directors and offices",
+    "criterion": 7
+  },
+  {
+    "slug": "directors-register-2015-06-07t20-05-34",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Administrative roster containing personal information (addresses, phone numbers, dates of birth): Directors' Register @2015-06-07T20;05;34",
+    "criterion": 7
+  }
+]

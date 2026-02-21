@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "11-dacum-template-blank",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Content is only the text \"DACUM Template\" -- 14 characters with no substantive material. This is a blank template file with no content beyond its label.",
+    "criterion": 2
+  },
+  {
+    "slug": "2015-2-dacum-2015-02-05t19-53-14",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of slug \"2015-2-dacum\": identical content_preview and content_length (1,227 chars). The timestamp in the filename indicates this is an auto-saved backup of the same file.",
+    "criterion": 4
+  },
+  {
+    "slug": "aumids",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Windows system configuration file containing Acer Quick Access application IDs -- two lines of technical application identifiers with no personal or professional significance to Don Glendenning.",
+    "criterion": 6
+  },
+  {
+    "slug": "bibliography-2016-04-09t22-42-19",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains only one real reference URL followed by three nonsense placeholder entries (\"Yui\", \"Dfgh\", \"poi\") -- this is an incomplete stub with no substantive bibliographic content.",
+    "criterion": 2
+  },
+  {
+    "slug": "citizenship-education-in-the-context-of-school-mathematics",
+    "theme": "07-professional-career",
+    "recommendation": "REVIEW",
+    "reason": "Full academic paper by Elaine Simmt of the University of Alberta with no connection to Don Glendenning -- not his writing, not addressed to him, and not about him. Appears to be a research reference Don saved.",
+    "criterion": 5
+  }
+]

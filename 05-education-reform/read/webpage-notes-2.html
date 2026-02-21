@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>webpage-notes-2 – Don Glendenning Archive</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>
+.reader-content {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 2rem 2.5rem;
+    margin: 1.5rem 0;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+.reader-content p { margin: 0.8em 0; }
+.reader-content pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+.reader-summary {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--card-border);
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>webpage-notes-2</h1>
+  <div class="subtitle">Education Philosophy &amp; Reform</div>
+</header>
+
+<div class="container">
+
+<div class="breadcrumb">
+  <a href="../../index.html">Home</a> <span class="sep">›</span>
+  <a href="../index.html">Education Philosophy &amp; Reform</a> <span class="sep">›</span>
+  webpage-notes-2
+</div>
+
+<div class="reader-summary">Detailed website specification for Education 20/20 articulating mission to improve Canadian education quality through information and engagement. Outlines target audiences (learners, parents, employers, teachers, donors, media) and technical requirements for secure, PHP-MySQL platform.</div>
+
+<div class="reader-content">
+<p>		<b>Education 20/20 Inc.</b></p>
+<p>Web site -2</p>
+<p><b>Organization: Education 20/20 Inc.</b></p>
+<p><b>Domain name:<span class="Apple-converted-space">  </span>caneducation2020.com</b></p>
+<p><b></b><br></p>
+<p><b>Requirement</b><b><i>:</i></b><i> <span class="Apple-converted-space">  </span>We want our site to become a “go to” site when searching for information about learner centered education.</i></p>
+<p><i></i><br></p>
+<p><b>Education 20/20</b></p>
+<p>The mission of Education 20/20 Inc. is to improve the quality of education for every Canadian; central to accomplishing its mission are the twin pillars of information and engagement; information being the fuel and engagement the cauldron of change. The nature and range of information about education available to the public does not reflect the significance of the subject; we propose to initiate some changes. <span class="Apple-converted-space"> </span></p>
+<p><br></p>
+<p><b>Objecitve:</b></p>
+<p>Use the website as the hub of our information activities.</p>
+<p><br></p>
+<p><span><b>Target<span class="Apple-converted-space">  </span>Audiences:</b></span></p>
+<ul class="ul1">
+  <li class="li3">Learners</li>
+  <li class="li3">Parents</li>
+  <li class="li3">Employers</li>
+  <li class="li3">Teachers</li>
+  <li class="li3">Donors</li>
+  <li class="li3">Media</li>
+</ul>
+<p><br></p>
+<p>Priority for each?</p>
+<p>What are we trying to persuade viewers to do? </p>
+<p>What should each audience e able to do?</p>
+<p><br></p>
+<p><b>Terminology</b></p>
+<p><span>• </span>Session: A continuous period of time during which a user's browser is viewing</p>
+<p>Web pages or a Web application within the same server or domain.</p>
+<p><br></p>
+<p><b>Main Features</b></p>
+<p><span>• </span>Browse product categories</p>
+<p><span>• </span>Browse products</p>
+<p><span>• </span>Search products</p>
+<p><span>• </span>View a products details (with up to one image and one thumbnail)</p>
+<p><span>• </span>Have one featured product</p>
+<p><br></p>
+<p><b>Administrative functions include:</b></p>
+<ul class="ul1">
+  <li class="li10">Add / edit / delete categories</li>
+  <li class="li10">Add / edit / delete products</li>
+  <li class="li10">View historical transactions</li>
+</ul>
+<p><br></p>
+<p><b>Technical Considerations</b></p>
+<ul class="ul1">
+  <li class="li10">“For security reasons, preference is given to PHP and MySQL on a *NIX server with</li>
+</ul>
+<p>Apache as the web server.”</p>
+<ul class="ul1">
+  <li class="li10">Furthermore, the hosting environment is to be secured tocurrently accepted security standards for public production websites.</li>
+  <li class="li10">All code and interfaces are to follow current web development best practices.<span class="Apple-converted-space">  </span>Pages accepting credit card details are to be secured with SSL, and any posting to the merchant gateway is to be done securely via cURL. No credit card details are to be stored in the database locally.</li>
+  <li class="li10">Prerequisites In order to accept online credit card payments, the client will require a merchant account.<span class="Apple-converted-space">  </span>For the sake of this specification, we will assume a merchant account with a standard</li>
+</ul>
+<p>SOAP server and a delivered SOAP client in PHP to communicate with the SOAP server</p>
+<p>securely.” – Globi web Solutions</p>
+<p><br></p>
+<p><b>Main Navigation</b>: (consisting primarily of content-rich sections, vertical on the left)</p>
+<p><span>• </span>Home</p>
+<p><span>• </span>About Us</p>
+<p><span>• </span>Products (Catalogue)</p>
+<p>o Categories (when in product sections)</p>
+<p><span>• </span>Shopping Cart</p>
+<p><span>• </span>Contact Us</p>
+<p><span>• </span>Search (not a regular menu item but common design element)</p>
+<p><br></p>
+<p><b>Sub-Navigation:</b></p>
+<p><b><span class="Apple-converted-space">  </span>Sub-</b></p>
+<p>Some Main sections will have sectional sub-navigation. The sub-navigation menus may</p>
+<p>appear on the right column. This section is identified as sub links within the Main</p>
+<p>navigation.</p>
+<p>Support Navigation: (along the bottom of every page)</p>
+<p><span>• </span>Top</p>
+<p><span>• </span>Privacy</p>
+<p><span>• </span>Site Map</p>
+<p><span>• </span>Contact Us</p>
+<p><span class="Apple-converted-space">   </span><b>Administrative Navigation</b>:</p>
+<p><span>• </span>Home</p>
+<p><span>• </span>Products</p>
+<p><span>• </span>Transactions</p>
+<p><span>• </span>Logout</p>
+<p><span class="Apple-converted-space"> </span><b>High-level Flow</b></p>
+<p>Many of the pages of the site will be static and therefore require no further explanation.</p>
+<p>The administrative area of the site will follow standard editing interfaces.</p>
+<p>The remaining complicated areas that require further defining are the functions in the</p>
+<p>product catalogue and shopping cart</p>
+<p><br></p>
+<p><b>Examples</b></p>
+<ul class="ul1">
+  <li class="li1">CFPEI,<span class="Apple-converted-space"> </span></li>
+  <li class="li1">People for Education</li>
+  <li class="li1">AIMS</li>
+</ul>
+<ul class="ul1">
+  <li class="li1">Mad in America</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<p><b>Services:</b></p>
+<ul class="ul1">
+  <li class="li1"> Surveys</li>
+  <li class="li1">Newsletter</li>
+  <li class="li1">Research</li>
+  <li class="li1">Newsletters,<span class="Apple-converted-space"> </span></li>
+  <li class="li1">Reports,<span class="Apple-converted-space"> </span></li>
+  <li class="li1">In the news,<span class="Apple-converted-space"> </span></li>
+  <li class="li1">Web watch,<span class="Apple-converted-space"> </span></li>
+  <li class="li1">Events,<span class="Apple-converted-space"> </span></li>
+  <li class="li1">Photos, Interactive<span class="Apple-converted-space">  </span>complete surveys, hits?</li>
+  <li class="li1">Canada helps</li>
+</ul>
+<p><br></p>
+<p><b>Issues:</b></p>
+<ul class="ul1">
+  <li class="li1">French language</li>
+  <li class="li1">Interactive<span class="Apple-converted-space">  </span>complete surveys</li>
+  <li class="li1">Hits</li>
+  <li class="li1">Need privacy policy</li>
+  <li class="li1">The site style should incorporate our corporate colours and logo.</li>
+  <li class="li1">Valid Code All code on the site should validate to W3C (World Wide Web Consortium) specifications.</li>
+  <li class="li14">The website should be accessible to search engine spiders and be coded with good on-page search engine optimisation.</li>
+</ul>
+<p>There is a common saying in software development delivery: <i>Fast, good, cheap. Choose any two. </i></p>
+<p><i></i><br></p>
+<p><span><b>Suggested Structure</b></span></p>
+<ul class="ul1">
+  <li class="li3">What are the business drivers for the change?</li>
+  <li class="li3">A suggested site structure, but accept that this may change during the design phase in order to make it as easy as possible for each audience to achieve what they need to.</li>
+  <li class="li3">What is the functional specification? What should each audience be able to do?</li>
+  <li class="li3">Technical specifications, if you have any. For example, the CMS or web framework that should be used, what payment gateways do you want to use, whether the website should integrate with any other systems.</li>
+  <li class="li3">What are the non-functional requirements? These are requirements related to usability, security, loading times. Are there compliance requirements?</li>
+  <li class="li3">Who are you competitors?</li>
+  <li class="li3">What is your budget?</li>
+  <li class="li3">Is there a deadline for completing the website?</li>
+  <li class="li3">Who will be the point of contact for the project.</li>
+</ul>
+<p><br></p>
+<p><b>Other:</b></p>
+<ul class="ul1">
+  <li class="li1">The designer should propose separately a budget for link building required to make the site reasonably competitive in the target market</li>
+  <li class="li1">Accessibility - This site must comply with the standards of accessibility contained in W3C WAI (World Wide Web Consortium Web Accessibility Initiative) level A Guidelines.<span class="Apple-converted-space"> </span></li>
+</ul>
+<p>Navigation - A common navigation bar should be included on all pages. The navigation bar will <span class="Apple-converted-space">  </span>include links to the home page, products list, about us, and contact details.<span class="Apple-converted-space"> </span></p>
+<p><span>• </span>SSL: Secure Sockets Layer: cryptographic protocols which provide secure</p>
+<p>communications on the Internet</p>
+<ul class="ul1">
+  <li class="li10"></li>
+</ul>
+<p><br></p>
+<p><b>List of pages</b></p>
+<ul class="ul1">
+  <li class="li5"><b>Home – to </b>give visitors an overview of our services.</li>
+  <li class="li18">Products List – to<span class="Apple-converted-space">  </span>give an overview of each of our products</li>
+  <li class="li18">Products Detail Pages - For each product there will be two pages. The first will provide a detailed summary of the product including prices and photographs. The second will contain a detailed specification.</li>
+  <li class="li18">About Us - Details about our company and personnel.</li>
+  <li class="li18">Contact<span class="Apple-converted-space">  </span>- Full contact details including a map.</li>
+  <li class="li18">Site Map - A site map should be provided showing the structure of the site and linking to every page on the site.</li>
+</ul>
+<p><br></p>
+<p><b>Sites:</b></p>
+<ul class="ul1">
+  <li class="li1">Vord Website Design,<span class="Apple-converted-space"> </span></li>
+  <li class="li20"><span>Globi Web Solutions, Calgary </span>908 17th Ave SW, Suite 309, Calgary, Alberta T2T 0A3, Phone: (403) 775-0580, www.globi.ca</li>
+  <li class="li1">WeMakeWebsites; London, England</li>
+</ul>
+<p><br></p>
+</div>
+
+<a class="file-link-btn" href="../files/webpage-notes-2.docx">Download Original</a>
+
+</div>
+
+<footer class="site-footer">
+  <a href="../index.html">&larr; Back to Education Philosophy &amp; Reform</a> &middot;
+  <a href="../../index.html">Archive Home</a>
+</footer>
+
+</body>
+</html>

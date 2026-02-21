@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "critical-issues",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "The content is a WordPerfect binary file that is essentially unreadable — the preview is dominated by binary encoding artifacts, non-ASCII escape sequences, and repeated binary control characters. The AI-generated summary is inferred from partial decoding, but the actual document text cannot be read.",
+    "criterion": 1
+  },
+  {
+    "slug": "500-charter-schools",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "Garbage ratio of 0.281 exceeds the 0.05 threshold, likely due to embedded formatting data in the source file. However, the content preview shows fully intelligible, substantive research on charter schools compiled by Don for Education 20/20. A human reviewer should confirm whether the non-preview portions are also readable.",
+    "criterion": 1
+  },
+  {
+    "slug": "annual-agenda-2015-04-06t23-08-33",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of 'annual-agenda' — both documents have identical content (Education 20/20 Inc. annual meeting agenda for June 2, 2014). The timestamp in the filename indicates this is an AutoRecovery save of the same document.",
+    "criterion": 4
+  }
+]

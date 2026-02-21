@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review: Education Philosophy &amp; Reform</title>
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+  .flag-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin: 0.8rem 0;
+    border-left: 4px solid var(--card-border);
+    transition: opacity 0.2s;
+  }
+  .flag-card.dimmed { opacity: 0.45; }
+  .flag-exclude { border-left-color: #c0392b; }
+  .flag-review { border-left-color: #e67e22; }
+  .flag-header {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .flag-check {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .flag-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #c0392b;
+  }
+  .flag-badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-exclude { background: #c0392b; color: #fff; }
+  .badge-review { background: #e67e22; color: #fff; }
+  .flag-criterion {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-size, .flag-garbage {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-garbage { color: #c0392b; }
+  .flag-card h3 {
+    margin: 0.3rem 0;
+    font-size: 1.1rem;
+  }
+  .flag-summary {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+  }
+  .flag-reason {
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0;
+  }
+  .theme-section {
+    margin: 2rem 0;
+  }
+  .theme-section h2 {
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+  .stats-bar {
+    display: flex;
+    gap: 2rem;
+    background: var(--sidebar-bg);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0 2rem;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .stats-bar .stat-num {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    columns: 2;
+    column-gap: 2rem;
+  }
+  .toc-list li {
+    padding: 0.3rem 0;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.95rem;
+  }
+  .toc-count {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  /* Sticky toolbar */
+  .review-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #1a1a2e;
+    border-bottom: 2px solid var(--accent, #e67e22);
+    padding: 0.7rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  .review-toolbar .toolbar-count {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff;
+    min-width: 140px;
+  }
+  .review-toolbar .toolbar-count .num { color: var(--accent, #e67e22); }
+  .review-toolbar button {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: #2a2a4a;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: -apple-system, sans-serif;
+    transition: background 0.15s;
+  }
+  .review-toolbar button:hover { background: #3a3a6a; }
+  .review-toolbar button.primary {
+    background: #c0392b;
+    border-color: #c0392b;
+    color: #fff;
+  }
+  .review-toolbar button.primary:hover { background: #e74c3c; }
+  .toolbar-spacer { flex: 1; }
+</style>
+
+</head>
+<body>
+
+<div class="review-toolbar">
+  <span class="toolbar-count"><span class="num">0</span> of 0 selected for exclusion</span>
+  <span class="toolbar-spacer"></span>
+  <button id="select-all">Select All</button>
+  <button id="deselect-all">Deselect All</button>
+  <button id="download-exclusions" class="primary">Download Exclusions</button>
+</div>
+
+<header class="site-header">
+  <h1>Review: Education Philosophy &amp; Reform</h1>
+  <div class="subtitle">58 documents flagged for review</div>
+</header>
+<main class="container">
+<div class="breadcrumb"><a href="index.html">Review Home</a> <span class="sep">&rsaquo;</span> Education Philosophy &amp; Reform</div>
+<div class="stats-bar">
+  <div><span class="stat-num">58</span> flagged</div>
+  <div><span class="stat-num">43</span> exclude</div>
+  <div><span class="stat-num">15</span> review</div>
+</div>
+<div class="flag-card flag-exclude" data-slug="00-about-educ-masthead-2014-09-05t09-43-25" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="00-about-educ-masthead-2014-09-05t09-43-25" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/00-about-educ-masthead-2014-09-05t09-43-25.html" target="_blank">00-about-educ-masthead-2014-09-05t09-43-25</a></h3>
+  <p class="flag-summary">Masthead/title page for an Education 20/20 occasional paper on &quot;Preparedness.&quot; This appears to be the opening template for the first in a series of educational policy papers published by the organization.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains only a title page header: 'About Education / Preparedness / Occasional paper No. 1 / April 27, 2014' with no substantive content. The actual occasional paper is archived separately.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="00-masthead-2015-03-29t14-55-01" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="00-masthead-2015-03-29t14-55-01" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/00-masthead-2015-03-29t14-55-01.html" target="_blank">00-masthead-2015-03-29t14-55-01</a></h3>
+  <p class="flag-summary">A brief masthead page for an Education 20/20 occasional paper titled &quot;A Call: Implementation,&quot; containing standard publication footer information and disclaimers about content representing the author's views.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains only a publication masthead footer with disclaimer text and Education 20/20 contact information; no substantive written content beyond boilerplate.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="00-newsletter-masthead" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="00-newsletter-masthead" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/00-newsletter-masthead.html" target="_blank">00-newsletter-masthead</a></h3>
+  <p class="flag-summary">Newsletter masthead for &quot;Open Education&quot; publication dated April 23, 2013. Includes Plutarch quote &quot;The mind is not a vessel to be filled, but a fire to be kindled.&quot; Organization contact information: 101 Kent St., PO Box 624, Charlottetown, PEI C1A 1M0, Tel. 902-892-2060, Email pei@education2020.ca.
+- **Key People**: Don Glendenning
+- **Key Organizations**: Education 20/20 Inc.
+- **Tags**: ADMIN, PROFESSIONAL
+- **Eulogy Relevance**: LOW - Administrative header</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains only a newsletter masthead header (Open Education issue 01) with a Plutarch quote and organization contact details; no substantive content.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="1-expense-claim-form" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="1-expense-claim-form" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">8 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/1-expense-claim-form.html" target="_blank">1-expense-claim-form</a></h3>
+  <p class="flag-summary">Standardized expense reimbursement form for Education 20/20 Inc. featuring Don Glendenning's name and address (62 Queen Elizabeth Drive, Charlottetown, PE C1A 3A9). Form includes Date, Item, and Amount columns with signature line for Don and certification that expenses were &quot;Incurred on behalf of Education 20/20.&quot; This reveals Don's direct financial involvement in Education 20/20 operations and documentation of his own business expenses for the organization.</p>
+  <p class="flag-reason"><strong>Reason:</strong> An unfilled blank expense reimbursement form template with Don's name and address pre-printed but no actual data entered; a bureaucratic form with no substantive content.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="1997-11-26" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="1997-11-26" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/1997-11-26.html" target="_blank">1997-11-26</a></h3>
+  <p class="flag-summary">Don advocates for allowing students to challenge academic courses for credit through examination, similar to language placement testing at universities. He argues that with detailed course descriptions available, motivated learners could study independently and demonstrate competency through assessment rather than classroom attendance. Drawing on his own experience with carpentry and arts education, he contends that many mature learners possess substantive knowledge without formal credentials and should be able to earn degrees through challenge examinations. This represents an early articulation of competency-based education principles.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Near-exact duplicate of slug '1997-1-challenge' (same November 1997 Journal Pioneer letter on challenge for credit), but with OCR artifacts including a garbled prefix '-fa!:r|3G - oZK?' at the start. The clean version is preserved in '1997-1-challenge'.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2-2-qualification-navigator-2015-06-26t02-30-52" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2-2-qualification-navigator-2015-06-26t02-30-52" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/2-2-qualification-navigator-2015-06-26t02-30-52.html" target="_blank">2-2-qualification-navigator-2015-06-26t02-30-52</a></h3>
+  <p class="flag-summary">Proposes a &quot;Qualification Navigator&quot; service—a community-based, independent counseling office providing information and advice to Islanders seeking employment certification. The Navigator would serve as a first point of contact, offering assessment, monitoring, and referral services across all ages, reflecting Don's belief that education is complex and people need professional guidance beyond school-based counseling.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Exact duplicate of slug '00-qualification-navigator' (same May 31, 2012 Qualification Navigator proposal), differing only by an internal reference code prefix '2-2-2-7 quali' prepended to the content.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2-2-qualifications-1-pager" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2-2-qualifications-1-pager" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/2-2-qualifications-1-pager.html" target="_blank">2-2-qualifications-1-pager</a></h3>
+  <p class="flag-summary">Another duplicate of qualification framework one-pager. Identical content and structure to Files 1, 8, 9, 10.
+- **Key People**: Don Glendenning
+- **Key Organizations**: Education 20/20 Inc.
+- **Tags**: PROFESSIONAL, EDUCATION
+- **Eulogy Relevance**: NONE - Duplicate.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Near-exact duplicate of slug '2-2-1-4-qualifications-1-pager' (Qualification Framework one-pager), differing only by a file reference code prefix; identical body content on tasks and benefits of an independent qualification authority.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2014-a-board-list-a" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2014-a-board-list-a" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">2 KB</span>
+    <span class="flag-garbage">1.3% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/2014-a-board-list-a.html" target="_blank">2014-a-board-list-a</a></h3>
+  <p class="flag-summary">Simple organizational chart listing Don Glendenning as President of Education 20/20 Inc. board with seven other directors. Minimal content; a bare listing of board positions without narrative or details.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains only a bare list of eight Education 20/20 Inc. board members with their titles and no narrative, description, or substantive content beyond this directory listing.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2014-c-directord-names-only-2014-11-29t13-58-04" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2014-c-directord-names-only-2014-11-29t13-58-04" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">2 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/2014-c-directord-names-only-2014-11-29t13-58-04.html" target="_blank">2014-c-directord-names-only-2014-11-29t13-58-04</a></h3>
+  <p class="flag-summary">List of Education 20/20 Inc. directors as of December 2014, with Don Glendenning listed as President. Eight board members are named with their roles, showing the board composition during this period of the organization's development.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Exact duplicate of slug '2014-b-board-list-b': both documents have character-for-character identical content previews listing the same eight Education 20/20 directors as of December 1, 2014. The slug '2014-b-board-list-b' should be retained as the primary copy.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2016-expense-claim-1" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2016-expense-claim-1" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/2016-expense-claim-1.html" target="_blank">2016-expense-claim-1</a></h3>
+  <p class="flag-summary">Expense claim form for Education 20/20 Inc. covering January-February 2016. Six itemized expenses totaling $330.60: Syntrak-Graphics ($73.53), postage ($11.34), Industry Canada amendment ($200.00), envelopes ($34.19), CRA postage ($11.34). The form is administrative in nature, showing operational expenses related to business registration and communications.
+- **Key People**: Don Glendenning (submitting on behalf of Education 20/20)
+- **Key Organizations**: Education 20/20 Inc., Industry Canada, CRA
+- **Tags**: FINANCIAL, ADMIN
+- **Eulogy Relevance**: LOW - Routine administrative expense form</p>
+  <p class="flag-reason"><strong>Reason:</strong> Expense claim form - routine administrative</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2020-notes" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2020-notes" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/2020-notes.html" target="_blank">2020-notes</a></h3>
+  <p class="flag-summary">Personal notes documenting the organization and filing system for Education 20/20 Inc., the nonprofit organization Don founded. He identifies key locations of organizational documents in his filing cabinets, computer, and a backup flash drive, and notes that three-ring binders are personal items intended for PEI archives.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Exact duplicate of slug '2020-inc': both documents have identical content previews (character-for-character match), identical text, and the same April 18, 2015 date and heading. The slug '2020-inc' should be retained as the primary copy.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="25-problem-of-math" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="25-problem-of-math" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/25-problem-of-math.html" target="_blank">25-problem-of-math</a></h3>
+  <p class="flag-summary">Minimal content document with title &quot;Issues of math&quot; but no substantive text. Contains only header information and Education 20/20 Inc. footer. Appears to be empty template or abandoned draft.
+- **Key People**: Don Glendenning (Editor)
+- **Key Organizations**: Education 20/20 Inc.
+- **Tags**: TECHNICAL, ADMIN
+- **Eulogy Relevance**: NONE - No substantive content.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Empty newsletter shell: the content preview is entirely boilerplate header and footer for an Open Education newsletter with the title 'Issues of math' but no body text whatsoever. The AI summarizer explicitly notes it is 'a minimal content document with only header information and Education 20/20 Inc. footer' and an 'empty template or abandoned draft.'</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="3-life-roles" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="3-life-roles" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">2 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/3-life-roles.html" target="_blank">3-life-roles</a></h3>
+  <p class="flag-summary">Education Framework Life Roles Individual Family member Student Consumer Producer Citizen Learner Ref/3</p>
+  <p class="flag-reason"><strong>Reason:</strong> Stub document containing nothing but a titled table skeleton listing six life-role labels (Individual, Family member, Student, Consumer, Producer, Citizen, Learner) and a reference code 'Ref/3'. No explanatory text, no narrative, no educational argument — purely a heading and a list of words.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="4-d-stakeholder-engagement-initiative-2" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="4-d-stakeholder-engagement-initiative-2" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">13 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/4-d-stakeholder-engagement-initiative-2.html" target="_blank">4-d-stakeholder-engagement-initiative-2</a></h3>
+  <p class="flag-summary">Duplicate of File 3 - Education 20/20 Inc. stakeholder engagement initiative.
+- **Key People**: None specifically named
+- **Key Organizations**: Education 20/20 Inc., Conference Board of Canada
+- **Tags**: EDUCATION, PROFESSIONAL, COMMUNITY, FOUNDATION
+- **Eulogy Relevance**: HIGH - See File 3.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The AI summary explicitly identifies this as 'Duplicate of File 3 — Education 20/20 Inc. stakeholder engagement initiative.' The content is Don's November 2013 Education 20/20 proposal document, of which multiple other versions exist in the collection; this is a redundant copy without distinct additional content.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="45-helping-readers-read" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="45-helping-readers-read" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">3 KB</span>
+    <span class="flag-garbage">1.0% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/45-helping-readers-read.html" target="_blank">45-helping-readers-read</a></h3>
+  <p class="flag-summary">Brief header document introducing &quot;About Education&quot; as an informal electronic newsletter edited by Don Glendenning, intended to provide information, share ideas, encourage discussion and provoke debate about education. Contains only introductory information with no substantive content.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains only the masthead and introductory boilerplate of the 'About Education' newsletter No. 1 (October 1, 2013) — a one-sentence mission statement and contact email — with no article content at all. The AI summarizer confirms it is a 'header-only document with no substantive content.'</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="annual-agenda-2015-04-06t23-08-33" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="annual-agenda-2015-04-06t23-08-33" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/annual-agenda-2015-04-06t23-08-33.html" target="_blank">annual-agenda-2015-04-06t23-08-33</a></h3>
+  <p class="flag-summary">Agenda for Education 20/20 Inc.'s Third/Second Annual Meeting on June 2, 2014 at Haviland Club. Standard meeting agenda including president's report, financial statements, budget, director elections, and officer appointments.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Exact duplicate of 'annual-agenda' — both documents have identical content (Education 20/20 Inc. annual meeting agenda for June 2, 2014). The timestamp in the filename indicates this is an AutoRecovery save of the same document.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="critical-issues" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="critical-issues" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">66 KB</span>
+    <span class="flag-garbage">1.7% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/critical-issues.html" target="_blank">critical-issues</a></h3>
+  <p class="flag-summary">Co-authored academic paper titled &quot;Some Critical Issues in Secondary Schools in Canada&quot; (August 1991) examining critical issues in Canadian secondary education. Document addresses transitions from resource-based to knowledge-based economy, need for technological adaptation, and calls for educational reform to serve all youth. Don appears as one of three credited authors alongside Thomas Hall and Harvey Malmberg. Demonstrates Don's professional expertise in education policy and his engagement with national educational challenges during early 1990s.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The content is a WordPerfect binary file that is essentially unreadable — the preview is dominated by binary encoding artifacts, non-ASCII escape sequences, and repeated binary control characters. The AI-generated summary is inferred from partial decoding, but the actual document text cannot be read.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="d-life-roles-documentation" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="d-life-roles-documentation" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">2 KB</span>
+    <span class="flag-garbage">3.3% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/d-life-roles-documentation.html" target="_blank">d-life-roles-documentation</a></h3>
+  <p class="flag-summary">This brief reference document lists forms of documentation and evidence related to educational achievement and life roles: personal satisfaction, transcript, credential, qualification, and reference. It appears to be a checklist or framework for tracking educational accomplishments.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Content is only 90 characters — five bare words (Documentation, Personal satisfaction, Transcript, Credential, Qualification, Reference) with no narrative, context, or substantive meaning.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="directors-2013-add-dob-b" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="directors-2013-add-dob-b" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/directors-2013-add-dob-b.html" target="_blank">directors-2013-add-dob-b</a></h3>
+  <p class="flag-summary">Administrative record of Education 20/20 Inc. directors with residential addresses, telephone numbers, occupations, and dates of birth. Confirms Don Glendenning's birth date (September 8, 1929) and lists six other board members with their contact information and professional roles.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Administrative roster containing personal information (addresses, phone numbers, dates of birth): Directors- 2013 Add &amp; DOB B</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="directors-add-ph-email-2017" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="directors-add-ph-email-2017" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/directors-add-ph-email-2017.html" target="_blank">directors-add-ph-email-2017</a></h3>
+  <p class="flag-summary">Current directors roster for Education 20/20 Inc. as of March 2017, listing contact information (addresses, phone numbers, email addresses) for ten board members including Don Glendenning at 62 Queen Elizabeth Drive, Charlottetown. Standard administrative reference document documenting the full board composition at that date.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Administrative roster containing personal information (addresses, phone numbers, dates of birth): Directors  Add-Ph-Email 2017</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="directors-and-offices" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="directors-and-offices" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/directors-and-offices.html" target="_blank">directors-and-offices</a></h3>
+  <p class="flag-summary">Directors roster for Education 20/20 Inc. identifying officers and board members as of March 2017. Don Glendenning is listed as President with contact information. Demonstrates his continued leadership role in the community foundation during this period.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Administrative roster containing personal information (addresses, phone numbers, dates of birth): Directors and offices</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="directors-register-2015-06-07t20-05-34" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="directors-register-2015-06-07t20-05-34" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">39 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/directors-register-2015-06-07t20-05-34.html" target="_blank">directors-register-2015-06-07t20-05-34</a></h3>
+  <p class="flag-summary">Master directors' register for Education 20/20 Inc. documenting dates when board members became and ceased service. Shows Don Glendenning's tenure beginning July 18, 2012, and tracks 14+ directors' service periods from 2012-2015, with several one-day appointments in July 2012 and changing membership over subsequent years.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Administrative roster containing personal information (addresses, phone numbers, dates of birth): Directors' Register @2015-06-07T20;05;34</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="education-2020" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="education-2020" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">2 KB</span>
+    <span class="flag-garbage">2.2% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/education-2020.html" target="_blank">education-2020</a></h3>
+  <p class="flag-summary">Temporary document file pertaining to Education 2020 initiative. The extracted content is primarily Word document binary metadata. File name suggests focus on education policy or vision for 2020, consistent with Don Glendenning's involvement with Education 20/20 Inc., though substantive content remains inaccessible.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The title prefix (~$) identifies this as a Word temporary/lock file with binary metadata only (CL=46, GR=0.022); no readable content was extracted beyond binary artifacts.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="from-the-desk-of-don-glendenning" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="from-the-desk-of-don-glendenning" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/from-the-desk-of-don-glendenning.html" target="_blank">from-the-desk-of-don-glendenning</a></h3>
+  <p class="flag-summary">Official letterhead template bearing Don Glendenning's name &quot;From the desk of Don Glendenning&quot; for Education 20/20 Inc. Lists organization contact information (101 Kent St., Charlottetown, PEI). This document represents his formal administrative role with the educational organization.</p>
+  <p class="flag-reason"><strong>Reason:</strong> This is a blank letterhead template — the content is only the repeated header &quot;From the desk of Don Glendenning&quot; and Education 20/20 contact details, with no actual written content.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="invoice-4-dg-mar-18-2015-2015-03-23t23-08-46" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="invoice-4-dg-mar-18-2015-2015-03-23t23-08-46" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/invoice-4-dg-mar-18-2015-2015-03-23t23-08-46.html" target="_blank">invoice-4-dg-mar-18-2015-2015-03-23t23-08-46</a></h3>
+  <p class="flag-summary">Invoice from Rachelle Bélair Translation &amp; Proofreading Services for French translation of Education 20/20 Newsletter No. 26 (High School Diplomas). Bilingual services provided to Don Glendenning at Education 20/20 Inc., Charlottetown, PEI.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Exact duplicate of invoice-4-dg-mar-18-2015 (identical content_length of 2992 and identical content preview); the timestamped version is a redundant copy of the same invoice document.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="invoice-8-dg-june-18-2015-2015-06-18t16-10-40" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="invoice-8-dg-june-18-2015-2015-06-18t16-10-40" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/invoice-8-dg-june-18-2015-2015-06-18t16-10-40.html" target="_blank">invoice-8-dg-june-18-2015-2015-06-18t16-10-40</a></h3>
+  <p class="flag-summary">Invoice from Rachelle Bélair Translation &amp; Proofreading Services for French translation of Education 20/20 Newsletter No. 29 (Educators and Time), adjusted for extra word count (100 words). Bilingual services provided to Don Glendenning at Education 20/20 Inc., Charlottetown, PEI.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Exact duplicate of invoice-8-dg-june-18-2015 (identical content_length of 3105 and identical content preview); the timestamped version is a redundant copy of the same invoice document.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="life-road-brochure" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="life-road-brochure" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">8 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/life-road-brochure.html" target="_blank">life-road-brochure</a></h3>
+  <p class="flag-summary">This brochure file contains Education 20/20 Inc. contact information and appears to be promotional material related to the &quot;Life Road&quot; concept, a metaphorical framework for understanding learning journeys. The document is sparse in content, containing primarily the organization's header, address (101 Kent St., Charlottetown, PEI), phone number, and website information. This suggests the brochure was designed as a visual/interactive piece that may have included graphics or illustrations not captured in text extraction.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The extracted text content is only the organization's address and phone number repeated, indicating a visually-designed brochure whose text content was not captured. There is no substantive text content in this entry.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="life-road-card" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="life-road-card" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/life-road-card.html" target="_blank">life-road-card</a></h3>
+  <p class="flag-summary">A contact/promotional card containing Education 20/20 Inc.'s information including address, phone, and other details. Like the brochure, this is minimal in extracted text content but would have served as a pocket-sized promotional piece for the organization.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The extracted text contains only Education 20/20's contact information repeated, with no substantive content. This is a contact card whose visual design elements were not captured in text extraction.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="minutes-2016-2016-05-17t00-36-31" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="minutes-2016-2016-05-17t00-36-31" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/minutes-2016-2016-05-17t00-36-31.html" target="_blank">minutes-2016-2016-05-17t00-36-31</a></h3>
+  <p class="flag-summary">Meeting minutes from Education 20/20 Awards Committee on May 12, 2016, with Don Glendenning as Chair. Committee reviewed three nominations: Grace Christian School (K-12 private school with integrated technology), Charlottetown Rural High School (pilot technology rollout), and Down to Earth Child Care (no technology). Committee selected Grace Christian based on philosophy-technology alignment.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Near-exact duplicate of minutes-2016 — both documents cover the same May 12, 2016 Awards Committee meeting, differing only in the timestamp appended to the filename.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="mtg-26-agenda-2015-09-13t13-13-10" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="mtg-26-agenda-2015-09-13t13-13-10" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/mtg-26-agenda-2015-09-13t13-13-10.html" target="_blank">mtg-26-agenda-2015-09-13t13-13-10</a></h3>
+  <p class="flag-summary">Board meeting agenda for Education 20/20 Inc. Meeting No. 26 scheduled for September 16, 2015 at the Haviland Club in Charlottetown. Topics include President's report, business arising, Handle With Care workshops, information/communications strategy, and a reception for directors at Glendenning Cottage.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Exact duplicate of mtg-26-agenda — both contain identical text for the September 16, 2015 board meeting, differing only in the timestamp appended to the filename.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="newsletter-2020-6" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="newsletter-2020-6" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">System/Software File</span>
+    <span class="flag-size">5 KB</span>
+    <span class="flag-garbage">1.1% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/newsletter-2020-6.html" target="_blank">newsletter-2020-6</a></h3>
+  <p class="flag-summary">**Written by Don.** Expanded technical analysis of the east corner development with precise measurements (66-foot entrance roadway, 12-foot driving lane width, 6-foot car width). Documents road and stump options, beach access preferences, and next steps. Don provides his phone number (902-651-2186) to meet anyone at the corner for discussion, showing his availability and hands-on community engagement.</p>
+  <p class="flag-reason"><strong>Reason:</strong> This is a Glenway Estates cottage association newsletter about road maintenance, stump removal, and beach access — entirely unrelated to education reform. It belongs to a personal/household category, not education philosophy.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="number-2014-08-29t19-34-18" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="number-2014-08-29t19-34-18" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Machine-Generated Data</span>
+    <span class="flag-size">71 KB</span>
+    <span class="flag-garbage">1.5% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/number-2014-08-29t19-34-18.html" target="_blank">number-2014-08-29t19-34-18</a></h3>
+  <p class="flag-summary">*</p>
+  <p class="flag-reason"><strong>Reason:</strong> This is a verbatim copy of the PEI Grade 9 Mathematics Curriculum Guide — a government-published curriculum document with no narrative or personal content from Don. It is a machine-structured data dump of specific curriculum outcomes, not Don's writing.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="org-sterring-committee" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="org-sterring-committee" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">3 KB</span>
+    <span class="flag-garbage">4.3% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/org-sterring-committee.html" target="_blank">org-sterring-committee</a></h3>
+  <p class="flag-summary">List of steering committee members for Education 20/20 Inc., including Don Glendenning among eight committee members (Alice Taylor, Bernadette Allen, Carolyn Taylor, Eileen Conway-Martin, Jeniene Peake, Jennifer Cairns Burke, Sherri Barrett, Sherri Russell). This administrative record shows Don's collaborative leadership style and the diverse community participation he cultivated.</p>
+  <p class="flag-reason"><strong>Reason:</strong> This document contains only a bare list of nine steering committee member names with no context, dates, purpose, or substantive content. It is a stub with no meaningful archival value beyond what is captured in meeting minutes.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="other-provinces-department" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="other-provinces-department" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">4 KB</span>
+    <span class="flag-garbage">10.4% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/other-provinces-department.html" target="_blank">other-provinces-department</a></h3>
+  <p class="flag-summary">Comparative analysis of department roles across Canadian provinces (NB, NS, Newfoundland, Alberta, Saskatchewan), examining how different jurisdictions define and execute education leadership. Demonstrates Glendenning's benchmarking approach to understanding provincial education governance models.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Garbage ratio of 0.1039 indicates significant encoding artifacts. The content is a sparse notes fragment with extensive whitespace corruption from formatting extraction.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="poster-2014-learning-2014-08-30t23-11-49" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="poster-2014-learning-2014-08-30t23-11-49" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/poster-2014-learning-2014-08-30t23-11-49.html" target="_blank">poster-2014-learning-2014-08-30t23-11-49</a></h3>
+  <p class="flag-summary">Poster advertisement for &quot;From a Learner's Perspective&quot; workshop on October 22, 2014, outlining the program with youth panel, criteria generation, round-table discussions, and result sharing. Education 20/20 contact details are provided for interested participants seeking more information about the event.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Exact duplicate of poster-2014-learning — both have identical content (same workshop poster for October 22, 2014), differing only in the timestamp appended to the filename.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="purpose-schools-and-educ" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="purpose-schools-and-educ" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/purpose-schools-and-educ.html" target="_blank">purpose-schools-and-educ</a></h3>
+  <p class="flag-summary">Duplicate of File 1 with identical content examining educational philosophies and purposes of schooling from historical and contemporary perspectives.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The summary explicitly identifies this as a duplicate of File 1 (purpose-f-schooling-1) with identical content examining educational philosophies and purposes of schooling.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="schools-tomorrow" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="schools-tomorrow" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/schools-tomorrow.html" target="_blank">schools-tomorrow</a></h3>
+  <p class="flag-summary">Posted at 04:06 PM ET, 07/24/2013 Jul 24, 2013 08:06 PM EDT A visionary’s final ideas on fixing high schools By Jay Mathews E-mail the writer When Theodore Sizer, known to friends and admirers as Ted, died of colon cancer at 77 in 2009, we lost the nation’s leading scholar on high schools and one of the best education writers ever. So I was glad to get his just-published book, “The New American High School,” which explains his vision for the future of educating our teenagers. The school refor...</p>
+  <p class="flag-reason"><strong>Reason:</strong> This is a Washington Post article by journalist Jay Mathews about Theodore Sizer's book on high schools, not written by Don Glendenning. There is no framing, annotation, or connection to Don's own work.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="teaching-leaving-academia" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="teaching-leaving-academia" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">11 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/teaching-leaving-academia.html" target="_blank">teaching-leaving-academia</a></h3>
+  <p class="flag-summary">Document addressing relationship between academic careers and teaching profession, possibly discussing transition from academia to teaching roles or comparative analysis of academic versus teaching-focused paths. Title suggests examination of how academics engage with or transition away from teaching responsibilities. Relevant to understanding distinctions between research and teaching orientation in higher education.</p>
+  <p class="flag-reason"><strong>Reason:</strong> This is a first-person article by Constantina Katsari published in The Guardian about leaving academia — written entirely by someone else with no connection to Don Glendenning or his education reform work.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="to-do" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="to-do" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">12 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/to-do.html" target="_blank">to-do</a></h3>
+  <p class="flag-summary">Comprehensive to-do list dated February 12, 2016, organized by Education 20/20 activities, funding prospects, operational tasks, and personal items. Shows Don juggling multiple initiatives: newspaper outreach, receptions, appreciation events, contact expansion, fundraising from foundations and corporate donors (Windsor, Campbell Webster, McCain, Royal Bank), and personal tasks. Mentions family members Brian, Janet, and &quot;Girls&quot; (likely grandchildren). Also references technology issues (flash drives, family photos) and various collaborators.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Personal to-do list with no archival value</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="transction-record" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="transction-record" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">8 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/transction-record.html" target="_blank">transction-record</a></h3>
+  <p class="flag-summary">A blank administrative form template for recording financial transactions on behalf of Education 20/20. The form has columns for date, amount, and notes, with space for multiple entries. It is signed by Don Glendenning and includes a note that expenditures were incurred on behalf of Education 20/20. This was a standard record-keeping tool for tracking organizational expenses.</p>
+  <p class="flag-reason"><strong>Reason:</strong> This is a blank administrative transaction record form template with empty rows for date, amount, and notes — no actual data or personal content. It is a generic template with no substantive value.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="vision-2-tom-2016-04-20t02-01-41" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="vision-2-tom-2016-04-20t02-01-41" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/vision-2-tom-2016-04-20t02-01-41.html" target="_blank">vision-2-tom-2016-04-20t02-01-41</a></h3>
+  <p class="flag-summary">Timestamped version of the Vision-2 strategic document, identical to the previous entry, presenting Education 20/20's comprehensive analysis of education gaps in PEI and proposed interventions.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The summary explicitly identifies this as a timestamped duplicate of another Vision-2 document with identical content, differing only in the timestamp appended to the filename.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="work-plan" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="work-plan" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">System/Software File</span>
+    <span class="flag-size">18 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/work-plan.html" target="_blank">work-plan</a></h3>
+  <p class="flag-summary">**Written by Don.** Detailed 2021 workplan for Glenway Estates with 10 action items including survey stake replacement ($125), stump removal ($300), annual hard gravel for roads ($250), gate repairs ($2,500), beach access improvements, liability insurance investigation, and roadside vegetation management. Structured table format reflects Don's systematic approach to long-term community planning.</p>
+  <p class="flag-reason"><strong>Reason:</strong> This is a Glenway Estates Association workplan for 2021 covering cottage community maintenance (road gravel, gate repairs, beach access stairs) — entirely unrelated to education reform and misclassified in this collection.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="young" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="young" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">4 KB</span>
+    <span class="flag-garbage">1.0% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/young.html" target="_blank">young</a></h3>
+  <p class="flag-summary">Letter from Norman Carruthers (President) to Dick Young (Investors Group, Charlottetown) responding to a Guardian article on charitable giving strategies. Advocates for community foundations as low-cost, flexible alternatives to private foundations, noting that named funds within community foundations are increasingly replacing private foundations. Reflects CFPEI's positioning and Don's influence on the Foundation's competitive strategy among giving vehicles.</p>
+  <p class="flag-reason"><strong>Reason:</strong> This letter is signed by Norman Carruthers as President of the Community Foundation of PEI, not by Don Glendenning. While Don was associated with CFPEI, this is not his writing and has no clear connection to his education reform work.</p>
+</div>
+<div class="flag-card flag-review" data-slug="2-employability-skills-2000" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2-employability-skills-2000" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">12 KB</span>
+    <span class="flag-garbage">1.2% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/2-employability-skills-2000.html" target="_blank">2-employability-skills-2000</a></h3>
+  <p class="flag-summary">The Conference Board of Canada's &quot;Employability Skills 2000+&quot; framework detailing 56 skills across three categories: fundamental skills (communication, information management, numeracy, problem-solving), personal management skills (attitudes, responsibility, adaptability, continuous learning, safety), and teamwork skills (working with others, project participation). This framework forms the basis for Education 20/20's employability assessment and development programs, indicating Don's adoption of nationally recognized competency standards.
+- **Key People**: None (Conference Board of Canada material)
+- **Key Organizations**: Conference Board of Canada, Education 20/20 Inc.
+- **Tags**: PROFESSIONAL, EDUCATION, TECHNICAL
+- **Eulogy Relevance**: MEDIUM - Shows Don's engagement with contemporary national educational standards and frameworks in his consulting work.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The full text reproduces the Conference Board of Canada's 'Employability Skills 2000+' framework verbatim, which is not Don's writing. While Don clearly used this framework in his Education 20/20 work, the document itself is external reference material rather than Don's personal writing.</p>
+</div>
+<div class="flag-card flag-review" data-slug="2014-people-for-education" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2014-people-for-education" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/2014-people-for-education.html" target="_blank">2014-people-for-education</a></h3>
+  <p class="flag-summary">Document describing People for Education, a similar charitable education advocacy organization based in Ontario (federal incorporation, public education focus). Presents their vision (&quot;public education can transform and enrich lives&quot;), mission (monitoring education system, educating parents and policymakers, engaging parents, encouraging civic participation, making policy recommendations), and five key objectives: disseminating education information, encouraging parent participation and inclusion in public schools, conducting education system research and data collection, sponsoring conferences and seminars for stakeholder exchange, liaising with education boards and government agencies. Appears to have been used by Education 20/20 as a reference model when preparing their own CRA application and objectives. Shows Don's research and benchmarking of similar organizations.
+- **Key People**: None named
+- **Key Organizations**: People for Education (Ontario-based reference organization), publicly funded school systems
+- **Tags**: PROFESSIONAL, EDUCATION, FOUNDATION, COMMUNITY
+- **Eulogy Relevance**: LOW-MEDIUM - Shows Don's research methodology and reference to comparable educational organizations when developing Education 20/20.</p>
+  <p class="flag-reason"><strong>Reason:</strong> This is a copy of the People for Education (Ontario) website, not Don's writing. The content preview shows verbatim website text including social-sharing buttons ('Share via Facebook / Twitter / Email'), revealing it was copy-pasted from the organization's public website. Don appears to have saved it as a reference model for his CRA application, but the document itself has no Don-authored content.</p>
+</div>
+<div class="flag-card flag-review" data-slug="2015-budget-2015-03-11t16-39-21" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2015-budget-2015-03-11t16-39-21" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">4 KB</span>
+    <span class="flag-garbage">3.7% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/2015-budget-2015-03-11t16-39-21.html" target="_blank">2015-budget-2015-03-11t16-39-21</a></h3>
+  <p class="flag-summary">2015 budget document for Education 20/20 Inc. showing revenue of $4,100 and expenses of $4,100, with personal contribution from Don Glendenning. Notes that the organization lacked a bank account and relied on individuals and organizations to pay bills on its behalf while seeking charitable status.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains personal financial contribution details</p>
+</div>
+<div class="flag-card flag-review" data-slug="2015-vsccination-for-literacy" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2015-vsccination-for-literacy" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">7 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/2015-vsccination-for-literacy.html" target="_blank">2015-vsccination-for-literacy</a></h3>
+  <p class="flag-summary">Duplicate of File 11 with identical content and approach. This appears to be a working copy or filing duplicate.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The AI summarizer identifies this as a 'Duplicate of File 11 with identical content and approach' and characterizes it as 'a working copy or filing duplicate.' The content preview confirms it is an early rough draft of a January 2015 Guardian letter on literacy, with significant uncorrected typos, likely superseded by the polished version filed separately.</p>
+</div>
+<div class="flag-card flag-review" data-slug="2017-award-announcement" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2017-award-announcement" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">7 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/2017-award-announcement.html" target="_blank">2017-award-announcement</a></h3>
+  <p class="flag-summary">Press release announcing the 2017 Excellence in Education Award focus and program details, authored and released by Dr. Don Glendenning as President of Education 20/20. Release summarizes award history (2014 Kinkora, 2015 Prince Street, 2016 Grace Christian) and announces 2017 focus on technology applications. Don discusses various technology uses in education (flipped classrooms, student homework platforms, curriculum broadening, diagnostic assessment). He outlines evaluation committee criteria: ease of student access, curriculum relevance, and engagement levels. Document emphasizes Don's educational philosophy and understanding of pedagogy, including hope for novel technology applications. Contact information provided includes Don's home phone.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains personal phone number</p>
+</div>
+<div class="flag-card flag-review" data-slug="25-11-change-1-strategies-for-change" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="25-11-change-1-strategies-for-change" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/25-11-change-1-strategies-for-change.html" target="_blank">25-11-change-1-strategies-for-change</a></h3>
+  <p class="flag-summary">Duplicate or near-duplicate of File 4, presenting strategic framework for &quot;Education First Canada&quot; initiative to achieve quality education for all Canadians. Reiterates six key strategies: information provision as change catalyst, public engagement in decision-making, innovation support with professional autonomy, leadership recognition, research support, and organizational capacity development. Consistent with Don's approach emphasizing stakeholder participation and evidence-based reform.
+- **Key People**: None named
+- **Key Organizations**: Education First Canada
+- **Tags**: EDUCATION, PROFESSIONAL, COMMUNITY
+- **Eulogy Relevance**: MEDIUM - Duplicate of earlier strategy document; demonstrates Don's iterative thinking on reform framework</p>
+  <p class="flag-reason"><strong>Reason:</strong> Near-duplicate of slug '25-change-strategies': both are September 10, 2012 drafts of 'Education First Canada — Strategies for Change' with nearly identical text. This version has only a 'My notes 25-11' personal header and is slightly shorter (6,287 vs 6,490 bytes), suggesting it is the annotated working copy while '25-change-strategies' is the cleaner draft.</p>
+</div>
+<div class="flag-card flag-review" data-slug="28-school-system" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="28-school-system" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">14 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/28-school-system.html" target="_blank">28-school-system</a></h3>
+  <p class="flag-summary">Presents Business Roundtable's nine-point policy agenda for K-12 education improvement (adopted 1990, updated 2000). The essential components include: Standards (measurable expectations for student knowledge/skills), Assessments (measuring and reporting performance), Accountability (consequences based on demonstrated performance), Professional Development (continuous teacher/administrator learning), School Autonomy (freedom and resources for high performance), Parent Involvement (supporting learning and school choice), Learning Readiness (pre-K education and poverty support), Technology (broadening knowledge access), and Safety/Discipline (safe learning environment).
+- **Key People**: Not identified
+- **Key Organizations**: Business Roundtable, CEO Growth Agenda participants
+- **Tags**: PROFESSIONAL, EDUCATION, MANUSCRIPT
+- **Eulogy Relevance**: MEDIUM - Shows Don's review of business-sector education reform proposals.</p>
+  <p class="flag-reason"><strong>Reason:</strong> This is a verbatim copy of the Business Roundtable's 2007 web page 'Essential Components of a Successful Education System', confirmed by the presence of email-a-friend form fields, social-share buttons, and a list of related publications with posting dates. The document contains no Don-authored text; it was saved as research reference material.</p>
+</div>
+<div class="flag-card flag-review" data-slug="4-reading-competencies-2" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="4-reading-competencies-2" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">6 KB</span>
+    <span class="flag-garbage">1.2% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/4-reading-competencies-2.html" target="_blank">4-reading-competencies-2</a></h3>
+  <p class="flag-summary">Reading competency framework from North Carolina English educators organized into five competency categories: comprehension (understanding texts and identifying main ideas), analysis (fact vs. opinion, point of view, context, logical arguments), interpretation and evaluation (inferences, conclusions, evidence, ambiguity), language and style (tone, voice, figurative language), and research (library resources, electronic media). Represents professional consensus on essential reading competencies from disciplinary perspective.
+- **Key People**: North Carolina Conference of English Instructors (Competencies Task Force)
+- **Key Organizations**: North Carolina Conference of English Instructors, CEI
+- **Tags**: EDUCATION, PROFESSIONAL
+- **Eulogy Relevance**: MEDIUM - Academic reference for reading skill framework; demonstrates Don's engagement with professional standards</p>
+  <p class="flag-reason"><strong>Reason:</strong> This is a 1995 document extracted from a report by the Competencies Task Force of CEI — the North Carolina Conference of English Instructors — with no Don-authored content. It defines reading competency categories from a professional standards body. Don used it as a research reference for his reading initiatives, but the document itself is entirely third-party material.</p>
+</div>
+<div class="flag-card flag-review" data-slug="500-charter-schools" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="500-charter-schools" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">24 KB</span>
+    <span class="flag-garbage">28.1% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/500-charter-schools.html" target="_blank">500-charter-schools</a></h3>
+  <p class="flag-summary">Comprehensive analysis of charter schools, providing definitions, characteristics of Alberta's charter school system (22 schools, 13 authorities, funding structures), and debate sections covering grassroots support, opposition, and public school perspectives. Addresses concerns about equity and two-tiered systems while noting charter schools' potential contributions beyond test scores. Includes extensive bibliography and concludes that charter schools merit study as policy options. Demonstrates Donald's research-based approach to education policy questions.
+- **Key People**: Daniel J. Brown, Stephen B. Lawton, Karl Zinsmeister, Joe Friedman
+- **Key Organizations**: Alberta Education, Education 20/20 Inc., Society for Quality Education, Society for Advancing Educational Research
+- **Tags**: EDUCATION, PROFESSIONAL
+- **Eulogy Relevance**: MEDIUM - Shows Donald's analytical approach to education policy and his engagement with contemporary policy debates</p>
+  <p class="flag-reason"><strong>Reason:</strong> Garbage ratio of 0.281 exceeds the 0.05 threshold, likely due to embedded formatting data in the source file. However, the content preview shows fully intelligible, substantive research on charter schools compiled by Don for Education 20/20. A human reviewer should confirm whether the non-preview portions are also readable.</p>
+</div>
+<div class="flag-card flag-review" data-slug="hwc-update-for-dept-of-ed-and-ecd-and-national-team-re-hwc-updated-after-researc" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="hwc-update-for-dept-of-ed-and-ecd-and-national-team-re-hwc-updated-after-researc" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">27 KB</span>
+    <span class="flag-garbage">5.7% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/hwc-update-for-dept-of-ed-and-ecd-and-national-team-re-hwc-updated-after-researc.html" target="_blank">hwc-update-for-dept-of-ed-and-ecd-and-national-team-re-hwc-updated-after-researc</a></h3>
+  <p class="flag-summary">Comprehensive update on the &quot;Handle with Care&quot; program promoting children's mental health, a 2011-2015 initiative funded by Public Health Agency of Canada. Program serves parents, caregivers, and educators for children birth to 6, delivered through site partners in Ontario, PEI (Early Childhood Development Association), Manitoba, and Yukon. Redesigned curriculum features four building blocks (trust, self-esteem, emotions, relationships) and emphasizes evidence-based practices that strengthen families and communities, with data anticipated to demonstrate significant outcomes.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Garbage ratio of 0.057 slightly exceeds the 0.05 threshold; content is a program status report for the &quot;Handle with Care&quot; initiative from the Hincks-Dellcrest Centre, not authored by Don, though it is connected to his Education 20/20 work.</p>
+</div>
+<div class="flag-card flag-review" data-slug="zassess-ingredients" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="zassess-ingredients" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">4 KB</span>
+    <span class="flag-garbage">2.8% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/zassess-ingredients.html" target="_blank">zassess-ingredients</a></h3>
+  <p class="flag-summary">Framework document from Australian DEET (Department of Employment, Education and Training) outlining essential and desirable ingredients for educational assessment systems. Essential elements include nominated assessors, explicit benchmarks, guidance materials, and record-keeping. Desirable elements include assessor licensing, training, verification mechanisms, appeal processes, certification, system review, fee policies, and marketing. Demonstrates Glendenning's international perspective on educational assessment practices and systematic thinking about assessment infrastructure.</p>
+  <p class="flag-reason"><strong>Reason:</strong> This appears to be a fragment from an Australian Department of Employment, Education and Training (DEET) document listing assessment system ingredients — likely a reference document gathered by Don rather than his own writing. The high garbage ratio (0.0284) and the OCR artifacts (dashed border lines) suggest a scanned external document.</p>
+</div>
+<div class="flag-card flag-review" data-slug="zguide-1b" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="zguide-1b" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">3 KB</span>
+    <span class="flag-garbage">1.8% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/zguide-1b.html" target="_blank">zguide-1b</a></h3>
+  <p class="flag-summary">Performance assessment guide for time management competency. Describes entry-level and post-test assessment methods with concrete performance indicators: estimating task time, adopting time management techniques, budgeting personal and work time, identifying time wasters, and monitoring time use. Practical example of competency-based assessment implementation.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Performance assessment guide for time management using placeholder names (Mr. Smith, Mrs. Green) and a 1996 magazine reference — appears to be a generic instructional template or external DACUM-related resource, not Don's original writing. OCR artifacts and high garbage ratio support this.</p>
+</div>
+<div class="flag-card flag-review" data-slug="zguide-1c" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="zguide-1c" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">4 KB</span>
+    <span class="flag-garbage">1.5% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/zguide-1c.html" target="_blank">zguide-1c</a></h3>
+  <p class="flag-summary">Learning activities guide for developing time management skills through practical exercises including time log maintenance, identifying personal time wasters, and interviewing efficient individuals. Includes 11 specific activities ranging from self-assessment to cost-impact analysis, designed to facilitate experiential learning of time management principles.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Generic learning activities guide for time management with the same placeholder names and external references as zguide-1b and zguide-1g — appears to be an externally sourced instructional template, not Don's original work.</p>
+</div>
+<div class="flag-card flag-review" data-slug="zguide-1f" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="zguide-1f" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../05-education-reform/read/zguide-1f.html" target="_blank">zguide-1f</a></h3>
+  <p class="flag-summary">Learning resources document outlining time management instruction materials, listing internal human resources (Mr. Smith, Mrs. Green), external resources including George Good's article and a time management series available in the resource center. Duplicates content from similar reference guides with slightly corrupted OCR text.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Near-duplicate of zguide-1g with severe OCR corruption (&quot;LEARN.G RESOURCES&quot;, &quot;Ti e Manag ment&quot;) and the same generic placeholder content. Likely an external DACUM reference guide, not Don's work.</p>
+</div>
+<div class="flag-card flag-review" data-slug="zguide-1g" data-theme="05-education-reform">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="zguide-1g" data-theme="05-education-reform"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">3 KB</span>
+    <span class="flag-garbage">3.0% garbage</span>
+  </div>
+  <h3><a href="../05-education-reform/read/zguide-1g.html" target="_blank">zguide-1g</a></h3>
+  <p class="flag-summary">Reference guide listing learning resources for time management techniques instruction, including print materials, electronic resources, audio-visual materials, and specific publications such as George Good's article on tracking time from Canadian Advocate (1996). A practical teaching support document with internal and external resource references.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Generic learning resources list for time management with placeholder names (Mr. Smith, Mrs. Green) and a 1996 Canadian Advocate article citation — appears to be an externally sourced reference guide template rather than Don's original writing, with OCR artifacts.</p>
+</div>
+</main>
+<footer class="site-footer">
+  <a href="../index.html">Archive Home</a>
+</footer>
+
+<script>
+(function() {
+  const STORAGE_KEY = 'archiveReviewSelections';
+
+  function loadState() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    } catch(e) { return {}; }
+  }
+
+  function saveState(state) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function updateCounts() {
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+    const checked = document.querySelectorAll('.flag-card input[type="checkbox"]:checked');
+    const countEl = document.querySelector('.toolbar-count');
+    if (countEl) {
+      countEl.innerHTML = '<span class="num">' + checked.length + '</span> of ' + boxes.length + ' selected for exclusion';
+    }
+  }
+
+  function applyDimming() {
+    document.querySelectorAll('.flag-card').forEach(function(card) {
+      const cb = card.querySelector('input[type="checkbox"]');
+      if (cb) card.classList.toggle('dimmed', !cb.checked);
+    });
+  }
+
+  function init() {
+    const state = loadState();
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+
+    // Restore saved state (overrides default checked/unchecked)
+    boxes.forEach(function(cb) {
+      const key = cb.dataset.theme + '/' + cb.dataset.slug;
+      if (key in state) cb.checked = state[key];
+    });
+
+    // Listen for changes
+    boxes.forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var st = loadState();
+        st[cb.dataset.theme + '/' + cb.dataset.slug] = cb.checked;
+        saveState(st);
+        updateCounts();
+        applyDimming();
+      });
+    });
+
+    applyDimming();
+    updateCounts();
+
+    // Select all / deselect all
+    var selAll = document.getElementById('select-all');
+    if (selAll) selAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = true; st[cb.dataset.theme + '/' + cb.dataset.slug] = true; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    var deselAll = document.getElementById('deselect-all');
+    if (deselAll) deselAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = false; st[cb.dataset.theme + '/' + cb.dataset.slug] = false; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    // Download exclusion list
+    var dlBtn = document.getElementById('download-exclusions');
+    if (dlBtn) dlBtn.addEventListener('click', function() {
+      var exclusions = [];
+      document.querySelectorAll('.flag-card input[type="checkbox"]:checked').forEach(function(cb) {
+        exclusions.push({ slug: cb.dataset.slug, theme: cb.dataset.theme });
+      });
+      var blob = new Blob([JSON.stringify(exclusions, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'exclusions.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

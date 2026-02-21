@@ -1,0 +1,422 @@
+[
+  {
+    "slug": "0-contents-alphs",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Alphabetical table of contents - filing index",
+    "criterion": 8
+  },
+  {
+    "slug": "00-expense-claim-form-2016-04-11t12-59-14",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Routine expense claim form - administrative paperwork",
+    "criterion": 8
+  },
+  {
+    "slug": "00-file-finder",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Office filing classification system - administrative index",
+    "criterion": 8
+  },
+  {
+    "slug": "00-files-at-cottage",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Inventory of temporary files stored at cottage - filing record",
+    "criterion": 8
+  },
+  {
+    "slug": "05-changing-policy",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Generic policy document on amending policies - administrative template",
+    "criterion": 8
+  },
+  {
+    "slug": "08-insufficient-policy",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Generic policy document - administrative template",
+    "criterion": 8
+  },
+  {
+    "slug": "09-charitable-receipts-for-expenses",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Generic policy on charitable receipts - administrative",
+    "criterion": 8
+  },
+  {
+    "slug": "1-3-5-draft-questions",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Draft survey questions template",
+    "criterion": 8
+  },
+  {
+    "slug": "1-graph-health-delivery-2",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Health system diagram - no personal medical data",
+    "criterion": 8
+  },
+  {
+    "slug": "11-elections",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Generic policy on director elections - administrative",
+    "criterion": 8
+  },
+  {
+    "slug": "12-types-of-funds",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Policy describing fund types for donors - administrative reference",
+    "criterion": 8
+  },
+  {
+    "slug": "14-director-attendance",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Generic policy on director attendance - administrative",
+    "criterion": 8
+  },
+  {
+    "slug": "2-directory-of-lot-owners",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Directory listing lot owners with addresses and phone numbers",
+    "criterion": 7
+  },
+  {
+    "slug": "2008-3-10-year-direction",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "CRA requirements for charitable giving",
+    "criterion": 7
+  },
+  {
+    "slug": "2013-board-list",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Board of directors list with contact information",
+    "criterion": 7
+  },
+  {
+    "slug": "2014-directors-add-dob",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Directors directory with dates of birth and addresses",
+    "criterion": 7
+  },
+  {
+    "slug": "2015-2-directors-register-2015-05-27t18-56-48",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Board members directory",
+    "criterion": 7
+  },
+  {
+    "slug": "2015-cra-questions-2",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Detailed CRA conversation notes with specific organizational details",
+    "criterion": 7
+  },
+  {
+    "slug": "2015-directors-add-dob",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Directors directory with dates of birth and addresses",
+    "criterion": 7
+  },
+  {
+    "slug": "2024-haritable",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Income tax planning notes with specific income sources (pensions, OAS), tax year details",
+    "criterion": 7
+  },
+  {
+    "slug": "3-household",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Routine household financial records (rent, utilities) 1957-1960",
+    "criterion": 8
+  },
+  {
+    "slug": "3-property-description",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Technical property description - legal/administrative document",
+    "criterion": 8
+  },
+  {
+    "slug": "4-yard",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Cottage yard maintenance guide - practical reference",
+    "criterion": 8
+  },
+  {
+    "slug": "6-health-1",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Health system diagram without personal medical data",
+    "criterion": 8
+  },
+  {
+    "slug": "7-services",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Contact directory for cottage service providers",
+    "criterion": 8
+  },
+  {
+    "slug": "app-4-church-officials",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "List of church officials and positions - directory",
+    "criterion": 8
+  },
+  {
+    "slug": "birthday-carols-birthday-80",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Event planning notes for birthday celebration",
+    "criterion": 8
+  },
+  {
+    "slug": "black-notes-professor-roger-d",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Personal contact notes with private background on individual",
+    "criterion": 7
+  },
+  {
+    "slug": "chores",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Farm chore descriptions - minimal historical context",
+    "criterion": 8
+  },
+  {
+    "slug": "church-organizations",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Documentation of church organizations - structural listing",
+    "criterion": 8
+  },
+  {
+    "slug": "cva-ecec2",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "List of organizational officials from 1962-1968 - directory",
+    "criterion": 8
+  },
+  {
+    "slug": "directors-address-andterms-2018-2",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Board members contact directory",
+    "criterion": 7
+  },
+  {
+    "slug": "directors-addresses",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Board members contact directory",
+    "criterion": 7
+  },
+  {
+    "slug": "directors-addresses-2015",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Board members contact directory",
+    "criterion": 7
+  },
+  {
+    "slug": "directors-addresses-and-terms-2019",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Board members contact directory",
+    "criterion": 7
+  },
+  {
+    "slug": "directors-register",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Board members directory",
+    "criterion": 7
+  },
+  {
+    "slug": "directors-register-4",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Board members directory",
+    "criterion": 7
+  },
+  {
+    "slug": "directors-register-5",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Board members directory",
+    "criterion": 7
+  },
+  {
+    "slug": "dob-1-current-directors-dob",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Directors list with dates of birth",
+    "criterion": 7
+  },
+  {
+    "slug": "dob-2-current-directors-dob",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Directors list with dates of birth",
+    "criterion": 7
+  },
+  {
+    "slug": "dob-3-2015-current-with-dob",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Directors list with dates of birth",
+    "criterion": 7
+  },
+  {
+    "slug": "dob-4-2016-1-current-directors-dob",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Directors list with dates of birth",
+    "criterion": 7
+  },
+  {
+    "slug": "dob-5-2019-1-current-directors-dob",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Directors list with dates of birth",
+    "criterion": 7
+  },
+  {
+    "slug": "dob-6-2019-1-current-directors-dob",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Directors list with dates of birth",
+    "criterion": 7
+  },
+  {
+    "slug": "dob-7-june-2019",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Directors list with dates of birth",
+    "criterion": 7
+  },
+  {
+    "slug": "first-meeting",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Email on meeting participants - routine correspondence",
+    "criterion": 8
+  },
+  {
+    "slug": "fund-4-technology",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Tax/income documentation",
+    "criterion": 7
+  },
+  {
+    "slug": "grocery-list-2",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Household grocery and meal planning list",
+    "criterion": 8
+  },
+  {
+    "slug": "grocerym-m",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Abbreviated meal planning and menu list",
+    "criterion": 8
+  },
+  {
+    "slug": "invite-2014-10-23t22-53-12",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Planning sheet for study group sessions - meeting logistics",
+    "criterion": 8
+  },
+  {
+    "slug": "invoice-14-dg-october-20-2015-2015-10-18t20-32-55",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Invoice for translation services - routine admin",
+    "criterion": 8
+  },
+  {
+    "slug": "invoice-2-dg-jan-16-2015-1-2015-03-23t23-02-37",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Invoice document - routine admin",
+    "criterion": 8
+  },
+  {
+    "slug": "medication-list-3",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Medication list detailing cardiac and eye condition medications",
+    "criterion": 7
+  },
+  {
+    "slug": "newsletter-2021-1",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Community newsletter on property maintenance and family updates",
+    "criterion": 8
+  },
+  {
+    "slug": "record-of-conversation-when-updating-securityseptember-14-2015-09-14t22-02-15",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Technical support session notes - low archival value",
+    "criterion": 8
+  },
+  {
+    "slug": "rference-file",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Reference file index listing documents - filing key",
+    "criterion": 8
+  },
+  {
+    "slug": "st-paul-s-congregation-2",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Photograph of church gathering - minimal archival value",
+    "criterion": 8
+  },
+  {
+    "slug": "survey-questions",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Brief survey request - minimal content",
+    "criterion": 8
+  },
+  {
+    "slug": "waste-watch",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Instructions for garbage/recycling sorting - practical reference",
+    "criterion": 8
+  },
+  {
+    "slug": "white-agreement",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Home exchange agreement - personal arrangement document",
+    "criterion": 8
+  }
+]

@@ -1,0 +1,135 @@
+[
+  {
+    "slug": "15-life-at-little-branch",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected:    health information  ",
+    "criterion": 7
+  },
+  {
+    "slug": "16-jane-glendenning",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected:    health information  ",
+    "criterion": 7
+  },
+  {
+    "slug": "2004-card",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected:    health information  ",
+    "criterion": 7
+  },
+  {
+    "slug": "2009-notes-mum-and-dad",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected:    health information  ",
+    "criterion": 7
+  },
+  {
+    "slug": "2014-amended-2-agreement-2014-12-03t14-00-14",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected: phone numbers     ",
+    "criterion": 7
+  },
+  {
+    "slug": "2014-letter",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected:   insurance details health information  ",
+    "criterion": 7
+  },
+  {
+    "slug": "2015-christmas-letter-2015-12-08t18-23-18",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected:    health information  ",
+    "criterion": 7
+  },
+  {
+    "slug": "35",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected:    health information  ",
+    "criterion": 7
+  },
+  {
+    "slug": "friends-addresses-don",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected:      living address",
+    "criterion": 7
+  },
+  {
+    "slug": "glendinning-front-pages",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected: phone numbers     ",
+    "criterion": 7
+  },
+  {
+    "slug": "macnaughton-john-ward",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected:    health information  ",
+    "criterion": 7
+  },
+  {
+    "slug": "nancy-harter-2020",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected:    health information  ",
+    "criterion": 7
+  },
+  {
+    "slug": "neighbours-2023",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected: phone numbers     ",
+    "criterion": 7
+  },
+  {
+    "slug": "revised-friends-2",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected: phone numbers     ",
+    "criterion": 7
+  },
+  {
+    "slug": "roma-insert-2",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected:     financial details ",
+    "criterion": 7
+  },
+  {
+    "slug": "roma-insert-8-x-11-master",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected:     financial details ",
+    "criterion": 7
+  },
+  {
+    "slug": "sources-of-information",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected: phone numbers     ",
+    "criterion": 7
+  },
+  {
+    "slug": "to-do-2",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Low archival value: routine administrative content without historical or research significance",
+    "criterion": 8
+  },
+  {
+    "slug": "together-in-usa",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Potential private/sensitive information detected:    health information  ",
+    "criterion": 7
+  }
+]

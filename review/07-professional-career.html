@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review: Professional Career &amp; Consulting</title>
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+  .flag-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin: 0.8rem 0;
+    border-left: 4px solid var(--card-border);
+    transition: opacity 0.2s;
+  }
+  .flag-card.dimmed { opacity: 0.45; }
+  .flag-exclude { border-left-color: #c0392b; }
+  .flag-review { border-left-color: #e67e22; }
+  .flag-header {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .flag-check {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .flag-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #c0392b;
+  }
+  .flag-badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-exclude { background: #c0392b; color: #fff; }
+  .badge-review { background: #e67e22; color: #fff; }
+  .flag-criterion {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-size, .flag-garbage {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-garbage { color: #c0392b; }
+  .flag-card h3 {
+    margin: 0.3rem 0;
+    font-size: 1.1rem;
+  }
+  .flag-summary {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+  }
+  .flag-reason {
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0;
+  }
+  .theme-section {
+    margin: 2rem 0;
+  }
+  .theme-section h2 {
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+  .stats-bar {
+    display: flex;
+    gap: 2rem;
+    background: var(--sidebar-bg);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0 2rem;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .stats-bar .stat-num {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    columns: 2;
+    column-gap: 2rem;
+  }
+  .toc-list li {
+    padding: 0.3rem 0;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.95rem;
+  }
+  .toc-count {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  /* Sticky toolbar */
+  .review-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #1a1a2e;
+    border-bottom: 2px solid var(--accent, #e67e22);
+    padding: 0.7rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  .review-toolbar .toolbar-count {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff;
+    min-width: 140px;
+  }
+  .review-toolbar .toolbar-count .num { color: var(--accent, #e67e22); }
+  .review-toolbar button {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: #2a2a4a;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: -apple-system, sans-serif;
+    transition: background 0.15s;
+  }
+  .review-toolbar button:hover { background: #3a3a6a; }
+  .review-toolbar button.primary {
+    background: #c0392b;
+    border-color: #c0392b;
+    color: #fff;
+  }
+  .review-toolbar button.primary:hover { background: #e74c3c; }
+  .toolbar-spacer { flex: 1; }
+</style>
+
+</head>
+<body>
+
+<div class="review-toolbar">
+  <span class="toolbar-count"><span class="num">0</span> of 0 selected for exclusion</span>
+  <span class="toolbar-spacer"></span>
+  <button id="select-all">Select All</button>
+  <button id="deselect-all">Deselect All</button>
+  <button id="download-exclusions" class="primary">Download Exclusions</button>
+</div>
+
+<header class="site-header">
+  <h1>Review: Professional Career &amp; Consulting</h1>
+  <div class="subtitle">40 documents flagged for review</div>
+</header>
+<main class="container">
+<div class="breadcrumb"><a href="index.html">Review Home</a> <span class="sep">&rsaquo;</span> Professional Career &amp; Consulting</div>
+<div class="stats-bar">
+  <div><span class="stat-num">40</span> flagged</div>
+  <div><span class="stat-num">27</span> exclude</div>
+  <div><span class="stat-num">13</span> review</div>
+</div>
+<div class="flag-card flag-exclude" data-slug="00-working-documents-front-pages" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="00-working-documents-front-pages" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/00-working-documents-front-pages.html" target="_blank">00-working-documents-front-pages</a></h3>
+  <p class="flag-summary">Index and organizational guide to Don's working papers on education, including PowerPoints, occasional papers, and Education 20/20 materials. Shows scope of his educational research and teaching development work spanning learning models, system analysis, and change management.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains phone numbers of individuals</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="1-educinnov" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="1-educinnov" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/1-educinnov.html" target="_blank">1-educinnov</a></h3>
+  <p class="flag-summary">Brief contact list for education innovation contacts including Dr. John Kershaw (forestry/21st century learning), Donald Savoie (UdeM, Moncton), and Michael Fox (Mt. A, Sackville). Appears to be external education contacts relevant to broader research or collaboration interests.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains phone numbers of individuals</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="11-dacum-template-blank" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="11-dacum-template-blank" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">13 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/11-dacum-template-blank.html" target="_blank">11-dacum-template-blank</a></h3>
+  <p class="flag-summary">DACUM Template                  </p>
+  <p class="flag-reason"><strong>Reason:</strong> Content is only the text &quot;DACUM Template&quot; -- 14 characters with no substantive material. This is a blank template file with no content beyond its label.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2009-9-paper-trails" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2009-9-paper-trails" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/2009-9-paper-trails.html" target="_blank">2009-9-paper-trails</a></h3>
+  <p class="flag-summary">Dated March 8, 2009, Don alerts the Executive Committee to gaps in organizational record-keeping, particularly regarding personnel and board operations. He notes insufficient documentation of staff matters (pay increases, maternity leave, performance reviews, benefits) and missing board/committee minutes, especially those of the Investment Committee. Don emphasizes that directors bear responsibility for record maintenance even when others handle physical filing and recommends a comprehensive board review of record-keeping practices. His concerns about auditor scrutiny and organizational accountability demonstrate his attention to governance and documentation standards.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains personnel evaluations or disciplinary records</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2009-roma-brochure" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2009-roma-brochure" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">15 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/2009-roma-brochure.html" target="_blank">2009-roma-brochure</a></h3>
+  <p class="flag-summary">An invitation to the 2009 Annual Gala Fundraising Dinner held at Roma at Three Rivers Historic Site (July 31, 2009). Lists Don Glendenning as &quot;Dr. Don Glendenning, C.M.&quot; (Order of Canada) among 12 Board directors. Details a formal dinner with entertainment by Queens County Fiddlers, demonstrating the Foundation's fundraising approach and Don's public leadership role.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains phone numbers of individuals</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2015-2-dacum-2015-02-05t19-53-14" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2015-2-dacum-2015-02-05t19-53-14" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/2015-2-dacum-2015-02-05t19-53-14.html" target="_blank">2015-2-dacum-2015-02-05t19-53-14</a></h3>
+  <p class="flag-summary">Invitation to Education 20/20 presentation on DACUM (Developing a Curriculum), a competency-based curriculum development methodology developed by Robert E. Adams in the late 1960s. Don Glendenning, along with Lawrence Coffin, Alice Taylor, and Gaylene Smith, led the discussion at the Haviland Club on February 12, 2015. Reflects Don's deep expertise in DACUM methodology, which he championed throughout his international consulting career.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Exact duplicate of slug &quot;2015-2-dacum&quot;: identical content_preview and content_length (1,227 chars). The timestamp in the filename indicates this is an auto-saved backup of the same file.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2018-rotary-ask" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2018-rotary-ask" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/2018-rotary-ask.html" target="_blank">2018-rotary-ask</a></h3>
+  <p class="flag-summary">Grant request letter dated October 26, 2018, to Rotary Literacy Foundation requesting financial assistance for numeracy skills mapping project addressing employment/further education transition for young Islanders. Proposes that improved mathematics skills require multi-sector approaches beyond schools alone. Argues analysis benefits multiple users: program planning, qualifications, position descriptions, curriculum development, achievement levels. Emphasizes transparent development process. Acknowledges existing math skill analyses while noting absence of numeracy-specific analysis. Shows Don's focus on practical, evidence-based solutions to specific educational gaps.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains phone numbers of individuals</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2019-update-3" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2019-update-3" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/2019-update-3.html" target="_blank">2019-update-3</a></h3>
+  <p class="flag-summary">**Written by Don.** Dated August 24, 2019, this extended update covers delayed road repairs due to construction industry demand, erosion consultation with PEI Environment Department, a tree removal project at the corner involving Don's family (Mike and Janet), and outlines alternatives for corner reconstruction including stump removal options. Shows Don's practical approach to problem-solving and family involvement in community maintenance.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains phone numbers of individuals</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2019-update-3b" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2019-update-3b" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/2019-update-3b.html" target="_blank">2019-update-3b</a></h3>
+  <p class="flag-summary">**Written by Don.** Dated October 16, 2019, this is a revised version of the previous update with similar content but slightly different wording and refinements. It maintains the same core information about road repair delays, erosion management with Sherry Pelkey, the corner tree removal with family help (Mike and Janet), and stump removal considerations.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains phone numbers of individuals</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="3-4-3-h-windsor-proposal-docx-2016-01-10t01-24-40" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="3-4-3-h-windsor-proposal-docx-2016-01-10t01-24-40" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">21 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/3-4-3-h-windsor-proposal-docx-2016-01-10t01-24-40.html" target="_blank">3-4-3-h-windsor-proposal-docx-2016-01-10t01-24-40</a></h3>
+  <p class="flag-summary">Two related Windsor Foundation grant requests from Education 20/20 Inc.: one titled &quot;Defining the Preparedness Gap&quot; and another &quot;Curriculum Map,&quot; both dated November 15, 2015. Both seek support for developing curriculum maps and achievement level frameworks to address the mismatch between skills young people learn and those needed for postsecondary study or employment. The proposals emphasize using DACUM methodology and Bloom's taxonomy, with a total budget of $13,775.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains personal street addresses</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="4-14-comm-invest-tor" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="4-14-comm-invest-tor" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/4-14-comm-invest-tor.html" target="_blank">4-14-comm-invest-tor</a></h3>
+  <p class="flag-summary">Investment Committee terms of reference establishing composition (minimum 5 members, 2 directors including chair, community members) and responsibilities including strategy development, ensuring public trust positioning, asset growth, allocation recommendations, and performance review. Documents Don's commitment to professional investment stewardship and community representation in financial decision-making.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains personnel evaluations or disciplinary records</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="46-2016-11-16-no-46-challenge" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="46-2016-11-16-no-46-challenge" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">21 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/46-2016-11-16-no-46-challenge.html" target="_blank">46-2016-11-16-no-46-challenge</a></h3>
+  <p class="flag-summary">Glendenning reflects on educational reform as &quot;challenge rather than accomplishment,&quot; citing UNICEF's 2000 &quot;Quality in Education&quot; report. Two key characteristics remain problematic: relevant curricula/materials and trained teachers using child-centered approaches in well-managed schools. Despite decades of discussion, students still taught in age-level groups, irrelevant content persists, and school-to-postsecondary transitions remain problematic. He discusses Quebec's three-fold school mission: knowledge imparting, social development fostering, and qualification assurance—providing a clear, measurable role for public schools.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains personnel evaluations or disciplinary records</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="agric-names-in-word" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="agric-names-in-word" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">13 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/agric-names-in-word.html" target="_blank">agric-names-in-word</a></h3>
+  <p class="flag-summary">Word document compilation of agricultural heritage contacts with names, locations, phone numbers, and company affiliations. Contains partial list of farmers, equipment enthusiasts, and agricultural professionals across PEI. Demonstrates Don's systematic approach to building and documenting community networks for the Agricultural Heritage Initiative.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains phone numbers of individuals</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="aumids" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="aumids" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">System/Software File</span>
+    <span class="flag-size">2 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/aumids.html" target="_blank">aumids</a></h3>
+  <p class="flag-summary">This is a Windows system configuration file containing Acer Quick Access application IDs. It appears to have been accidentally copied or backed up with Don's downloads. Not relevant to biographical research; represents technical system artifacts from the Windows PC backup.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Windows system configuration file containing Acer Quick Access application IDs -- two lines of technical application identifiers with no personal or professional significance to Don Glendenning.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="bell-contact-record" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="bell-contact-record" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/bell-contact-record.html" target="_blank">bell-contact-record</a></h3>
+  <p class="flag-summary">Don's detailed contact record for Claude and Bernice Bell maintained over 2006-2009. Notes: Claude (PEI roots, related to Norman Carruthers, former minister, Ontario Teachers Pension Fund background, pet devotee, supports youth music) and Dr. Bernice Bell (UPEI PhD in gerontology, environmental interests, Rotary Mentor award, seniors housing advocate, U of T social work professor, author). Joint interests include music (Bell Award), companion animals, heritage, and population change. Interaction timeline shows June 2006 first meeting, October 2008 (sister's estate), January 2009 meeting where &quot;decisions have now been made&quot; regarding estate giving. Demonstrates Don's meticulous relationship management and strategic donor cultivation tracking.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains phone numbers of individuals</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="bibliography-2016-04-09t22-42-19" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="bibliography-2016-04-09t22-42-19" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">2 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/bibliography-2016-04-09t22-42-19.html" target="_blank">bibliography-2016-04-09t22-42-19</a></h3>
+  <p class="flag-summary">Partial bibliography for the achievement levels project. Contains reference to Florida Standards Assessments achievement level cut scores document and placeholder entries. Appears to be an incomplete reference compilation for the proficiency levels research initiative.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains only one real reference URL followed by three nonsense placeholder entries (&quot;Yui&quot;, &quot;Dfgh&quot;, &quot;poi&quot;) -- this is an incomplete stub with no substantive bibliographic content.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="bio-notes-1" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="bio-notes-1" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/bio-notes-1.html" target="_blank">bio-notes-1</a></h3>
+  <p class="flag-summary">Professional resume-style biography nearly identical to earlier &quot;6-Bio notes-1.doc.&quot; Lists education credentials, career positions from 1947, Holland College founding presidency (1969-1987), and post-retirement consulting firm roles. Describes major projects: Canadian Restructured School Plan, community college reviews, technology impact studies, CIDA overseas missions, and occupational standards workshops. Includes contact information (address, phone, fax, email) and firm structure (Glendenning Educational Resources with Information House subsidiary). Document appears to cut off mid-sentence in Holland College section.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains phone numbers of individuals</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="d-8-3-qualification-authority-v2" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="d-8-3-qualification-authority-v2" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">15 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/d-8-3-qualification-authority-v2.html" target="_blank">d-8-3-qualification-authority-v2</a></h3>
+  <p class="flag-summary">Duplicate/revision of File 12 (Qualification Authority paper). Same date and content exploring labour mobility challenges in Canada and PEI, proposing independent qualification framework to bridge credentials-qualifications gap. Shows Don's iterative development of policy position on education and workforce readiness.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Duplicate of d-8-2-qualification-authority-v2: identical content_length (8410) and identical content preview — same Occasional Paper D-8 on qualification frameworks dated June 28, 2015; AI summary explicitly identifies it as a 'Duplicate/revision' with same content.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="de-organisation-chart-november-2022-accessible-word-version" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="de-organisation-chart-november-2022-accessible-word-version" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/de-organisation-chart-november-2022-accessible-word-version.html" target="_blank">de-organisation-chart-november-2022-accessible-word-version</a></h3>
+  <p class="flag-summary">This is an organizational chart for the Australian Department of Education (November 2022) showing reporting structures including the Office of the Secretary, Deputy Secretaries for Youth, Child Care, and Schools, and various branch divisions. The document includes names of current officials such as Dr Michele Bruniges (Secretary) and department heads. This is a third-party government document likely downloaded for reference in understanding organizational structures or for comparative education administration studies during Don's consulting career.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Australian Department of Education organizational chart from November 2022 — a third-party government accessibility document with no connection to Don's work, apparently downloaded for reference; AI summary confirms it is a 'third-party government document.'</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="evaluation" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="evaluation" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/evaluation.html" target="_blank">evaluation</a></h3>
+  <p class="flag-summary">A September 2004 performance review by Don of &quot;Katy&quot; (IAHSP Executive Director or staff member) addressed to Ken Gillis. Don assesses administrative skills, communications, fundraising, program operation, and personal qualities. He finds her improving in administrative and communication areas, notes her effectiveness with fundraising for a newcomer, and praises her commitment and interpersonal skills. Reflects Don's mentoring and administrative oversight capabilities.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains personnel evaluation of identified individual</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="invoice-25-may-26-2016-external-criteria" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="invoice-25-may-26-2016-external-criteria" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/invoice-25-may-26-2016-external-criteria.html" target="_blank">invoice-25-may-26-2016-external-criteria</a></h3>
+  <p class="flag-summary">Duplicate invoice with identical content to Invoice 25. This appears to be a duplicate file in the archive, likely a result of file management practices. Contains the same invoice for Bulletin no. 40, &quot;External Criteria.&quot;</p>
+  <p class="flag-reason"><strong>Reason:</strong> Exact duplicate of invoice-25-dg-may-26-2016-external-criteria: same invoice #25, same date (5/26/2016), same word count (3028), same translator, same content — AI summary explicitly identifies it as a duplicate.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="norton-antivirus-2006-key" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="norton-antivirus-2006-key" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">System/Software File</span>
+    <span class="flag-size">2 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/norton-antivirus-2006-key.html" target="_blank">norton-antivirus-2006-key</a></h3>
+  <p class="flag-summary">Norton AntiVirus 2006 product key and registration information for Carol Glendenning's computer. Technical reference document with software licensing details. No biographical relevance.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Software product key file for Norton AntiVirus 2006 on Carol Glendenning's PC — a saved license key text file with no biographical, professional, or personal significance to Don's work.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="points-of-view-2015-02-03t16-44-10" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="points-of-view-2015-02-03t16-44-10" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">7 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/points-of-view-2015-02-03t16-44-10.html" target="_blank">points-of-view-2015-02-03t16-44-10</a></h3>
+  <p class="flag-summary">*</p>
+  <p class="flag-reason"><strong>Reason:</strong> Duplicate of points-of-view: identical content_length (4469) and identical content preview; the timestamp in the filename indicates this is an auto-saved version of the same document.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="ratng-scl" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="ratng-scl" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">2 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/ratng-scl.html" target="_blank">ratng-scl</a></h3>
+  <p class="flag-summary">Duplicate or near-duplicate of File 2 (RATING.SC.doc), defining rating scales for competency assessment. Contains identical definition and characteristics. Suggests Don was organizing and possibly consolidating reference materials on standards development.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Exact duplicate of rating-sc: both contain the identical definition and characteristics of a rating scale with identical content_length (293 vs 296) and identical wording; the AI summary itself identifies this as a duplicate.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="speaking-notes-2016" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="speaking-notes-2016" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">2 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/speaking-notes-2016.html" target="_blank">speaking-notes-2016</a></h3>
+  <p class="flag-summary">Temporary file containing speaking notes from 2016. The file appears to be corrupted or in binary format, making full content recovery difficult. Given the date and context, these are likely professional speaking notes from Don's later career.</p>
+  <p class="flag-reason"><strong>Reason:</strong> This is a Word temporary file (tilde-prefixed filename) containing only 49 characters of binary/corrupted content: 'DonDonÔ(ÆÔ?5àP†»3j&amp;¯à{?6àMingLiU...' — no recoverable content exists.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="webinar-notes-1" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="webinar-notes-1" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/webinar-notes-1.html" target="_blank">webinar-notes-1</a></h3>
+  <p class="flag-summary">Duplicate of File 8/13. Another version of webinar design notes for the &quot;road of life&quot; educational framework, with identical content on learner complexities, purpose, barriers (health, poverty, addictions), and visual metaphors (stepping stones, community village, learning community resources).</p>
+  <p class="flag-reason"><strong>Reason:</strong> Duplicate of notes-about-webinar and webinar-notes: identical content_length (1502) and identical content preview; AI summary identifies it as a 'Duplicate of File 8/13.'</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="zdacum-hc-chronology" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="zdacum-hc-chronology" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/zdacum-hc-chronology.html" target="_blank">zdacum-hc-chronology</a></h3>
+  <p class="flag-summary">Historical chronology documenting Holland College's pioneering implementation of the DACUM (Developing a CUrriculum) methodology from 1970-1976. Key milestones include the first DACUM analysis in March 1970 (Electronics, with Bob Adams as facilitator), first student enrollment under DACUM model in July 1970 (Secretarial Arts), institution-wide adoption by September 1970, 1971 publication in Canadian Vocational Journal and staff presentations at provincial and out-of-province workshops, 1973 visit from Ohio Centre for Research in Vocational Education, 1974 introduction of DACUM to Ohio Centre staff by Lawrence Coffin, 1976 institutional assumption of all trade and occupational education responsibility and conversion to DACUM model, and 1976 development of staff training program. This document provides crucial evidence of Holland College's leadership under Glendenning in educational innovation and the DACUM model's development.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Exact duplicate of dacum-hc-chronology: identical content_length (1227) and identical content preview text about the DACUM chronology at Holland College from 1970–1976; slug prefix 'z' appears to be an organizational prefix only.</p>
+</div>
+<div class="flag-card flag-review" data-slug="citizenship-education-in-the-context-of-school-mathematics" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="citizenship-education-in-the-context-of-school-mathematics" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">22 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/citizenship-education-in-the-context-of-school-mathematics.html" target="_blank">citizenship-education-in-the-context-of-school-mathematics</a></h3>
+  <p class="flag-summary">University of Alberta academic paper by Elaine Simmt exploring mathematics education's role in citizenship education. Argues mathematics has potential to help students understand society and their role in shaping it. Examines mathematization of society (quantification, statistical thinking, mathematical modeling) and questions whether math education develops critical citizens who understand these invisible structures. Critiques traditional math instruction (facts/skills, right/wrong emphasis) as subverting citizenship goals. Proposes instructional approaches: variable-entry prompts encouraging problem-posing, demand for explanation/justification, mathematical conversations emphasizing collaboration and collective problem-solving. Positions math as essential to informed, active citizenship in mathematized society.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Full academic paper by Elaine Simmt of the University of Alberta with no connection to Don Glendenning -- not his writing, not addressed to him, and not about him. Appears to be a research reference Don saved.</p>
+</div>
+<div class="flag-card flag-review" data-slug="gallup-student-poll-measures-and-sample-questions" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="gallup-student-poll-measures-and-sample-questions" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/gallup-student-poll-measures-and-sample-questions.html" target="_blank">gallup-student-poll-measures-and-sample-questions</a></h3>
+  <p class="flag-summary">Article describing the Gallup Student Poll, an assessment tool requiring 10-15 minutes to complete. The poll measures three key dimensions: hope (energy and ability to achieve future goals), engagement (involvement and enthusiasm about school), and well-being (overall life satisfaction). The article provides sample questions for each dimension, including the &quot;ladder&quot; framework for measuring well-being on a 0-10 scale. Research indicates that &quot;hopeful&quot; students have higher GPAs and attendance rates, while engaged students perform better academically. The tool emphasizes how students' social and emotional lives affect academic performance.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Newspaper article by Lynh Bui describing the Gallup Student Poll — entirely third-party content with byline 'By Lynh Bui, Published: July 17' and no Don authorship or annotation visible.</p>
+</div>
+<div class="flag-card flag-review" data-slug="governance-eric-digest-141" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="governance-eric-digest-141" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">18 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/governance-eric-digest-141.html" target="_blank">governance-eric-digest-141</a></h3>
+  <p class="flag-summary">ERIC (Education Resources Information Center) digest by Ron Renchler on new school governance patterns. Examines why school governance is changing: state centralization reducing local board authority (only Manitoba boards retain local taxation rights), board amalgamations reducing trustee numbers, and increased provincial control over curriculum and standards. Discusses accountability challenges, particularly for minority and urban students. Reviews proposed governance models including public operation with experimental strategies, independent school operations, policy governance approaches, and distributed decision-making. Notes mayoral takeovers of urban districts. Concludes that while empirical evidence linking governance structure to achievement is limited, educators continue experimenting with structural changes.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Full-text ERIC Digest article by Ron Renchler (October 2000) on new patterns of school governance — clearly third-party content not authored by Don, though saved as reference material related to his governance work.</p>
+</div>
+<div class="flag-card flag-review" data-slug="governance-he-role-of-board-chairperson-in-a-nonprofit-organisation" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="governance-he-role-of-board-chairperson-in-a-nonprofit-organisation" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">31 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/governance-he-role-of-board-chairperson-in-a-nonprofit-organisation.html" target="_blank">governance-he-role-of-board-chairperson-in-a-nonprofit-organisation</a></h3>
+  <p class="flag-summary">Comprehensive guide on board chairperson responsibilities by Jean Roberts. Covers team leadership aspects including board member composition review, position tracking, and constitution compliance. Outlines critical Chairperson-CEO relationship requiring &quot;no surprises,&quot; confidentiality, accessibility, conflict resolution collaboration, and regular agenda review. Details chairing board meetings: proper convening, statutory compliance, agenda preparation, impartial conduct, end-of-meeting summaries. Lists chairperson powers including ruling on procedure, calling votes, accepting proxies, removing disorderly persons, adjourning meetings. Discusses &quot;Board talk&quot; categories and member responsibilities. Emphasizes chairperson's legal, moral, and ethical accountability for board member conduct and meeting management.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Comprehensive third-party guide by Jean Roberts (2007) on nonprofit board chairperson responsibilities — not authored by Don, with no clear annotation or connection to his specific work beyond general governance interest.</p>
+</div>
+<div class="flag-card flag-review" data-slug="grade-levels-profession-takes-lead-on-assessment-after-the-end-of-levels" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="grade-levels-profession-takes-lead-on-assessment-after-the-end-of-levels" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/grade-levels-profession-takes-lead-on-assessment-after-the-end-of-levels.html" target="_blank">grade-levels-profession-takes-lead-on-assessment-after-the-end-of-levels</a></h3>
+  <p class="flag-summary">Document addressing changes in educational assessment and grading systems, particularly regarding elimination of standardized grade levels. Discusses shift of assessment responsibility to educators/profession rather than centralized testing regimes. Addresses implications for student evaluation, teacher autonomy, and institutional approaches to measuring student achievement and progress.</p>
+  <p class="flag-reason"><strong>Reason:</strong> NAHT (UK school leaders union) press release/article on assessment reform — entirely third-party content from a UK organization with no Don authorship or visible annotation.</p>
+</div>
+<div class="flag-card flag-review" data-slug="island-wide-april-28" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="island-wide-april-28" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">3 KB</span>
+    <span class="flag-garbage">12.4% garbage</span>
+  </div>
+  <h3><a href="../07-professional-career/read/island-wide-april-28.html" target="_blank">island-wide-april-28</a></h3>
+  <p class="flag-summary">Agenda for an island-wide agricultural heritage meeting held April 28 at the Dutch Inn in Cornwall. Event includes presentations on virtual museum project, equipment inventory exchanges, and planning sessions led by Don, Tom Hall, and others. Demonstrates Don's role coordinating stakeholder engagement across PEI.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Event agenda for an agricultural heritage meeting at the Dutch Inn with a garbage_ratio of 0.1241 (highest in the batch) — content is recoverable but the high corruption ratio and specialized event agenda make this a borderline case for the professional career theme.</p>
+</div>
+<div class="flag-card flag-review" data-slug="math-tabulation-1" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="math-tabulation-1" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Machine-Generated Data</span>
+    <span class="flag-size">521 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/math-tabulation-1.html" target="_blank">math-tabulation-1</a></h3>
+  <p class="flag-summary">Extensive tabulation form for collecting and organizing 2016 mathematics survey responses. The document is structured as a data collection template with rows for each of the 127 mathematical competencies and columns for demographic categories (Student, Parent, Employee, Employer, Educator, Other). The framework allows for systematic recording of which respondent categories prioritize each competency level, creating a comprehensive database for analyzing mathematics skill importance across different stakeholder groups. This represents the infrastructure Don's team developed for rigorous, quantifiable assessment of educational needs.</p>
+  <p class="flag-reason"><strong>Reason:</strong> At 533KB this is primarily a blank tabulation template with spreadsheet-style rows and columns for 127 mathematical competencies and demographic categories — 61,739 characters of content length but mostly empty table structure with minimal narrative.</p>
+</div>
+<div class="flag-card flag-review" data-slug="maxims-f0r-teachers" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="maxims-f0r-teachers" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">7 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/maxims-f0r-teachers.html" target="_blank">maxims-f0r-teachers</a></h3>
+  <p class="flag-summary">This document contains 58 instructional maxims written by Bronson Alcott (transcendentalist educator) in 1826-1827 to guide teaching practice. The maxims emphasize teaching as a moral and ethical calling (&quot;with a sense of accountableness to the profession,&quot; &quot;as an agent of the Great Instructor&quot;), character formation, preparation of materials, respect for individual learning differences, inductive methods, and student-centered approaches. Key themes include: teaching through discovery and curiosity, learning from multiple sensory modalities, adapting to individual student needs, using encouragement rather than coercion, connecting learning to practical life applications, and fostering independent thinking. The maxims represent 19th-century progressive educational philosophy emphasizing pedagogy that respects students' dignity, intellectual capacity, and individual learning styles.</p>
+  <p class="flag-reason"><strong>Reason:</strong> 58 instructional maxims written by Bronson Alcott in 1826–1827 — entirely third-party historical content with no Don authorship or annotation; saved as reference material only.</p>
+</div>
+<div class="flag-card flag-review" data-slug="names-march-2007" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="names-march-2007" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Machine-Generated Data</span>
+    <span class="flag-size">14 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/names-march-2007.html" target="_blank">names-march-2007</a></h3>
+  <p class="flag-summary">Comprehensive contact list (March 2007) for Agricultural Heritage Project participants, including names, addresses, phone numbers, and company affiliations across PEI. Lists farmers, equipment dealers, equipment manufacturers, and corporate/foundation sponsors. Demonstrates the breadth of Don's community network and project stakeholder engagement.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Raw contact database export for the Agricultural Heritage Project — tabular data (FirstLastCompanyPEIAddr1PEICityPEIProvPEIPostalCode...) with no narrative, formatted as a machine-generated spreadsheet dump.</p>
+</div>
+<div class="flag-card flag-review" data-slug="oecd-autonomy" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="oecd-autonomy" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">14 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/oecd-autonomy.html" target="_blank">oecd-autonomy</a></h3>
+  <p class="flag-summary">OECD research document addressing educational policy and standards. Covers topics related to literacy, autonomy in education, and international educational benchmarks.</p>
+  <p class="flag-reason"><strong>Reason:</strong> OECD PISA research document (2011) on school autonomy and accountability — third-party institutional publication with no Don authorship or annotation; saved purely as reference material.</p>
+</div>
+<div class="flag-card flag-review" data-slug="op-man-amalgamating-school-boards-not-answer" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="op-man-amalgamating-school-boards-not-answer" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">18 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/op-man-amalgamating-school-boards-not-answer.html" target="_blank">op-man-amalgamating-school-boards-not-answer</a></h3>
+  <p class="flag-summary">Policy opinion piece examining school board amalgamation issues. Discusses effects of school board consolidation and challenges to effective educational administration.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Manitoba policy brief (March 2003) on school division amalgamation efficiency — entirely third-party content with no Don authorship, annotation, or PEI connection visible in content preview.</p>
+</div>
+<div class="flag-card flag-review" data-slug="post-sec-csm-how-higher-education-is-leading-us-astray" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="post-sec-csm-how-higher-education-is-leading-us-astray" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">15 KB</span>
+  </div>
+  <h3><a href="../07-professional-career/read/post-sec-csm-how-higher-education-is-leading-us-astray.html" target="_blank">post-sec-csm-how-higher-education-is-leading-us-astray</a></h3>
+  <p class="flag-summary">Bill Bonner's guest column critiquing higher education's value proposition, arguing that increased spending has not improved outcomes. The article compares educational spending across countries, noting the U.S. spends $8,000 per student annually versus Japan's $4,000, yet scores lower on achievement tests. Bonner argues that entrepreneurship and job creation come from dropouts like Steve Jobs and Bill Gates, and questions whether the emphasis on college education has harmed American economic dynamism. Contrasts real capitalism's &quot;creative destruction&quot; with government-backed education systems.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Guest column by Bill Bonner critiquing higher education — entirely third-party content with no Don authorship or annotation visible in the content preview; saved as reference material only.</p>
+</div>
+<div class="flag-card flag-review" data-slug="speed-of-change" data-theme="07-professional-career">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="speed-of-change" data-theme="07-professional-career"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">18 KB</span>
+    <span class="flag-garbage">1.1% garbage</span>
+  </div>
+  <h3><a href="../07-professional-career/read/speed-of-change.html" target="_blank">speed-of-change</a></h3>
+  <p class="flag-summary">Personal essay on technological disruption and social change, attributed to Udo Gollub. Discusses exponential growth in technology (digital cameras, AI, autonomous vehicles, 3D printing) and their impact on industries and employment. Critiques overoptimistic predictions while addressing real changes in education, health, energy, agriculture, and work.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Email forward attributed to Udo Gollub on technological disruption — appears to be a forwarded chain email with no Don authorship; content is entirely third-party and unrelated to his professional education work.</p>
+</div>
+</main>
+<footer class="site-footer">
+  <a href="../index.html">Archive Home</a>
+</footer>
+
+<script>
+(function() {
+  const STORAGE_KEY = 'archiveReviewSelections';
+
+  function loadState() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    } catch(e) { return {}; }
+  }
+
+  function saveState(state) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function updateCounts() {
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+    const checked = document.querySelectorAll('.flag-card input[type="checkbox"]:checked');
+    const countEl = document.querySelector('.toolbar-count');
+    if (countEl) {
+      countEl.innerHTML = '<span class="num">' + checked.length + '</span> of ' + boxes.length + ' selected for exclusion';
+    }
+  }
+
+  function applyDimming() {
+    document.querySelectorAll('.flag-card').forEach(function(card) {
+      const cb = card.querySelector('input[type="checkbox"]');
+      if (cb) card.classList.toggle('dimmed', !cb.checked);
+    });
+  }
+
+  function init() {
+    const state = loadState();
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+
+    // Restore saved state (overrides default checked/unchecked)
+    boxes.forEach(function(cb) {
+      const key = cb.dataset.theme + '/' + cb.dataset.slug;
+      if (key in state) cb.checked = state[key];
+    });
+
+    // Listen for changes
+    boxes.forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var st = loadState();
+        st[cb.dataset.theme + '/' + cb.dataset.slug] = cb.checked;
+        saveState(st);
+        updateCounts();
+        applyDimming();
+      });
+    });
+
+    applyDimming();
+    updateCounts();
+
+    // Select all / deselect all
+    var selAll = document.getElementById('select-all');
+    if (selAll) selAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = true; st[cb.dataset.theme + '/' + cb.dataset.slug] = true; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    var deselAll = document.getElementById('deselect-all');
+    if (deselAll) deselAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = false; st[cb.dataset.theme + '/' + cb.dataset.slug] = false; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    // Download exclusion list
+    var dlBtn = document.getElementById('download-exclusions');
+    if (dlBtn) dlBtn.addEventListener('click', function() {
+      var exclusions = [];
+      document.querySelectorAll('.flag-card input[type="checkbox"]:checked').forEach(function(cb) {
+        exclusions.push({ slug: cb.dataset.slug, theme: cb.dataset.theme });
+      });
+      var blob = new Blob([JSON.stringify(exclusions, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'exclusions.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

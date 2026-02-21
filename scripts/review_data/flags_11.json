@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "06-education-2020",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Microsoft Office temporary lock file (filename begins with ~$) containing only binary garbage data; the AI summary confirms 'Temporary system file with unreadable binary content.' No recoverable content.",
+    "criterion": 1
+  },
+  {
+    "slug": "dia-release-2",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Microsoft Office temporary lock file (filename begins with ~$) containing only corrupted binary data; the AI summary confirms it is a 'Temporary/backup file containing corrupted binary data' with no readable content.",
+    "criterion": 1
+  },
+  {
+    "slug": "2013-labels-set-for-5160-2014-11-28t14-30-43",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Mailing label file with garbage_ratio of 0.0871, well above the 0.05 threshold; the label formatting characters constitute a significant portion of the extracted text, indicating poor extraction quality.",
+    "criterion": 1
+  },
+  {
+    "slug": "2015-labels-set-for-5160-2015-12-06t16-23-53",
+    "theme": "11-personal-household",
+    "recommendation": "EXCLUDE",
+    "reason": "Mailing label file with garbage_ratio of 0.1019, well above the 0.05 threshold; same structural issue as the 2013 version — label formatting characters dominate the extracted text.",
+    "criterion": 1
+  },
+  {
+    "slug": "invoice-14-dg-october-20-2015-1-2015-10-18t20-36-03",
+    "theme": "11-personal-household",
+    "recommendation": "REVIEW",
+    "reason": "Appears to be an exact duplicate of 'invoice-14-dg-october-20-2015-2015-10-18t20-32-55': both are Invoice #14 from Rachelle Belair for translation of Newsletter no. 33, same amount ($35.00), same date, identical content_length (3009) and near-identical file size. The two files were saved only 3 minutes apart.",
+    "criterion": 4
+  },
+  {
+    "slug": "directors-register-6",
+    "theme": "11-personal-household",
+    "recommendation": "REVIEW",
+    "reason": "Near-exact duplicate of 'directors-register-5': both are titled 'Master list: January 15, 2018', have identical content previews, and near-identical file sizes (49,894 vs 49,837 bytes) and content lengths (4,799 vs 4,823 chars). Appears to be two saves of the same document.",
+    "criterion": 4
+  },
+  {
+    "slug": "from-the-desk-of",
+    "theme": "11-personal-household",
+    "recommendation": "REVIEW",
+    "reason": "Blank letterhead template for Don Glendenning as President of Education 20/20 Inc., containing only the organization's name and contact information repeated twice with no substantive content. Content is purely structural/formatting with no written material.",
+    "criterion": 2
+  },
+  {
+    "slug": "white-hassler-us-address",
+    "theme": "11-personal-household",
+    "recommendation": "REVIEW",
+    "reason": "Contains only a single mailing address (97 chars of content) for a board member Tom White-Hassler; the AI summary notes it is 'Not related to Don Glendenning; purely a reference document for an Education 20/20 Inc. director' with no narrative or personal connection.",
+    "criterion": 2
+  },
+  {
+    "slug": "filing-cabinet",
+    "theme": "11-personal-household",
+    "recommendation": "REVIEW",
+    "reason": "Contains only a bare list of filing category names (232 chars total content) with no substantive written material; functions as an internal office filing index rather than a document with archival content.",
+    "criterion": 2
+  }
+]

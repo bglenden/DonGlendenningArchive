@@ -1,0 +1,79 @@
+[
+  {
+    "slug": "13-letter-revised",
+    "theme": "03-family-genealogy",
+    "recommendation": "EXCLUDE",
+    "reason": "Microsoft Office temporary lock file (~$ prefix). Content is entirely binary garbage (content_length=49, size=1950 bytes). Title '~$13-Letter-revised' confirms it is an auto-generated temp file that was never meant to be a real document.",
+    "criterion": 1
+  },
+  {
+    "slug": "glendenning-big-cove",
+    "theme": "03-family-genealogy",
+    "recommendation": "EXCLUDE",
+    "reason": "Garbage ratio 0.1234 substantially exceeds the 0.05 threshold, indicating significant corruption or binary encoding artifacts. The document is a family group sheet from correspondent Irma Downing with heavily corrupted text.",
+    "criterion": 1
+  },
+  {
+    "slug": "glendenning-roots-complete-2015-10-10t16-59-01",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Enormous file (40,229,774 bytes / 40 MB) with binary encoding garbage at the start of the content_preview. The AI summary notes 'File appears corrupted with encoding issues.' The archive contains smaller, readable versions of the Glendenning Roots genealogical material (e.g. glendenning-2007-body at 334 KB). This bloated file is likely a corrupt or redundant version.",
+    "criterion": 1
+  },
+  {
+    "slug": "2010-1outline",
+    "theme": "03-family-genealogy",
+    "recommendation": "EXCLUDE",
+    "reason": "Near-exact duplicate of '2010-1d-glendenning-outline-all'. Both have identical content_length (104903) and garbage_ratio (0.0044), sizes differ by only 142 bytes (293773 vs 293915), and the content_preview openings are character-for-character identical. The sibling file '2010-1d-glendenning-outline-all' has the more complete and descriptive title.",
+    "criterion": 4
+  },
+  {
+    "slug": "notes2",
+    "theme": "03-family-genealogy",
+    "recommendation": "EXCLUDE",
+    "reason": "Confirmed exact duplicate of 'mail'. Both have identical content_length (1664) and identical content_preview text (confirmed character-by-character). Both cover the same Little Branch Post Office postmaster records. 'mail' is the larger, more complete file (5182 vs 4464 bytes) and has a more descriptive title.",
+    "criterion": 4
+  },
+  {
+    "slug": "2011-message",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "The AI summary explicitly describes this as a 'Duplicate/alternative version of 2011 Christmas message with same content but slight variations' relative to '2011-letter'. Likely redundant given the existence of the 2011-letter document.",
+    "criterion": 4
+  },
+  {
+    "slug": "2011-card-1",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "The AI summary states the document 'contains full text of 2011 Christmas letter message' and characterizes it as a 'Christmas card template or draft.' The same content exists in '2011-letter'. Likely redundant.",
+    "criterion": 4
+  },
+  {
+    "slug": "2012-reunion-elmer-and-jane",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Appears to be superseded by '2012-reunion-elmer-and-jane-minor-edit-2018', a revised 2018 edition of the same document covering the same biographical content about Elmer and Jane for the 2012 reunion. Sizes are very close (38748 vs 39216 bytes). The 2018 revision is likely the preferred, more complete version.",
+    "criterion": 4
+  },
+  {
+    "slug": "2014-agreement-with-charlottetown",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "The AI summary explicitly states 'This is NOT Don's personal document but a reference template showing the standard format for endowment agreements.' It describes the agreement for Dr. Marlene Bryenton's fund, not the Glendenning Family Fund. Don appears to have retained this as a reference template rather than as his own authored work.",
+    "criterion": 5
+  },
+  {
+    "slug": "family-of-dr-hesta",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "The AI summary explicitly states 'This document is NOT personally authored by Don but serves as a reference model' — it is a template letter for the Hesta MacDonald Fund, not authored by Don. Retained as a reference template rather than representing Don's own work or family history.",
+    "criterion": 5
+  },
+  {
+    "slug": "2009-plaque",
+    "theme": "03-family-genealogy",
+    "recommendation": "REVIEW",
+    "reason": "Very minimal content (content_length=317, size=2734 bytes). The AI summary describes it as 'Non-authored document (template/draft)' — just three variants of draft commemorative plaque text with almost no original biographical or genealogical substance.",
+    "criterion": 2
+  }
+]

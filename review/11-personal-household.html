@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review: Personal &amp; Household</title>
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+  .flag-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin: 0.8rem 0;
+    border-left: 4px solid var(--card-border);
+    transition: opacity 0.2s;
+  }
+  .flag-card.dimmed { opacity: 0.45; }
+  .flag-exclude { border-left-color: #c0392b; }
+  .flag-review { border-left-color: #e67e22; }
+  .flag-header {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .flag-check {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .flag-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #c0392b;
+  }
+  .flag-badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-exclude { background: #c0392b; color: #fff; }
+  .badge-review { background: #e67e22; color: #fff; }
+  .flag-criterion {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-size, .flag-garbage {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-garbage { color: #c0392b; }
+  .flag-card h3 {
+    margin: 0.3rem 0;
+    font-size: 1.1rem;
+  }
+  .flag-summary {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+  }
+  .flag-reason {
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0;
+  }
+  .theme-section {
+    margin: 2rem 0;
+  }
+  .theme-section h2 {
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+  .stats-bar {
+    display: flex;
+    gap: 2rem;
+    background: var(--sidebar-bg);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0 2rem;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .stats-bar .stat-num {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    columns: 2;
+    column-gap: 2rem;
+  }
+  .toc-list li {
+    padding: 0.3rem 0;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.95rem;
+  }
+  .toc-count {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  /* Sticky toolbar */
+  .review-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #1a1a2e;
+    border-bottom: 2px solid var(--accent, #e67e22);
+    padding: 0.7rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  .review-toolbar .toolbar-count {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff;
+    min-width: 140px;
+  }
+  .review-toolbar .toolbar-count .num { color: var(--accent, #e67e22); }
+  .review-toolbar button {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: #2a2a4a;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: -apple-system, sans-serif;
+    transition: background 0.15s;
+  }
+  .review-toolbar button:hover { background: #3a3a6a; }
+  .review-toolbar button.primary {
+    background: #c0392b;
+    border-color: #c0392b;
+    color: #fff;
+  }
+  .review-toolbar button.primary:hover { background: #e74c3c; }
+  .toolbar-spacer { flex: 1; }
+</style>
+
+</head>
+<body>
+
+<div class="review-toolbar">
+  <span class="toolbar-count"><span class="num">0</span> of 0 selected for exclusion</span>
+  <span class="toolbar-spacer"></span>
+  <button id="select-all">Select All</button>
+  <button id="deselect-all">Deselect All</button>
+  <button id="download-exclusions" class="primary">Download Exclusions</button>
+</div>
+
+<header class="site-header">
+  <h1>Review: Personal &amp; Household</h1>
+  <div class="subtitle">69 documents flagged for review</div>
+</header>
+<main class="container">
+<div class="breadcrumb"><a href="index.html">Review Home</a> <span class="sep">&rsaquo;</span> Personal &amp; Household</div>
+<div class="stats-bar">
+  <div><span class="stat-num">69</span> flagged</div>
+  <div><span class="stat-num">64</span> exclude</div>
+  <div><span class="stat-num">5</span> review</div>
+</div>
+<div class="flag-card flag-exclude" data-slug="0-contents-alphs" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="0-contents-alphs" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/0-contents-alphs.html" target="_blank">0-contents-alphs</a></h3>
+  <p class="flag-summary">A comprehensive alphabetical table of contents for Don's education framework binder, covering topics ranging from access and accountability to vision and teaching models. The extensive list demonstrates Don's systematic approach to examining education policy and his focus on core educational concepts like beliefs, clarity, collaboration, and community involvement.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Alphabetical table of contents - filing index</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="00-expense-claim-form-2016-04-11t12-59-14" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="00-expense-claim-form-2016-04-11t12-59-14" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">10 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/00-expense-claim-form-2016-04-11t12-59-14.html" target="_blank">00-expense-claim-form-2016-04-11t12-59-14</a></h3>
+  <p class="flag-summary">An expense claim form submitted by Don Glendenning on behalf of Education 20/20 Inc. documenting office supply purchases (copy paper, clips, frames), photocopying services, mailing costs, and legal advice totaling $314.67. This routine administrative document reflects Don's ongoing management of the education advocacy organization.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Routine expense claim form - administrative paperwork</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="00-file-finder" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="00-file-finder" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">6 KB</span>
+    <span class="flag-garbage">1.4% garbage</span>
+  </div>
+  <h3><a href="../11-personal-household/read/00-file-finder.html" target="_blank">00-file-finder</a></h3>
+  <p class="flag-summary">Office filing classification system for Education 20/20 Inc. documents, organized into numbered categories (100-series) covering administration, planning, correspondence, technology, and graphics. Includes references to brochures, donation pages, proposals, and governance files. Demonstrates Don's systematic document management approach.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Office filing classification system - administrative index</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="00-files-at-cottage" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="00-files-at-cottage" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/00-files-at-cottage.html" target="_blank">00-files-at-cottage</a></h3>
+  <p class="flag-summary">Inventory of Education 20/20 Inc. temporary files stored at cottage location, organized by filing cabinet and desktop contents. Lists topics including awards, OBE (Outcomes-Based Education), workshops, proficiency assessments, and surveys. Reflects Don's distributed document management system and active participation in education initiatives during mid-2010s.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Inventory of temporary files stored at cottage - filing record</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="05-changing-policy" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="05-changing-policy" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/05-changing-policy.html" target="_blank">05-changing-policy</a></h3>
+  <p class="flag-summary">Policy document outlining procedures for amending or reversing Board policies. Policies may be withdrawn, amended, or reversed; however, any reversal requires discussion at minimum two Board meetings prior to voting. This procedural safeguard ensures careful deliberation and prevents hasty policy changes, reflecting Don's commitment to thoughtful governance and institutional stability.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Generic policy document on amending policies - administrative template</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="06-education-2020" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="06-education-2020" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">2 KB</span>
+    <span class="flag-garbage">2.0% garbage</span>
+  </div>
+  <h3><a href="../11-personal-household/read/06-education-2020.html" target="_blank">06-education-2020</a></h3>
+  <p class="flag-summary">Temporary system file with unreadable binary content. Filename suggests Issue 06 of Education 20/20 newsletter, but content cannot be extracted.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Microsoft Office temporary lock file (filename begins with ~$) containing only binary garbage data; the AI summary confirms 'Temporary system file with unreadable binary content.' No recoverable content.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="08-insufficient-policy" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="08-insufficient-policy" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/08-insufficient-policy.html" target="_blank">08-insufficient-policy</a></h3>
+  <p class="flag-summary">Policy authorizing Chair (or future Executive Director) to act on behalf of CFPEI when urgent action is required and directors have not provided sufficient policy guidance. Such decisions are subject to Board review and should prompt development of new or amended policies. This pragmatic safeguard acknowledges operational realities while ensuring accountability and organizational learning from emergency decisions.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Generic policy document - administrative template</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="09-charitable-receipts-for-expenses" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="09-charitable-receipts-for-expenses" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/09-charitable-receipts-for-expenses.html" target="_blank">09-charitable-receipts-for-expenses</a></h3>
+  <p class="flag-summary">Policy clarifying conditions for issuing charitable receipts for Foundation-related expenses. Recipients must provide expense receipts; travel claims require approved mileage documentation; receipts cannot be issued for member-provided services. This policy protects the foundation's charitable status while fairly recognizing volunteer contributions to organizational activities.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Generic policy on charitable receipts - administrative</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="1-3-5-draft-questions" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="1-3-5-draft-questions" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/1-3-5-draft-questions.html" target="_blank">1-3-5-draft-questions</a></h3>
+  <p class="flag-summary">Survey design document with draft questions for employer survey on high school roles and student preparation. Includes questions about preparedness of newly-hired graduates in key skill areas (math, writing, reading, communications). Demonstrates Education 20/20's data collection methods for understanding employer perspectives on education.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Draft survey questions template</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="1-graph-health-delivery-2" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="1-graph-health-delivery-2" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">13 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/1-graph-health-delivery-2.html" target="_blank">1-graph-health-delivery-2</a></h3>
+  <p class="flag-summary">Health Delivery System diagram (Graph 1) showing healthcare ecosystem structure. Person at center surrounded by Family, Family Doctor, Medical Specialists, Walk-in Clinic, and Hospitals. Additional categories include Allied Health (Audiologist, Optometrist, Dentist), Professional Organizations (Heart and Stroke, Diabetes, Cancer Society, CNIB), Health Stores (Pharmacy, Emergency Medical, Diagnostic services), Auxiliaries (Home care, Long term care), Fitness &amp; Recreation, and Media. Parallel structure to education delivery diagram, demonstrating Don's systems analysis approach applied to health sector.
+- **Key People**: None explicitly mentioned
+- **Key Organizations**: Heart and Stroke, Diabetes Canada, Cancer Society, CNIB (Canadian National Institute for the Blind)
+- **Tags**: PROFESSIONAL, OTHER
+- **Eulogy Relevance**: MEDIUM - Shows Don's analytical systems-thinking methodology applied beyond education to healthcare, indicating broader intellectual approach to institutional design.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Health system diagram - no personal medical data</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="11-elections" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="11-elections" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/11-elections.html" target="_blank">11-elections</a></h3>
+  <p class="flag-summary">Policy governing Director election and terms. Directors are elected at annual meetings for three-year terms with re-election eligibility, serve no more than two consecutive uninterrupted terms, and continue until the next annual meeting following term expiration. The Board appoints interim directors for vacancies with ratification at subsequent annual meetings. This structure balances leadership continuity with democratic renewal.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Generic policy on director elections - administrative</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="12-types-of-funds" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="12-types-of-funds" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/12-types-of-funds.html" target="_blank">12-types-of-funds</a></h3>
+  <p class="flag-summary">Comprehensive policy describing nine fund types available to donors through CFPEI: Un-restricted funds giving foundation full discretion; Restricted funds for named agencies; Advised funds where donors suggest grants; Interest funds limited to donor-identified areas; Scholarships/Bursaries; Managed funds for other charities; Agency funds restricted to specified organizations; Memorial funds; Flow-through funds; and Project funds. This taxonomy reflects the foundation's sophisticated approach to accommodating diverse donor intentions while maintaining administrative clarity.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Policy describing fund types for donors - administrative reference</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="14-director-attendance" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="14-director-attendance" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/14-director-attendance.html" target="_blank">14-director-attendance</a></h3>
+  <p class="flag-summary">Policy establishing attendance expectations for CFPEI Directors at Board meetings and Foundation functions. Directors must attend all Board meetings or inform the Chair of unavoidable absences; absence from more than three consecutive meetings may result in removal until circumstances permit regular attendance. Directors are also expected to maintain reasonable attendance at Foundation events. This accountability measure supports organizational continuity and Director engagement.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Generic policy on director attendance - administrative</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2-directory-of-lot-owners" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2-directory-of-lot-owners" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/2-directory-of-lot-owners.html" target="_blank">2-directory-of-lot-owners</a></h3>
+  <p class="flag-summary">A directory listing lot owners at Glenway (a residential development), with addresses and phone numbers. Don and Carol Glendenning are listed as owners of Lot 10 (Civic #147), and Carol Glendenning alone owns Lots 13 and 20. This reflects Don's personal real estate holdings and community connections in the Stratford, PEI area.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Directory listing lot owners with addresses and phone numbers</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2008-3-10-year-direction" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2008-3-10-year-direction" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/2008-3-10-year-direction.html" target="_blank">2008-3-10-year-direction</a></h3>
+  <p class="flag-summary">A brief January 8, 2008 memorandum clarifying Canada Revenue Agency (CRA) requirements for charitable giving. Don documents that Marla's consultation with a CRA officer confirmed that &quot;10-year directions are required for all donations to endowments.&quot; This brief but important note illustrates Don's attention to regulatory compliance and legal requirements governing charitable operations, ensuring CFPEI remained within statutory frameworks.</p>
+  <p class="flag-reason"><strong>Reason:</strong> CRA requirements for charitable giving</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2013-board-list" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2013-board-list" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">2 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/2013-board-list.html" target="_blank">2013-board-list</a></h3>
+  <p class="flag-summary">Board of directors list for Education 20/20 Inc. as of December 2013. Shows Don Glendenning as President with other officers including Bill Whelan (Vice President) and Alice Taylor (Secretary-Treasurer). Demonstrates Don's prominent leadership role in the community foundation.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Board of directors list with contact information</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2013-labels-set-for-5160-2014-11-28t14-30-43" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2013-labels-set-for-5160-2014-11-28t14-30-43" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">17 KB</span>
+    <span class="flag-garbage">8.7% garbage</span>
+  </div>
+  <h3><a href="../11-personal-household/read/2013-labels-set-for-5160-2014-11-28t14-30-43.html" target="_blank">2013-labels-set-for-5160-2014-11-28t14-30-43</a></h3>
+  <p class="flag-summary">A mailing list for Christmas cards containing addresses of family members and friends across Canada, the United States, and internationally. The list reflects Don's extensive network of personal and family relationships built throughout his life and career.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Mailing label file with garbage_ratio of 0.0871, well above the 0.05 threshold; the label formatting characters constitute a significant portion of the extracted text, indicating poor extraction quality.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2014-directors-add-dob" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2014-directors-add-dob" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/2014-directors-add-dob.html" target="_blank">2014-directors-add-dob</a></h3>
+  <p class="flag-summary">Updated administrative directory of Education 20/20 Inc. directors with contact information and dates of birth. Confirms Don Glendenning's residence at 62 Queen Elizabeth Drive, Charlottetown, and occupation as retired educator. Routine governance documentation without narrative content.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Directors directory with dates of birth and addresses</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2015-2-directors-register-2015-05-27t18-56-48" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2015-2-directors-register-2015-05-27t18-56-48" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">51 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/2015-2-directors-register-2015-05-27t18-56-48.html" target="_blank">2015-2-directors-register-2015-05-27t18-56-48</a></h3>
+  <p class="flag-summary">Directors Register for Education 2020 Inc. tracking board membership from 2012 onward. Shows Don Glendenning as founding director (July 18, 2012) with Alice Taylor, Eileen Conway-Martin, and others. Documents governance structure and directorship changes through 2016.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Board members directory</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2015-cra-questions-2" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2015-cra-questions-2" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/2015-cra-questions-2.html" target="_blank">2015-cra-questions-2</a></h3>
+  <p class="flag-summary">Detailed notes from Oct 19, 2015 CRA conversation with Mezaun Baksh. CRA requested elaboration on multiple organizational activities. Notable: Don Glendenning notes receipt of October rejection letter from Baksh stating organization did not meet requirements, despite earlier supportive conversations. Deadline noted as December 6, 2015.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Detailed CRA conversation notes with specific organizational details</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2015-directors-add-dob" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2015-directors-add-dob" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/2015-directors-add-dob.html" target="_blank">2015-directors-add-dob</a></h3>
+  <p class="flag-summary">Administrative directory of Education 20/20 Inc. directors with contact information and dates of birth. Don Glendenning listed as retired educator at 62 Queen Elizabeth Drive, Charlottetown. Standard governance record without narrative content.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Directors directory with dates of birth and addresses</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2015-labels-set-for-5160-2015-12-06t16-23-53" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2015-labels-set-for-5160-2015-12-06t16-23-53" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">15 KB</span>
+    <span class="flag-garbage">10.2% garbage</span>
+  </div>
+  <h3><a href="../11-personal-household/read/2015-labels-set-for-5160-2015-12-06t16-23-53.html" target="_blank">2015-labels-set-for-5160-2015-12-06t16-23-53</a></h3>
+  <p class="flag-summary">Updated 2015 Christmas mailing list with addresses of family and friends, including updated contact information for some individuals compared to 2013 version. This demonstrates Don's consistent practice of maintaining relationships and sharing holiday greetings across his wide personal network.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Mailing label file with garbage_ratio of 0.1019, well above the 0.05 threshold; same structural issue as the 2013 version — label formatting characters dominate the extracted text.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2024-haritable" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2024-haritable" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/2024-haritable.html" target="_blank">2024-haritable</a></h3>
+  <p class="flag-summary">Income tax planning notes for Don and Carol's 2024 tax return, documenting various income sources including pensions, OAS, RRIF, and investment dividends. Lists charitable donations to organizations including Queen Elizabeth Hospital, Community Foundation of PEI, Presbyterian churches, and various community organizations. Notes indicate joint filing with Carol claiming medical expenses and Blue Cross insurance premiums.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Income tax planning notes with specific income sources (pensions, OAS), tax year details</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="3-household" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="3-household" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/3-household.html" target="_blank">3-household</a></h3>
+  <p class="flag-summary">Household financial records spanning 1957-1960 documenting Don and Carol's early married life in Moncton. Includes rent ($85-90/month at 735 Mountain Road), utility costs, car payments, medical expenses, grocery purchases, insurance premiums (TV rental $25/month, fur coat insurance), poll tax, and personal items. Monthly gross pay shown as $435 (rising to $455 by March 1959). Provides concrete detail on household economics during Don's early teaching career before moving to graduate studies and federal employment. Not personally narrative but an administrative record of financial life.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Routine household financial records (rent, utilities) 1957-1960</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="3-property-description" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="3-property-description" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/3-property-description.html" target="_blank">3-property-description</a></h3>
+  <p class="flag-summary">Technical property description of Glendenning cottage at McInnis Point. Details include lot number (Subdivision Lot #10), approximately 1.25 acres in southwest corner of point. Original cottage built 1972 (30' x 22'), with addition circa 1988 (22' x 24'). Both structures feature stained siding and asphalt shingles. Shed measures approximately 10' x 16' (stained). Documents electrical infrastructure including underground cable from cottage external outlet to light pole and shed main switch. Practical property record compiled by Don for documentation purposes.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Technical property description - legal/administrative document</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="4-yard" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="4-yard" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/4-yard.html" target="_blank">4-yard</a></h3>
+  <p class="flag-summary">Comprehensive guide to cottage yard maintenance documenting Don's knowledge of property upkeep. Details include garden composition (rich soil, perennials: asparagus, rhubarb, strawberries, herbs) and wind erosion challenges. Documents shared stair management with Galloways (treated lumber, removable railing attachment with lag screws, annual repositioning due to erosion). Describes shed maintenance (set on blocks, front corner sag issues, staining every 3-5 years). Provides detailed operating instructions for three mowers: old rototiller (engine beyond repair), Lawnboy (mixed gas), and John Deere (purchased 2008, requires regular maintenance and grease checks). Extensive practical knowledge compiled by Don reflecting decades of property stewardship and attention to detail.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Cottage yard maintenance guide - practical reference</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="6-health-1" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="6-health-1" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">10 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/6-health-1.html" target="_blank">6-health-1</a></h3>
+  <p class="flag-summary">Health Delivery System diagram outlining comprehensive framework with multiple component categories: Allied Health (audiologist, optometrist, dentist), Professional Organizations (Heart and Stroke, Diabetes, Cancer Society, CNIB), clinical care providers (medical specialists, family doctors, hospitals, walk-in clinics), health stores (pharmacy), diagnostic and emergency services, long-term care facilities, fitness and recreation, home care services, auxiliaries, and media components. Represents holistic view of health system organization.
+- **Key People**: None identified
+- **Key Organizations**: Heart and Stroke Foundation, Diabetes Canada, Canadian Cancer Society, CNIB
+- **Tags**: PROFESSIONAL, EDUCATION
+- **Eulogy Relevance**: MEDIUM - Demonstrates Donald's systems thinking approach to understanding complex health delivery networks</p>
+  <p class="flag-reason"><strong>Reason:</strong> Health system diagram without personal medical data</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="7-services" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="7-services" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/7-services.html" target="_blank">7-services</a></h3>
+  <p class="flag-summary">A detailed contact directory for cottage services dated May 18, 2024, listing service providers: Kevin Murnahan (lawn), Sterling MacLeod (plumber), Pius McInnis (carpentry), Merrill Gillis (window repairs), and various others. The document shows Don's organized approach to maintaining relationships with local PEI service providers. Many of these names appear repeatedly throughout his cottage documents, indicating long-standing professional relationships and trust.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contact directory for cottage service providers</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="app-4-church-officials" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="app-4-church-officials" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/app-4-church-officials.html" target="_blank">app-4-church-officials</a></h3>
+  <p class="flag-summary">Appendix listing church officials and leadership positions within St. Paul's Presbyterian Church organization.</p>
+  <p class="flag-reason"><strong>Reason:</strong> List of church officials and positions - directory</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="birthday-carols-birthday-80" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="birthday-carols-birthday-80" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/birthday-carols-birthday-80.html" target="_blank">birthday-carols-birthday-80</a></h3>
+  <p class="flag-summary">Event planning notes for Carol's 80th birthday celebration, outlining two potential celebration scenarios: a public afternoon gathering at the Glenway cottage with neighbors and friends, and family celebrations at flexible times. The document shows Don's attention to family relationships and community connections.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Event planning notes for birthday celebration</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="black-notes-professor-roger-d" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="black-notes-professor-roger-d" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/black-notes-professor-roger-d.html" target="_blank">black-notes-professor-roger-d</a></h3>
+  <p class="flag-summary">Don's personal contact notes on Professor Roger D. F. Black of UPEI, documenting his background (single, brother in UK, likely estate planning to brother), art collection, and potential philanthropic interests (art gallery, education scholarships, exhibition support). Notes reveal Don's detailed approach to donor cultivation and understanding of prospects' values and resources.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Personal contact notes with private background on individual</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="chores" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="chores" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/chores.html" target="_blank">chores</a></h3>
+  <p class="flag-summary">Don describes two categories of farm chores: watering cattle at noon during winter school breaks (requiring arduous trips to the frozen brook under Miller's Bridge, chipping ice for the cows to drink) and feeding orphan piglets using a recipe from his brother Walter's record book. These memories illustrate the rigorous daily labor of farm life and Don's childhood responsibilities, including school absences sanctioned by teachers for farm work.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Farm chore descriptions - minimal historical context</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="church-organizations" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="church-organizations" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/church-organizations.html" target="_blank">church-organizations</a></h3>
+  <p class="flag-summary">Documentation of organizations within St. Paul's Church structure, including missionary societies and youth groups.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Documentation of church organizations - structural listing</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="cva-ecec2" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="cva-ecec2" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/cva-ecec2.html" target="_blank">cva-ecec2</a></h3>
+  <p class="flag-summary">Lists CVA presidents, board members, and staff from 1962-63 through 1967-68. Records organizational structure and leadership positions across years. **Don's name does not appear in this excerpt**, though he was active in CVA during this period.</p>
+  <p class="flag-reason"><strong>Reason:</strong> List of organizational officials from 1962-1968 - directory</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="dia-release-2" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="dia-release-2" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">2 KB</span>
+    <span class="flag-garbage">1.7% garbage</span>
+  </div>
+  <h3><a href="../11-personal-household/read/dia-release-2.html" target="_blank">dia-release-2</a></h3>
+  <p class="flag-summary">Temporary/backup file (indicated by ~$ prefix) containing corrupted binary data. Not readable or substantive. Appears to be a working copy of a media release document but contains only system metadata indicating Don was the last user.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Microsoft Office temporary lock file (filename begins with ~$) containing only corrupted binary data; the AI summary confirms it is a 'Temporary/backup file containing corrupted binary data' with no readable content.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="directors-address-andterms-2018-2" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="directors-address-andterms-2018-2" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">23 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/directors-address-andterms-2018-2.html" target="_blank">directors-address-andterms-2018-2</a></h3>
+  <p class="flag-summary">Official Directors Register documenting board membership for Education 20/20 Inc. as of March 2018. Shows Don Glendenning's tenure beginning July 18, 2012 with no end date recorded, indicating continued service. A formal governance record tracking director appointments and terms.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Board members contact directory</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="directors-addresses" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="directors-addresses" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/directors-addresses.html" target="_blank">directors-addresses</a></h3>
+  <p class="flag-summary">Address list of Education 20/20 Inc. board of directors (&quot;Current Directors-2&quot;). Don Glendenning is listed with his residence and contact information. A standard governance document used for board administration and correspondence.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Board members contact directory</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="directors-addresses-2015" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="directors-addresses-2015" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">10 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/directors-addresses-2015.html" target="_blank">directors-addresses-2015</a></h3>
+  <p class="flag-summary">Contact directory for Education 20/20 Inc. board of directors as of June 2015. Don Glendenning is listed with residence address and email. Standard administrative document for board communications and records.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Board members contact directory</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="directors-addresses-and-terms-2019" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="directors-addresses-and-terms-2019" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">23 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/directors-addresses-and-terms-2019.html" target="_blank">directors-addresses-and-terms-2019</a></h3>
+  <p class="flag-summary">Directors Register documenting board composition and appointment dates for Education 20/20 Inc. as of May 2019. Don Glendenning is recorded with start date July 18, 2012 and no end date. Formal governance document tracking director tenure and board administration.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Board members contact directory</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="directors-register" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="directors-register" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">49 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/directors-register.html" target="_blank">directors-register</a></h3>
+  <p class="flag-summary">Master list Directors Register (version 3) for Education 20/20 Inc. as of July 2016. Documents Don Glendenning's appointment as director beginning July 18, 2012 with no end date. Formal board governance document tracking director tenure and institutional records.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Board members directory</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="directors-register-4" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="directors-register-4" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">39 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/directors-register-4.html" target="_blank">directors-register-4</a></h3>
+  <p class="flag-summary">Official Directors Register for Education 20/20 Inc. tracking board membership and appointment/cessation dates as of July 2016. Shows Don Glendenning as director with appointment date July 18, 2012 and no termination date. Comprehensive governance record of board composition.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Board members directory</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="directors-register-5" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="directors-register-5" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">49 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/directors-register-5.html" target="_blank">directors-register-5</a></h3>
+  <p class="flag-summary">Master list Directors Register for Education 20/20 Inc. as of January 2018, tracking director appointments and tenure. Don Glendenning appears with start date July 18, 2012 and no end date showing ongoing service. Standard board governance and compliance documentation.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Board members directory</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="dob-1-current-directors-dob" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="dob-1-current-directors-dob" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">13 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/dob-1-current-directors-dob.html" target="_blank">dob-1-current-directors-dob</a></h3>
+  <p class="flag-summary">Board directory for Education 20/20 Inc. as of June 2015 listing directors with their dates of birth. Records Don Glendenning's birthdate as September 8, 1929. Administrative personnel record for organizational files.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Directors list with dates of birth</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="dob-2-current-directors-dob" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="dob-2-current-directors-dob" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">13 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/dob-2-current-directors-dob.html" target="_blank">dob-2-current-directors-dob</a></h3>
+  <p class="flag-summary">Board directory for Education 20/20 Inc. as of July 2015 with directors' names, addresses, and dates of birth. Lists Don Glendenning with birthdate September 8, 1929. Standard organizational administrative record.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Directors list with dates of birth</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="dob-3-2015-current-with-dob" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="dob-3-2015-current-with-dob" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">10 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/dob-3-2015-current-with-dob.html" target="_blank">dob-3-2015-current-with-dob</a></h3>
+  <p class="flag-summary">Directors list for Education 20/20 Inc. as of July 2015 showing current board members with addresses and email contacts. Don Glendenning appears as director. Administrative governance document for board communication and records.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Directors list with dates of birth</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="dob-4-2016-1-current-directors-dob" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="dob-4-2016-1-current-directors-dob" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">13 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/dob-4-2016-1-current-directors-dob.html" target="_blank">dob-4-2016-1-current-directors-dob</a></h3>
+  <p class="flag-summary">Current directors list for Education 20/20 Inc. from July 2016 showing board members with birth dates. Don Glendenning is recorded with birthdate September 8, 1929. Routine administrative and personnel documentation for governance purposes.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Directors list with dates of birth</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="dob-5-2019-1-current-directors-dob" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="dob-5-2019-1-current-directors-dob" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">12 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/dob-5-2019-1-current-directors-dob.html" target="_blank">dob-5-2019-1-current-directors-dob</a></h3>
+  <p class="flag-summary">Board directory for Education 20/20 Inc. (2019 update) listing directors with biographical information. Don Glendenning appears with birthdate September 8, 1929, showing his continued membership. Administrative governance document for organizational records.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Directors list with dates of birth</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="dob-6-2019-1-current-directors-dob" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="dob-6-2019-1-current-directors-dob" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">14 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/dob-6-2019-1-current-directors-dob.html" target="_blank">dob-6-2019-1-current-directors-dob</a></h3>
+  <p class="flag-summary">Directors register for Education 20/20 Inc. (labeled 2019-1) with current board members and biographical data. Don Glendenning is listed with birthdate September 8, 1929. Administrative document tracking board composition and member information.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Directors list with dates of birth</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="dob-7-june-2019" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="dob-7-june-2019" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">13 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/dob-7-june-2019.html" target="_blank">dob-7-june-2019</a></h3>
+  <p class="flag-summary">Directors roster for Education 20/20 Inc. dated June 2019 with member names, addresses, and dates of birth. Records Don Glendenning's birthdate as September 8, 1929. Administrative governance document for organizational records and director information.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Directors list with dates of birth</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="first-meeting" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="first-meeting" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/first-meeting.html" target="_blank">first-meeting</a></h3>
+  <p class="flag-summary">Email exchange from January 10, 2006 between Don Glendenning and Margaret Ching regarding participants at the first Souris fund meeting. Lists community members who attended (Walter Bruce, Joanne Chisholm, Clarence and Thelma MacDonald, Carol Fraser, Tommy Kickham, George Mullally, Allen MacPhee) and others contacted. Don proposes mailing newsletters to keep community members engaged. Personal note about winter weather conditions reflects the Atlantic Canada context.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Email on meeting participants - routine correspondence</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="fund-4-technology" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="fund-4-technology" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">12 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/fund-4-technology.html" target="_blank">fund-4-technology</a></h3>
+  <p class="flag-summary">Proposes a Youth Technology Camp intended to increase awareness of technology in use across Souris industries. The document provides demographic context on Souris: population 1,053 (declining 10% since 2011), median household income $42,368 (vs. PEI $61,163), with 28.6% residents over 65 and lower educational attainment than provincial average. Education 20/20 identified technology as a critical need through community consultations. The camp would provide 25 hours of instruction (five hours daily for five days in July 2018), with morning site visits and afternoon reporting/reflection. Objectives include community understanding, technology awareness, communication skills, and educational resource expansion. Demonstrates Don's data-informed approach and commitment to rural community development.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Tax/income documentation</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="grocery-list-2" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="grocery-list-2" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">8 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/grocery-list-2.html" target="_blank">grocery-list-2</a></h3>
+  <p class="flag-summary">Detailed household grocery and meal planning list organized by category (dairy, breakfast, produce, meat/fish, drinks, bakery, other items). Includes prepared meal options (Mac and cheese, Beef Wellington, Chicken Dumplings) and beverages. Reflects household dietary preferences and meal planning practices. Multiple copies exist with minor variations.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Household grocery and meal planning list</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="grocerym-m" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="grocerym-m" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/grocerym-m.html" target="_blank">grocerym-m</a></h3>
+  <p class="flag-summary">Abbreviated meal and menu planning section listing stovetop recipes and meat/fish options. Appears to be extracted from a larger grocery list. Shows the household's interest in diverse cuisine and meal preparation.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Abbreviated meal planning and menu list</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="invite-2014-10-23t22-53-12" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="invite-2014-10-23t22-53-12" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/invite-2014-10-23t22-53-12.html" target="_blank">invite-2014-10-23t22-53-12</a></h3>
+  <p class="flag-summary">Planning sheet for a five-session &quot;Know your education system&quot; invitational study group led by Education 20/20. Each session featured presentations from education officials followed by open discussion, limited to 20 people per session. Topics included system overview, grading practices, statistics, curriculum determination, and school visits. The format reflects Don's collaborative and educational leadership approach in fostering community understanding of education systems.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Planning sheet for study group sessions - meeting logistics</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="invoice-14-dg-october-20-2015-2015-10-18t20-32-55" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="invoice-14-dg-october-20-2015-2015-10-18t20-32-55" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/invoice-14-dg-october-20-2015-2015-10-18t20-32-55.html" target="_blank">invoice-14-dg-october-20-2015-2015-10-18t20-32-55</a></h3>
+  <p class="flag-summary">This invoice from Rachelle Bélair bills Don Glendenning for translation services of Newsletter no. 33 on Achievement Levels (394 words) at 1.5 hours for $35.00. The document reflects ongoing translation support for Don's Education 20/20 bilingual newsletter publication efforts.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Invoice for translation services - routine admin</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="invoice-2-dg-jan-16-2015-1-2015-03-23t23-02-37" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="invoice-2-dg-jan-16-2015-1-2015-03-23t23-02-37" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/invoice-2-dg-jan-16-2015-1-2015-03-23t23-02-37.html" target="_blank">invoice-2-dg-jan-16-2015-1-2015-03-23t23-02-37</a></h3>
+  <p class="flag-summary">Invoice from Don Glendenning
+Education 20/20 Inc.
+PO Box 624, 101 Kent St.
+Charlottetown, PE  C1A 1M0 dated Invoice 2 DG jan 16 2015 (1)@2015-03-23T23;02;37.docx for translation services.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Invoice document - routine admin</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="medication-list-3" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="medication-list-3" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/medication-list-3.html" target="_blank">medication-list-3</a></h3>
+  <p class="flag-summary">An updated medication record from 2014 showing continued management of cardiac and eye conditions with the same medications as 2011, including a note on May 2, 2014 about reconsidering dosage adjustments due to insurance and travel considerations.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Medication list detailing cardiac and eye condition medications</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="newsletter-2021-1" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="newsletter-2021-1" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/newsletter-2021-1.html" target="_blank">newsletter-2021-1</a></h3>
+  <p class="flag-summary">Don's newsletter from Glenway Estates community documenting spring activities, property maintenance, family updates, and community connections. References visits with Reid Lea and Brenda McInnis, Susanne Jones's cottage, and survey work. Shows Don's ongoing engagement with community property management and social connections.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Community newsletter on property maintenance and family updates</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="record-of-conversation-when-updating-securityseptember-14-2015-09-14t22-02-15" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="record-of-conversation-when-updating-securityseptember-14-2015-09-14t22-02-15" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/record-of-conversation-when-updating-securityseptember-14-2015-09-14t22-02-15.html" target="_blank">record-of-conversation-when-updating-securityseptember-14-2015-09-14t22-02-15</a></h3>
+  <p class="flag-summary">A transcript of a remote technical support session where Don received computer security updates from support representative Francis Q., documenting connection logs and brief dialogue from a 2-hour session. Don appended a note clarifying that his only statement was &quot;I'm in your hands,&quot; correcting the conversation record.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Technical support session notes - low archival value</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="rference-file" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="rference-file" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/rference-file.html" target="_blank">rference-file</a></h3>
+  <p class="flag-summary">This is Don's reference file index listing key PEI educational policy and institutional documents including the Education Act, strategic plans, council memberships, department structures, and principal council information. The document shows Don's systematic approach to tracking and organizing current educational policy information and institutional resources.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Reference file index listing documents - filing key</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="st-paul-s-congregation-2" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="st-paul-s-congregation-2" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+    <span class="flag-garbage">1.1% garbage</span>
+  </div>
+  <h3><a href="../11-personal-household/read/st-paul-s-congregation-2.html" target="_blank">st-paul-s-congregation-2</a></h3>
+  <p class="flag-summary">A photograph of young people at St. Paul's Church following Christmas service, probably 1956, including Don's siblings Lillian and Margaret Glendenning and extended family connections. The image documents Don's family community and church social life in his young adulthood.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Photograph of church gathering - minimal archival value</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="survey-questions" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="survey-questions" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/survey-questions.html" target="_blank">survey-questions</a></h3>
+  <p class="flag-summary">Brief survey request from Don Glendenning soliciting feedback from award program participants (Gail Lecky, Shirley Jay, Jaime Cole, Janet Needham Payne, Kelly Gillis) regarding previous awards experiences. Questions address award focus, nomination process efficiency, publicity/announcement strategies, and other improvements. The informal, personable tone—signed &quot;Enjoy this beautiful weather, Don Glendenning&quot;—reveals his approachable leadership style and genuine interest in stakeholder input for continuous program improvement.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Brief survey request - minimal content</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="waste-watch" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="waste-watch" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/waste-watch.html" target="_blank">waste-watch</a></h3>
+  <p class="flag-summary">Detailed instructions on sorting garbage, compost, and recyclables for the Island Waste Watch Commission. Specifies green carts for compostible materials, black carts for non-recyclables, blue bags for newspapers and cans. Demonstrates Don's attention to detail in preparing guides for exchange guests and awareness of environmental responsibility.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Instructions for garbage/recycling sorting - practical reference</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="white-agreement" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="white-agreement" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Low Archival Value</span>
+    <span class="flag-size">6 KB</span>
+    <span class="flag-garbage">1.1% garbage</span>
+  </div>
+  <h3><a href="../11-personal-household/read/white-agreement.html" target="_blank">white-agreement</a></h3>
+  <p class="flag-summary">An August 2005 Homelink exchange agreement between Don and Carol Glendenning and Boyce White from Gadsden, Alabama. Don and Carol planned to visit Panama City Beach, Florida (February 2005), while White stayed at their Charlottetown home. Document includes contact information and exchange terms for use of home, automobile, and utilities.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Home exchange agreement - personal arrangement document</p>
+</div>
+<div class="flag-card flag-review" data-slug="directors-register-6" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="directors-register-6" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">49 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/directors-register-6.html" target="_blank">directors-register-6</a></h3>
+  <p class="flag-summary">Directors Register for Education 20/20 Inc. (version 6) as of January 2018, documenting board composition with appointment and cessation dates. Don Glendenning listed with appointment July 18, 2012, no termination recorded. Administrative record of board governance.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Near-exact duplicate of 'directors-register-5': both are titled 'Master list: January 15, 2018', have identical content previews, and near-identical file sizes (49,894 vs 49,837 bytes) and content lengths (4,799 vs 4,823 chars). Appears to be two saves of the same document.</p>
+</div>
+<div class="flag-card flag-review" data-slug="filing-cabinet" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="filing-cabinet" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">2 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/filing-cabinet.html" target="_blank">filing-cabinet</a></h3>
+  <p class="flag-summary">Organizational filing index for Education 20/20 Inc. office records, listing categories including Clippings, Incorporation, Correspondence, Accounts, Annual Reports, and IT files. Provides insight into the administrative organization of Don's education initiative but contains no substantive content.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains only a bare list of filing category names (232 chars total content) with no substantive written material; functions as an internal office filing index rather than a document with archival content.</p>
+</div>
+<div class="flag-card flag-review" data-slug="from-the-desk-of" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="from-the-desk-of" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">6 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/from-the-desk-of.html" target="_blank">from-the-desk-of</a></h3>
+  <p class="flag-summary">Letterhead template for Don Glendenning's correspondence as President of Education 20/20 Inc., featuring his name and the organization's contact information. Demonstrates his active leadership of the organization and formal communication practices.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Blank letterhead template for Don Glendenning as President of Education 20/20 Inc., containing only the organization's name and contact information repeated twice with no substantive content. Content is purely structural/formatting with no written material.</p>
+</div>
+<div class="flag-card flag-review" data-slug="invoice-14-dg-october-20-2015-1-2015-10-18t20-36-03" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="invoice-14-dg-october-20-2015-1-2015-10-18t20-36-03" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../11-personal-household/read/invoice-14-dg-october-20-2015-1-2015-10-18t20-36-03.html" target="_blank">invoice-14-dg-october-20-2015-1-2015-10-18t20-36-03</a></h3>
+  <p class="flag-summary">Invoice from Don Glendenning
+Education 20/20 Inc.
+PO Box 624, 101 Kent St.
+Charlottetown, PE  C1A 1M0 dated Invoice 14 DG october 20 2015 (1)@2015-10-18T20;36;03.docx for translation services.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Appears to be an exact duplicate of 'invoice-14-dg-october-20-2015-2015-10-18t20-32-55': both are Invoice #14 from Rachelle Belair for translation of Newsletter no. 33, same amount ($35.00), same date, identical content_length (3009) and near-identical file size. The two files were saved only 3 minutes apart.</p>
+</div>
+<div class="flag-card flag-review" data-slug="white-hassler-us-address" data-theme="11-personal-household">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="white-hassler-us-address" data-theme="11-personal-household"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">2 KB</span>
+    <span class="flag-garbage">1.0% garbage</span>
+  </div>
+  <h3><a href="../11-personal-household/read/white-hassler-us-address.html" target="_blank">white-hassler-us-address</a></h3>
+  <p class="flag-summary">Contact information for Tom White-Hassler, a board member, showing a U.S. address in Guilford, Connecticut. Not related to Don Glendenning; purely a reference document for an Education 20/20 Inc. director.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains only a single mailing address (97 chars of content) for a board member Tom White-Hassler; the AI summary notes it is 'Not related to Don Glendenning; purely a reference document for an Education 20/20 Inc. director' with no narrative or personal connection.</p>
+</div>
+</main>
+<footer class="site-footer">
+  <a href="../index.html">Archive Home</a>
+</footer>
+
+<script>
+(function() {
+  const STORAGE_KEY = 'archiveReviewSelections';
+
+  function loadState() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    } catch(e) { return {}; }
+  }
+
+  function saveState(state) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function updateCounts() {
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+    const checked = document.querySelectorAll('.flag-card input[type="checkbox"]:checked');
+    const countEl = document.querySelector('.toolbar-count');
+    if (countEl) {
+      countEl.innerHTML = '<span class="num">' + checked.length + '</span> of ' + boxes.length + ' selected for exclusion';
+    }
+  }
+
+  function applyDimming() {
+    document.querySelectorAll('.flag-card').forEach(function(card) {
+      const cb = card.querySelector('input[type="checkbox"]');
+      if (cb) card.classList.toggle('dimmed', !cb.checked);
+    });
+  }
+
+  function init() {
+    const state = loadState();
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+
+    // Restore saved state (overrides default checked/unchecked)
+    boxes.forEach(function(cb) {
+      const key = cb.dataset.theme + '/' + cb.dataset.slug;
+      if (key in state) cb.checked = state[key];
+    });
+
+    // Listen for changes
+    boxes.forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var st = loadState();
+        st[cb.dataset.theme + '/' + cb.dataset.slug] = cb.checked;
+        saveState(st);
+        updateCounts();
+        applyDimming();
+      });
+    });
+
+    applyDimming();
+    updateCounts();
+
+    // Select all / deselect all
+    var selAll = document.getElementById('select-all');
+    if (selAll) selAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = true; st[cb.dataset.theme + '/' + cb.dataset.slug] = true; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    var deselAll = document.getElementById('deselect-all');
+    if (deselAll) deselAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = false; st[cb.dataset.theme + '/' + cb.dataset.slug] = false; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    // Download exclusion list
+    var dlBtn = document.getElementById('download-exclusions');
+    if (dlBtn) dlBtn.addEventListener('click', function() {
+      var exclusions = [];
+      document.querySelectorAll('.flag-card input[type="checkbox"]:checked').forEach(function(cb) {
+        exclusions.push({ slug: cb.dataset.slug, theme: cb.dataset.theme });
+      });
+      var blob = new Blob([JSON.stringify(exclusions, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'exclusions.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

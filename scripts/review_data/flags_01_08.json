@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "99-rating-scale",
+    "theme": "01-autobiography",
+    "recommendation": "EXCLUDE",
+    "reason": "Near-exact duplicate of '99-2-rating-scale' (both are Open Education No. 99, February 20, 2020, with the same handyman/rating-scale content and Ontario math curriculum discussion). The slug '99-2-rating-scale' is the larger file (5,559 bytes vs 5,044 bytes) and appears to be the more complete version; this one has only minor wording differences and no additional substance.",
+    "criterion": 4
+  },
+  {
+    "slug": "bertrand-russell",
+    "theme": "01-autobiography",
+    "recommendation": "REVIEW",
+    "reason": "A forwarded email from Tom White-Hassler to Don (and two others) sharing a Maria Popova blog post reproducing Bertrand Russell's 'Liberal Decalogue.' The substantive content is entirely third-party (Russell's 1951 NYT Magazine piece and Popova's commentary), not Don's writing. While it shows Don's intellectual interests and correspondence circle, it is essentially a third-party publication forwarded to him rather than personal correspondence.",
+    "criterion": 5
+  }
+]

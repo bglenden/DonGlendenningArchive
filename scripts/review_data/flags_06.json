@@ -1,0 +1,107 @@
+[
+  {
+    "slug": "4-education-delivery",
+    "theme": "06-speeches",
+    "recommendation": "EXCLUDE",
+    "reason": "garbage_ratio of 0.338, far exceeding the 0.05 threshold. The content is a corrupted visual diagram consisting almost entirely of whitespace and layout characters with minimal readable text.",
+    "criterion": 1
+  },
+  {
+    "slug": "traditional-subjects",
+    "theme": "06-speeches",
+    "recommendation": "EXCLUDE",
+    "reason": "garbage_ratio of 0.0889 exceeds the 0.05 threshold, and content_length is only 180 characters — just a title and two bullet points with no substantive narrative.",
+    "criterion": 1
+  },
+  {
+    "slug": "return-5160",
+    "theme": "06-speeches",
+    "recommendation": "EXCLUDE",
+    "reason": "Mailing label sheet consisting entirely of Don Glendenning's home address repeated roughly 25 times. No substantive content whatsoever — this is a printer label template.",
+    "criterion": 2
+  },
+  {
+    "slug": "12-road-of-life-0119-1-2016-02-03t00-39-11",
+    "theme": "06-speeches",
+    "recommendation": "EXCLUDE",
+    "reason": "Content_length of only 160 characters — the entire document is a list of six life roles and a 'Road of Life' label. No substantive content beyond a slide caption.",
+    "criterion": 2
+  },
+  {
+    "slug": "statistics",
+    "theme": "06-speeches",
+    "recommendation": "EXCLUDE",
+    "reason": "Content_length of 190 characters — the document is only a table of contents listing statistical categories with no actual data or narrative. No substantive content.",
+    "criterion": 2
+  },
+  {
+    "slug": "16-content",
+    "theme": "06-speeches",
+    "recommendation": "REVIEW",
+    "reason": "Content_length of only 199 characters with garbage_ratio of 0.0251. The document is an eight-item list of early childhood development domains with no context or narrative — borderline stub.",
+    "criterion": 2
+  },
+  {
+    "slug": "community-fund-for-canada",
+    "theme": "06-speeches",
+    "recommendation": "EXCLUDE",
+    "reason": "Standard boilerplate administrative acknowledgment guidelines from the Community Fund for Canada's 150th grant program, not Don's personal writing. This is a third-party administrative document with no Don authorship.",
+    "criterion": 5
+  },
+  {
+    "slug": "launch-keuper-remarks",
+    "theme": "06-speeches",
+    "recommendation": "REVIEW",
+    "reason": "Remarks written and delivered by John Keuper (son of Dr. Charles Keuper), not by Don. The summary confirms 'a Keuper family member' authored the text. Don organized the event but did not write this speech.",
+    "criterion": 5
+  },
+  {
+    "slug": "montague-steve-s-notes",
+    "theme": "06-speeches",
+    "recommendation": "REVIEW",
+    "reason": "Discussion notes authored by Steve McQuaid (CFPEI Vice President), not by Don Glendenning. Don organized the Montague workshop, but McQuaid wrote these facilitation notes.",
+    "criterion": 5
+  },
+  {
+    "slug": "d-gov-t-of-pei",
+    "theme": "06-speeches",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of 'd-gov-t-of-pei-2014-11-10t04-19-45' — both are the November 5, 2014 presentation to PEI Government with identical content_length (6480) and identical content preview.",
+    "criterion": 4
+  },
+  {
+    "slug": "minister-brown-and-notes2015",
+    "theme": "06-speeches",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of 'minister-brown-and-notes2015-2015-11-23t14-16-15' — both document the November 23, 2015 meeting with Minister Brown with identical content_length (2142) and identical content preview.",
+    "criterion": 4
+  },
+  {
+    "slug": "notes-for-chair-20",
+    "theme": "06-speeches",
+    "recommendation": "EXCLUDE",
+    "reason": "Near-exact duplicate of 'notes-for-chair-1-20' — both have identical content_length (1654) and nearly word-for-word identical content previews for the Preparedness-2 background notes.",
+    "criterion": 4
+  },
+  {
+    "slug": "probus-notes-rev-douglas-smith",
+    "theme": "06-speeches",
+    "recommendation": "REVIEW",
+    "reason": "Near-duplicate of 'rev-douglas-smith-my-notes' — both are speaking notes for the January 16, 2013 Charlottetown Women's Probus Club on Rev. Douglas Smith, with identical content_length (4160) and nearly identical content previews.",
+    "criterion": 4
+  },
+  {
+    "slug": "10-leaders",
+    "theme": "06-speeches",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of '2019-party-leaders-outline' — both are the August 28, 2019 Haviland Club party leaders framework presentation with identical content_length (292) and identical content preview.",
+    "criterion": 4
+  },
+  {
+    "slug": "2-b-framework",
+    "theme": "06-speeches",
+    "recommendation": "REVIEW",
+    "reason": "Content_length of only 289 characters — a minimal webinar framework diagram listing life roles and support services with no narrative. Borderline stub that adds little beyond other framework documents.",
+    "criterion": 2
+  }
+]

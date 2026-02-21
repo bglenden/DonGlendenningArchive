@@ -1,0 +1,93 @@
+[
+  {
+    "slug": "00-working-documents-front-pages",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains phone numbers of individuals",
+    "criterion": 7
+  },
+  {
+    "slug": "1-educinnov",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains phone numbers of individuals",
+    "criterion": 7
+  },
+  {
+    "slug": "2009-9-paper-trails",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains personnel evaluations or disciplinary records",
+    "criterion": 7
+  },
+  {
+    "slug": "2009-roma-brochure",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains phone numbers of individuals",
+    "criterion": 7
+  },
+  {
+    "slug": "2018-rotary-ask",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains phone numbers of individuals",
+    "criterion": 7
+  },
+  {
+    "slug": "2019-update-3",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains phone numbers of individuals",
+    "criterion": 7
+  },
+  {
+    "slug": "2019-update-3b",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains phone numbers of individuals",
+    "criterion": 7
+  },
+  {
+    "slug": "3-4-3-h-windsor-proposal-docx-2016-01-10t01-24-40",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains personal street addresses",
+    "criterion": 7
+  },
+  {
+    "slug": "4-14-comm-invest-tor",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains personnel evaluations or disciplinary records",
+    "criterion": 7
+  },
+  {
+    "slug": "46-2016-11-16-no-46-challenge",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains personnel evaluations or disciplinary records",
+    "criterion": 7
+  },
+  {
+    "slug": "agric-names-in-word",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains phone numbers of individuals",
+    "criterion": 7
+  },
+  {
+    "slug": "bell-contact-record",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains phone numbers of individuals",
+    "criterion": 7
+  },
+  {
+    "slug": "bio-notes-1",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains phone numbers of individuals",
+    "criterion": 7
+  }
+]

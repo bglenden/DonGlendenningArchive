@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review: Holland College &amp; Institutional Legacy</title>
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+  .flag-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin: 0.8rem 0;
+    border-left: 4px solid var(--card-border);
+    transition: opacity 0.2s;
+  }
+  .flag-card.dimmed { opacity: 0.45; }
+  .flag-exclude { border-left-color: #c0392b; }
+  .flag-review { border-left-color: #e67e22; }
+  .flag-header {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .flag-check {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .flag-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #c0392b;
+  }
+  .flag-badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-exclude { background: #c0392b; color: #fff; }
+  .badge-review { background: #e67e22; color: #fff; }
+  .flag-criterion {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-size, .flag-garbage {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-garbage { color: #c0392b; }
+  .flag-card h3 {
+    margin: 0.3rem 0;
+    font-size: 1.1rem;
+  }
+  .flag-summary {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+  }
+  .flag-reason {
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0;
+  }
+  .theme-section {
+    margin: 2rem 0;
+  }
+  .theme-section h2 {
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+  .stats-bar {
+    display: flex;
+    gap: 2rem;
+    background: var(--sidebar-bg);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0 2rem;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .stats-bar .stat-num {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    columns: 2;
+    column-gap: 2rem;
+  }
+  .toc-list li {
+    padding: 0.3rem 0;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.95rem;
+  }
+  .toc-count {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  /* Sticky toolbar */
+  .review-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #1a1a2e;
+    border-bottom: 2px solid var(--accent, #e67e22);
+    padding: 0.7rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  .review-toolbar .toolbar-count {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff;
+    min-width: 140px;
+  }
+  .review-toolbar .toolbar-count .num { color: var(--accent, #e67e22); }
+  .review-toolbar button {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: #2a2a4a;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: -apple-system, sans-serif;
+    transition: background 0.15s;
+  }
+  .review-toolbar button:hover { background: #3a3a6a; }
+  .review-toolbar button.primary {
+    background: #c0392b;
+    border-color: #c0392b;
+    color: #fff;
+  }
+  .review-toolbar button.primary:hover { background: #e74c3c; }
+  .toolbar-spacer { flex: 1; }
+</style>
+
+</head>
+<body>
+
+<div class="review-toolbar">
+  <span class="toolbar-count"><span class="num">0</span> of 0 selected for exclusion</span>
+  <span class="toolbar-spacer"></span>
+  <button id="select-all">Select All</button>
+  <button id="deselect-all">Deselect All</button>
+  <button id="download-exclusions" class="primary">Download Exclusions</button>
+</div>
+
+<header class="site-header">
+  <h1>Review: Holland College &amp; Institutional Legacy</h1>
+  <div class="subtitle">14 documents flagged for review</div>
+</header>
+<main class="container">
+<div class="breadcrumb"><a href="index.html">Review Home</a> <span class="sep">&rsaquo;</span> Holland College &amp; Institutional Legacy</div>
+<div class="stats-bar">
+  <div><span class="stat-num">14</span> flagged</div>
+  <div><span class="stat-num">11</span> exclude</div>
+  <div><span class="stat-num">3</span> review</div>
+</div>
+<div class="flag-card flag-exclude" data-slug="2014-employers-have-choices" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2014-employers-have-choices" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/2014-employers-have-choices.html" target="_blank">2014-employers-have-choices</a></h3>
+  <p class="flag-summary">Don notes that employers no longer rely solely on high school diplomas as hiring criteria, seeking assurance of basic math and communication skills. He proposes an independent assessment service where individuals could have skills tested, with results useful for both job seekers and employers. He references existing testing services at Holland College and Workplace Learning PEI, noting that Western Canadian employers already require PEI workers to take pre-screening tests. This service would address skills verification without creating a massive new bureaucratic program.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Duplicate of '10-2014-employers-have-choices'; both are the same November 24, 2014 letter to The Guardian editor about employer-led assessment and the Challenge for Credit campaign.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="2018-2-history-first-in-its-class" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="2018-2-history-first-in-its-class" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">20 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/2018-2-history-first-in-its-class.html" target="_blank">2018-2-history-first-in-its-class</a></h3>
+  <p class="flag-summary">The second version of &quot;First in its Class&quot; edited by Don in 2019 for the Rev. Douglas Smith Scholarship Fund, before archival transfer. Contains background notes, early education history, and sections on the school's development. Reflects Don's desire to document the school's history and honor its founders while preserving records of its formative years.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Near-duplicate of '2018-1-history-first-in-its-class' and '2018-3-history-first-in-its-class'; all three are versions of the same MRHS (Mount Royal High School) history document. The third version ('2018-3') appears to be the most complete draft and should be retained.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="7-glossary-2" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="7-glossary-2" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">15 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/7-glossary-2.html" target="_blank">7-glossary-2</a></h3>
+  <p class="flag-summary">Don's comprehensive glossary of 35+ education terms developed over years from multiple sources, representing his working definitions. Includes key concepts: assessment, benchmarks, competency-based education, certification, learning, outcomes, education systems, standards, and evaluation. Foreword notes these definitions shaped Don's thinking and practice, representing his integrated understanding of education terminology and philosophy.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Near-duplicate of '200-glossary-2'; both are glossaries of education terms covering the same definitions. The '200-glossary-2' entry is dated January 2016 and appears to be the later, more refined version.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="78-teaching" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="78-teaching" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">9 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/78-teaching.html" target="_blank">78-teaching</a></h3>
+  <p class="flag-summary">Open Education No. 78 (July 20, 2019). Don articulates vision for provincial Department of Education as leadership body rather than operational administrator. Proposes clear overarching principles, function-based organization, school autonomy, and accountability at all levels. Consistent with his Holland College leadership philosophy emphasizing institutional autonomy and accountability.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Near-duplicate of '78-a-misnomer-autorecovered'; both are Newsletter No. 78 dated July 20, 2019 covering the same content about teaching versus instruction. The autorecovered version should be preferred as the base copy.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="contnts-math-3-2015-11-24t14-36-49" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="contnts-math-3-2015-11-24t14-36-49" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/contnts-math-3-2015-11-24t14-36-49.html" target="_blank">contnts-math-3-2015-11-24t14-36-49</a></h3>
+  <p class="flag-summary">Table of contents for a mathematics binder. Lists educational standards and benchmarks from PEI, Quebec, Alberta, Holland College, and international sources including PISA.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Only 352 characters of content consisting of a sparse table of contents with stray keyboard characters ('Sdfghjkl;', '/.,mnbhgvfds') appended, indicating a corrupt or unfinished document. No meaningful content to preserve.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="d-34-challenge-for-credit-campaign" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="d-34-challenge-for-credit-campaign" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/d-34-challenge-for-credit-campaign.html" target="_blank">d-34-challenge-for-credit-campaign</a></h3>
+  <p class="flag-summary">A brief proposal outline for a public campaign supporting student access to &quot;challenge for credit&quot; opportunities in Island high schools. This simple concept—allowing students to demonstrate mastery without taking courses—reflects Don's commitment to competency-based education over seat-time requirements. The proposal suggests launching a public campaign, indicating his understanding that systems change often requires public pressure and advocacy. Though brief, this document encapsulates Don's student-centered philosophy and his belief that educational institutions should accommodate demonstrated learning regardless of how it was acquired.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Only 178 characters of content — essentially a title and a single sentence concept statement ('A campaign to promote the principle of Challenge for Credit'). No substantive content to preserve.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="extending-school-far-beyond-the-classroom-walls" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="extending-school-far-beyond-the-classroom-walls" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">10 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/extending-school-far-beyond-the-classroom-walls.html" target="_blank">extending-school-far-beyond-the-classroom-walls</a></h3>
+  <p class="flag-summary">Tara García Mathewson's article profiles expanded learning opportunities at Robert W. Traip Academy in Kittery, Maine, where competency-based education enables students to earn credits pursuing individual passions. James Lawrence, 2017 graduate and aspiring welder, completed art credit by carving duck decoys at a local technical center. Traip Academy requires students meet approximately 50 graduation standards, each addressing competency rather than seat time. Other examples include a student earning veterinary credentials through local internship and another gaining retail certification. Susan Johnson, expanded learning opportunities coordinator, notes such programs engage at-risk students who don't see value in traditional academics. Approximately 25% of spring graduates experienced expanded learning opportunities, with goals to expand significantly. Johnson emphasizes competency-based systems must change conversation about learning expectations, moving beyond traditional delivery models. Her advocacy for personalized, passion-based learning earned recognition as Lawrence W. O'Toole Award recipient from Nellie Mae Education Foundation for advancing student-centered learning in New England high schools.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Article written by Tara Garcia Mathewson (December 7, 2017), a third-party journalist. Don does not appear as author, subject, or cited source in the content preview. This is external reference material saved by Don, not his own writing.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="meeting-1-notes-2015-11-03t13-23-28" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="meeting-1-notes-2015-11-03t13-23-28" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">7 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/meeting-1-notes-2015-11-03t13-23-28.html" target="_blank">meeting-1-notes-2015-11-03t13-23-28</a></h3>
+  <p class="flag-summary">Notes documenting the first preparedness gaps stakeholder meeting held November 25, 2015 at Birt and Associates offices. The meeting brought together over a dozen representatives from government education departments, Holland College, UPEI, employers, and community organizations to explore issues facing Island youth in the transition from secondary to postsecondary education. Don Glendenning is listed as Education 20/20 Inc. representative.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Near-duplicate of 'meeting-1-c-notes'; both are meeting notes/agendas for the same November 2015 Education 20/20 meeting with substantially overlapping content. The 'meeting-1-c-notes' version appears more complete.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="teacher-role-r" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="teacher-role-r" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/teacher-role-r.html" target="_blank">teacher-role-r</a></h3>
+  <p class="flag-summary">Short letter to editor by Don on changing teacher roles, nearly identical to File 5. References early Holland College era discussions of &quot;Sage on the Stage&quot; vs. &quot;Guide on the Side,&quot; noting contemporary pedagogy includes &quot;Meddler-in-the-Middle.&quot; Observes that homework now happens before lessons rather than after. Slight variant with different wording of same reflection.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Near-duplicate of 'rreading-shrt-r'; both are short letters to the editor on teacher roles ('Sage on the Stage', 'Guide on the Side', 'Meddler-in-the-Middle'). The summary of this entry explicitly notes it is 'nearly identical to File 5' (rreading-shrt-r) with only slight rewording.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="x-d-2012-06-education-and-development" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="x-d-2012-06-education-and-development" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">3 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/x-d-2012-06-education-and-development.html" target="_blank">x-d-2012-06-education-and-development</a></h3>
+  <p class="flag-summary">[Duplicate of File 2] Don connects educational infrastructure to community economic development, with emphasis on Holland College and UPEI as economic assets and advocates for community education committees.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The document's own AI-generated summary explicitly labels it '[Duplicate of File 2]'. Both documents are the same May 29, 2012 letter to The Guardian editor about education and community development.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="zguide-1a" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="zguide-1a" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Empty/Stub</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/zguide-1a.html" target="_blank">zguide-1a</a></h3>
+  <p class="flag-summary">Draft competency framework document for English Language and Communication Arts. Appears to be template or early version of competency-based educational curriculum structure. Contains fields for field, competency, and code classifications.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Only 247 characters of content — an essentially empty draft template with field/competency/code label headers but no actual content filled in. The document is a blank shell with one example entry.</p>
+</div>
+<div class="flag-card flag-review" data-slug="2018-3-history-first-in-its-class" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="2018-3-history-first-in-its-class" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">24 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/2018-3-history-first-in-its-class.html" target="_blank">2018-3-history-first-in-its-class</a></h3>
+  <p class="flag-summary">The third and final version of &quot;Miramichi Rural High School: First in its Class,&quot; edited by Don in 2021. This version includes refined sections on the school's history, Rev. Douglas Smith, A. T. Patstone's first rural school account, trustees, staff, students, and archival photographs. This comprehensive compilation represents Don's culminating effort to preserve and share MRHS's legacy before archival donation.</p>
+  <p class="flag-reason"><strong>Reason:</strong> One of three near-duplicate versions of the same MRHS history document ('2018-1', '2018-2', '2018-3'). If '2018-1' is confirmed to be the most complete or final version, this should be excluded. Flagging for human review to determine which version to retain.</p>
+</div>
+<div class="flag-card flag-review" data-slug="macdonald-brothers-notes" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="macdonald-brothers-notes" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/macdonald-brothers-notes.html" target="_blank">macdonald-brothers-notes</a></h3>
+  <p class="flag-summary">Working notes on Donald and David MacDonald of Kinross, PEI, including biographical details (both over 90, David lost eye in WW2, farmed). Includes a formal letter Don sent November 22, 2007, introducing himself as first President of Holland College and volunteer at CFPEI, offering to discuss charitable giving opportunities without obligation. Shows Don's direct outreach approach and personal introduction strategy.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains address, postal code, phone number, and personal location details of private individuals (the MacDonald brothers)</p>
+</div>
+<div class="flag-card flag-review" data-slug="mailing-list-nov-2017" data-theme="04-holland-college">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="mailing-list-nov-2017" data-theme="04-holland-college"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">15 KB</span>
+  </div>
+  <h3><a href="../04-holland-college/read/mailing-list-nov-2017.html" target="_blank">mailing-list-nov-2017</a></h3>
+  <p class="flag-summary">A comprehensive 2017 mailing list for the Open Education newsletter showing Don Glendenning's extensive professional network across Prince Edward Island, Canada, and beyond. The list includes 5 categorized distributions: List 1 (education professionals, administrators, directors at Holland College, UPEI, Department of Education), List 2 (additional education practitioners), List 3 (business leaders, entrepreneurs, community members), List 5 (select professionals), MLAs (provincial legislators), Municipal leaders, Off-Island contacts (including academics and media), and Media outlets. Notable contacts include Brian Glendenning (Don's son), Janet Glendenning, Roberta Glendenning, and major PEI institutions. The list demonstrates Don's role as a connector of educational stakeholders and his influence across PEI society.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains personal email addresses and full names of living individuals in professional network</p>
+</div>
+</main>
+<footer class="site-footer">
+  <a href="../index.html">Archive Home</a>
+</footer>
+
+<script>
+(function() {
+  const STORAGE_KEY = 'archiveReviewSelections';
+
+  function loadState() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    } catch(e) { return {}; }
+  }
+
+  function saveState(state) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function updateCounts() {
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+    const checked = document.querySelectorAll('.flag-card input[type="checkbox"]:checked');
+    const countEl = document.querySelector('.toolbar-count');
+    if (countEl) {
+      countEl.innerHTML = '<span class="num">' + checked.length + '</span> of ' + boxes.length + ' selected for exclusion';
+    }
+  }
+
+  function applyDimming() {
+    document.querySelectorAll('.flag-card').forEach(function(card) {
+      const cb = card.querySelector('input[type="checkbox"]');
+      if (cb) card.classList.toggle('dimmed', !cb.checked);
+    });
+  }
+
+  function init() {
+    const state = loadState();
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+
+    // Restore saved state (overrides default checked/unchecked)
+    boxes.forEach(function(cb) {
+      const key = cb.dataset.theme + '/' + cb.dataset.slug;
+      if (key in state) cb.checked = state[key];
+    });
+
+    // Listen for changes
+    boxes.forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var st = loadState();
+        st[cb.dataset.theme + '/' + cb.dataset.slug] = cb.checked;
+        saveState(st);
+        updateCounts();
+        applyDimming();
+      });
+    });
+
+    applyDimming();
+    updateCounts();
+
+    // Select all / deselect all
+    var selAll = document.getElementById('select-all');
+    if (selAll) selAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = true; st[cb.dataset.theme + '/' + cb.dataset.slug] = true; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    var deselAll = document.getElementById('deselect-all');
+    if (deselAll) deselAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = false; st[cb.dataset.theme + '/' + cb.dataset.slug] = false; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    // Download exclusion list
+    var dlBtn = document.getElementById('download-exclusions');
+    if (dlBtn) dlBtn.addEventListener('click', function() {
+      var exclusions = [];
+      document.querySelectorAll('.flag-card input[type="checkbox"]:checked').forEach(function(cb) {
+        exclusions.push({ slug: cb.dataset.slug, theme: cb.dataset.theme });
+      });
+      var blob = new Blob([JSON.stringify(exclusions, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'exclusions.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

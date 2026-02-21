@@ -1,0 +1,100 @@
+[
+  {
+    "slug": "fund-values-mch-03-2005",
+    "title": "Fund Values  MCH 03 2005",
+    "action": "EXCLUDE",
+    "criterion": "CORRUPT/GARBAGE",
+    "reason": "garbage_ratio of 0.1504 significantly exceeds the 0.05 threshold. Document is a financial table with heavy whitespace formatting artifacts producing high garbage ratio."
+  },
+  {
+    "slug": "roma-insert",
+    "title": "Roma Insert",
+    "action": "EXCLUDE",
+    "criterion": "CORRUPT/GARBAGE",
+    "reason": "garbage_ratio of 0.0606 exceeds the 0.05 threshold. The document is a fundraising dinner promotional insert with heavy tabular layout that produced significant formatting artifacts."
+  },
+  {
+    "slug": "cfpei-proposal-journal",
+    "title": "CFPEI Proposal Journal",
+    "action": "EXCLUDE",
+    "criterion": "EMPTY/STUB",
+    "reason": "content_length of 534. Content preview shows only letterhead, 'Dear Sir:', and 'Sincerely Don Glendenning President' with no actual proposal body. The summary confirms 'specific proposal content is not detailed in the text snippet.' The file is essentially an empty letter shell."
+  },
+  {
+    "slug": "12-preparedness",
+    "title": "12- Preparedness",
+    "action": "EXCLUDE",
+    "criterion": "EXACT DUPLICATE",
+    "reason": "AI summary explicitly states 'Duplicate of File 1' — identical content to the preparedness occasional paper from Education 20/20 Inc. (slug: 01-preparedness)."
+  },
+  {
+    "slug": "cfpei-58-cumberland-wi",
+    "title": "CFPEI 58 Cumberland WI",
+    "action": "EXCLUDE",
+    "criterion": "EXACT DUPLICATE",
+    "reason": "AI summary explicitly states 'This is a duplicate of File 7 with minor content variations.' Near-identical content warranting exclusion."
+  },
+  {
+    "slug": "2015-seaward-gap-fillow-after",
+    "title": "2015 Seaward Gap Fillow After",
+    "action": "EXCLUDE",
+    "criterion": "EXACT DUPLICATE",
+    "reason": "AI summary explicitly states 'Duplicate of File 17 with minor variations.' Near-identical content warranting exclusion."
+  },
+  {
+    "slug": "5-based-on-objectives-proposed-for-new-non-profit-act-2014-08-16t15-19-56",
+    "title": "5 Based on objectives proposed for new non profit act",
+    "action": "EXCLUDE",
+    "criterion": "EXACT DUPLICATE",
+    "reason": "AI summary explicitly states this document is 'identical in content to the first document' in the sequence. Exact duplicate warranting exclusion."
+  },
+  {
+    "slug": "hugh-black",
+    "title": "Hugh Black",
+    "action": "EXCLUDE",
+    "criterion": "EXACT DUPLICATE",
+    "reason": "AI summary explicitly states 'Duplicate of File 12 (Hugh Black legacy.docx) containing identical content.' Exact duplicate warranting exclusion."
+  },
+  {
+    "slug": "information-project-1",
+    "title": "Information Project-1",
+    "action": "EXCLUDE",
+    "criterion": "EXACT DUPLICATE",
+    "reason": "AI summary explicitly states 'Duplicate of File 1 (D 34 Information Project-1.docx) — same proposal titled Bridging the Gap with identical content.' Exact duplicate warranting exclusion."
+  },
+  {
+    "slug": "0-1-cover",
+    "title": "0-1-Cover",
+    "action": "REVIEW",
+    "criterion": "EMPTY/STUB",
+    "reason": "content_length of 193. Document is described as a simple title/cover page with date for a handbook. Extremely thin content — may not add value beyond the handbook itself."
+  },
+  {
+    "slug": "a-5-changing-policy",
+    "title": "A-5-Changing policy",
+    "action": "REVIEW",
+    "criterion": "EMPTY/STUB",
+    "reason": "content_length of 524. AI summary describes it as a one-sentence policy statement ('Board policies may be withdrawn...'). Extremely thin content for a standalone document."
+  },
+  {
+    "slug": "contents",
+    "title": "Contents",
+    "action": "REVIEW",
+    "criterion": "EMPTY/STUB",
+    "reason": "content_length of 322. Document is a bare table of contents for a handbook with no substantive text. Value is minimal without the accompanying handbook pages."
+  },
+  {
+    "slug": "d-auld-scholarship",
+    "title": "D Auld Scholarship",
+    "action": "REVIEW",
+    "criterion": "EMPTY/STUB",
+    "reason": "Content preview contains unfilled template placeholders: 'Holly, a daughter of cvbnm, is a graduate of bbb High School.' This is an incomplete draft with gibberish stand-in text, not a finished document."
+  },
+  {
+    "slug": "foundations-pei",
+    "title": "Foundations PEI",
+    "action": "REVIEW",
+    "criterion": "MACHINE-GENERATED DATA DUMP",
+    "reason": "Content is Canada Revenue Agency database search results listing 27 registered charitable foundations with registration numbers and dates. Purely tabular/database output. Size 53,744 bytes with content_length 5,058. May be research Don compiled, but the content itself is a raw CRA data export."
+  }
+]

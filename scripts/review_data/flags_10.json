@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "humour-8",
+    "theme": "10-creative-writing",
+    "recommendation": "EXCLUDE",
+    "reason": "Forwarded internet joke email sent by daughter Janet Glendenning in September 1998, not written by Don. The content is a widely circulated parody legal document about changing a lightbulb with no connection to Don's own work.",
+    "criterion": 5
+  },
+  {
+    "slug": "humxour-10",
+    "theme": "10-creative-writing",
+    "recommendation": "EXCLUDE",
+    "reason": "Forwarded chain email joke ('Beauty is Only Skin Deep') sent by daughter Janet Glendenning in October 1998, not written by Don. Content originated from multiple unrelated third parties and was forwarded through several email chains before reaching the family.",
+    "criterion": 5
+  },
+  {
+    "slug": "i-have-a-question",
+    "theme": "10-creative-writing",
+    "recommendation": "EXCLUDE",
+    "reason": "Forwarded internet joke email from friend Andy Hennessey (September 2009) containing 'Children's Science Exam Answers,' not written by Don. Content is a widely circulated humor piece with no connection to Don's writing.",
+    "criterion": 5
+  },
+  {
+    "slug": "high-tech-high-article-carolyn",
+    "theme": "10-creative-writing",
+    "recommendation": "EXCLUDE",
+    "reason": "A detailed article authored by Rob Riordan (July 2009) about High Tech High school in San Diego, not Don's work. The title suggests it was received from someone named Carolyn; Don appears to have saved it as reference material for his education reform advocacy.",
+    "criterion": 5
+  },
+  {
+    "slug": "m-home-school-constitution",
+    "theme": "10-creative-writing",
+    "recommendation": "EXCLUDE",
+    "reason": "Website content scraped or printed from the PEI Home and School Federation site (April 2011), including navigation elements, news items, and event listings. This is a third-party institutional publication saved as reference material, not Don's writing.",
+    "criterion": 5
+  },
+  {
+    "slug": "exit-outcomes-haney",
+    "theme": "10-creative-writing",
+    "recommendation": "REVIEW",
+    "reason": "The Exit Outcomes framework for Thomas Haney Secondary School (BC) is a third-party school policy document, not Don's writing. However, Don may have adapted or cited this framework in his own education advocacy work, so borderline.",
+    "criterion": 5
+  },
+  {
+    "slug": "d-00-project-ideas",
+    "theme": "10-creative-writing",
+    "recommendation": "REVIEW",
+    "reason": "Garbage ratio of 0.0721 exceeds the 0.05 threshold, indicating possible encoding artifacts. Content is otherwise substantive (Don's Education 20/20 project brainstorming), so human review is warranted to confirm whether corruption is significant.",
+    "criterion": 1
+  },
+  {
+    "slug": "63-graduation",
+    "theme": "10-creative-writing",
+    "recommendation": "REVIEW",
+    "reason": "Garbage ratio of 0.0547 marginally exceeds the 0.05 threshold, and this French-language version of Open Education No. 63 appears to be a near-duplicate of the English version in slug '8-graduation'. Human review should confirm whether both versions need to be retained.",
+    "criterion": 1
+  },
+  {
+    "slug": "untitled-letter-1",
+    "theme": "10-creative-writing",
+    "recommendation": "REVIEW",
+    "reason": "Content is nearly identical to slug 'untitled-5': both are versions of the same December 13, 1987 letter-poem beginning 'Upon my desk, they sat / Opened, read and contents noted / But still unanswered.' Minor wording differences suggest one may be a draft and the other a fair copy.",
+    "criterion": 4
+  },
+  {
+    "slug": "untitled-1",
+    "theme": "10-creative-writing",
+    "recommendation": "REVIEW",
+    "reason": "Opening stanzas are nearly identical to slug 'untitled-9' (both begin 'Hyper / Perhaps / Problems are solved / In the Still of the night', both dated December 1973). The content preview notes 'Time is in\u2026cannot decipher, see original,' suggesting this may be an incomplete transcription rather than a distinct poem.",
+    "criterion": 4
+  }
+]

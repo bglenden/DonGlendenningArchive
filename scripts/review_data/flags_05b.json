@@ -1,0 +1,79 @@
+[
+  {
+    "slug": "25-problem-of-math",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Empty newsletter shell: the content preview is entirely boilerplate header and footer for an Open Education newsletter with the title 'Issues of math' but no body text whatsoever. The AI summarizer explicitly notes it is 'a minimal content document with only header information and Education 20/20 Inc. footer' and an 'empty template or abandoned draft.'",
+    "criterion": 2
+  },
+  {
+    "slug": "3-life-roles",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Stub document containing nothing but a titled table skeleton listing six life-role labels (Individual, Family member, Student, Consumer, Producer, Citizen, Learner) and a reference code 'Ref/3'. No explanatory text, no narrative, no educational argument — purely a heading and a list of words.",
+    "criterion": 2
+  },
+  {
+    "slug": "45-helping-readers-read",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains only the masthead and introductory boilerplate of the 'About Education' newsletter No. 1 (October 1, 2013) — a one-sentence mission statement and contact email — with no article content at all. The AI summarizer confirms it is a 'header-only document with no substantive content.'",
+    "criterion": 2
+  },
+  {
+    "slug": "2020-notes",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of slug '2020-inc': both documents have identical content previews (character-for-character match), identical text, and the same April 18, 2015 date and heading. The slug '2020-inc' should be retained as the primary copy.",
+    "criterion": 4
+  },
+  {
+    "slug": "2014-c-directord-names-only-2014-11-29t13-58-04",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of slug '2014-b-board-list-b': both documents have character-for-character identical content previews listing the same eight Education 20/20 directors as of December 1, 2014. The slug '2014-b-board-list-b' should be retained as the primary copy.",
+    "criterion": 4
+  },
+  {
+    "slug": "4-d-stakeholder-engagement-initiative-2",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "The AI summary explicitly identifies this as 'Duplicate of File 3 — Education 20/20 Inc. stakeholder engagement initiative.' The content is Don's November 2013 Education 20/20 proposal document, of which multiple other versions exist in the collection; this is a redundant copy without distinct additional content.",
+    "criterion": 4
+  },
+  {
+    "slug": "25-11-change-1-strategies-for-change",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "Near-duplicate of slug '25-change-strategies': both are September 10, 2012 drafts of 'Education First Canada — Strategies for Change' with nearly identical text. This version has only a 'My notes 25-11' personal header and is slightly shorter (6,287 vs 6,490 bytes), suggesting it is the annotated working copy while '25-change-strategies' is the cleaner draft.",
+    "criterion": 4
+  },
+  {
+    "slug": "2015-vsccination-for-literacy",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "The AI summarizer identifies this as a 'Duplicate of File 11 with identical content and approach' and characterizes it as 'a working copy or filing duplicate.' The content preview confirms it is an early rough draft of a January 2015 Guardian letter on literacy, with significant uncorrected typos, likely superseded by the polished version filed separately.",
+    "criterion": 4
+  },
+  {
+    "slug": "2014-people-for-education",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "This is a copy of the People for Education (Ontario) website, not Don's writing. The content preview shows verbatim website text including social-sharing buttons ('Share via Facebook / Twitter / Email'), revealing it was copy-pasted from the organization's public website. Don appears to have saved it as a reference model for his CRA application, but the document itself has no Don-authored content.",
+    "criterion": 5
+  },
+  {
+    "slug": "28-school-system",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "This is a verbatim copy of the Business Roundtable's 2007 web page 'Essential Components of a Successful Education System', confirmed by the presence of email-a-friend form fields, social-share buttons, and a list of related publications with posting dates. The document contains no Don-authored text; it was saved as research reference material.",
+    "criterion": 5
+  },
+  {
+    "slug": "4-reading-competencies-2",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "This is a 1995 document extracted from a report by the Competencies Task Force of CEI — the North Carolina Conference of English Instructors — with no Don-authored content. It defines reading competency categories from a professional standards body. Don used it as a research reference for his reading initiatives, but the document itself is entirely third-party material.",
+    "criterion": 5
+  }
+]

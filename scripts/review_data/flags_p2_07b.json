@@ -1,0 +1,9 @@
+[
+  {
+    "slug": "evaluation",
+    "theme": "07-professional-career",
+    "recommendation": "EXCLUDE",
+    "reason": "Contains personnel evaluation of identified individual",
+    "criterion": 7
+  }
+]

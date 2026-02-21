@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+
+# Build artifacts
+*.db
+*.sqlite
+*.pyc
+__pycache__/
+*.log
+
+# Packaging
+/tmp/

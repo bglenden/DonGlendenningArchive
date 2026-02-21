@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "2011-biographical-notes",
+    "theme": "01-autobiography",
+    "recommendation": "REVIEW",
+    "reason": "Contains Don's full address (62 Queen Elizabeth Dr., Charlottetown, P.E.I., C1A 3A9) and phone number (902) 892-5859. While Don is deceased, this represents a privacy exposure of contact information.",
+    "criterion": 7
+  },
+  {
+    "slug": "carol",
+    "theme": "01-autobiography",
+    "recommendation": "EXCLUDE",
+    "reason": "Home exchange advertisement letter containing Don and Carol's full home address (3 bedrooms, 2 bathrooms in Charlottetown) and describing their specific seasonal travel patterns. This is a direct advertisement for home exchange that exposes their residential location and travel schedule to the public internet.",
+    "criterion": 7
+  },
+  {
+    "slug": "2011-02-11-draft-letter",
+    "theme": "08-correspondence",
+    "recommendation": "REVIEW",
+    "reason": "Letter to Mary Beth Harris containing detailed personal financial planning information, charitable contribution amounts ($500,000 endowment calculations), and specific advice about her art sales and charitable giving strategy. This is sensitive personal financial information for an identifiable individual.",
+    "criterion": 7
+  },
+  {
+    "slug": "chapman-2015-12-17t09-55-48",
+    "theme": "08-correspondence",
+    "recommendation": "EXCLUDE",
+    "reason": "Nomination letter contains Mike Chapman's full contact information: home address (505 Keppoch Rd, Stratford PE C1B 2J8), phone (902-5659-4038), and email (mikechapman@eastlink.ca). This is direct personal contact information for an identifiable living person.",
+    "criterion": 7
+  },
+  {
+    "slug": "craig-2015-12-31t01-34-15",
+    "theme": "08-correspondence",
+    "recommendation": "EXCLUDE",
+    "reason": "Nomination letter contains Tanya Craig's full contact information: home address (41 Rodgerson Crescent, Stratford, PE C1B 2G7), phone (902-314-4030), and email (tjcraig@eastlink.ca). This is direct personal contact information for an identifiable living person.",
+    "criterion": 7
+  },
+  {
+    "slug": "letter-to-school",
+    "theme": "08-correspondence",
+    "recommendation": "EXCLUDE",
+    "reason": "Award notification letter contains Natalie MacNeill's full contact information: job title (Director of Fund Development at Grace Christian School), home address (50 Kirkdale Rd, Charlottetown, PE C1E 1N6). This is direct personal contact information for an identifiable living person.",
+    "criterion": 7
+  },
+  {
+    "slug": "letterhead-word-top-bot-blank",
+    "theme": "08-correspondence",
+    "recommendation": "REVIEW",
+    "reason": "Fundraising letter to Ray Murphy, President of Murphy Pharmacies, containing professional contact information at a business entity. While business-focused, the letter appears to target Ray Murphy as an individual business leader. Contains partial/garbled postal code (xxx1-1-2).",
+    "criterion": 7
+  },
+  {
+    "slug": "letterhead-word-top-bot",
+    "theme": "08-correspondence",
+    "recommendation": "EXCLUDE",
+    "reason": "Fundraising letter contains Karen Jackson's full contact information: job title (President, PEI Union of Public Sector Employees), organization address (4 Enman Crescent, Charlottetown, PEI C1E 1E6). This is direct contact information for an identifiable living person in a professional capacity.",
+    "criterion": 7
+  },
+  {
+    "slug": "pro-forma-numeracy",
+    "theme": "08-correspondence",
+    "recommendation": "EXCLUDE",
+    "reason": "Fundraising letter contains Roger Birt's full contact information: business name (R. Birt and Associates), home/business address (27 Brackley Point Road, Charlottetown, PE C1A 6Y1). This is direct personal/business contact information for an identifiable individual.",
+    "criterion": 7
+  },
+  {
+    "slug": "summary-of-responses-from-directors",
+    "theme": "08-correspondence",
+    "recommendation": "REVIEW",
+    "reason": "Email thread containing names and implied email addresses of education professionals (Sharon Cameron, Bill Whelan, Katherine McQuaid) discussing award programs. While the email addresses are not explicitly shown in the preview, the names are associated with professional roles and communication.",
+    "criterion": 7
+  }
+]

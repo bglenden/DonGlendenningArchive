@@ -1,0 +1,9 @@
+[
+  {
+    "slug": "upson-draft-letter",
+    "theme": "09-community-civic",
+    "recommendation": "REVIEW",
+    "reason": "Contains private donor details (name, home address/description, family member name, donation intentions)",
+    "criterion": 7
+  }
+]

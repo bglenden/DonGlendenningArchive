@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review: Creative Writing</title>
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+  .flag-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin: 0.8rem 0;
+    border-left: 4px solid var(--card-border);
+    transition: opacity 0.2s;
+  }
+  .flag-card.dimmed { opacity: 0.45; }
+  .flag-exclude { border-left-color: #c0392b; }
+  .flag-review { border-left-color: #e67e22; }
+  .flag-header {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .flag-check {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .flag-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #c0392b;
+  }
+  .flag-badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-exclude { background: #c0392b; color: #fff; }
+  .badge-review { background: #e67e22; color: #fff; }
+  .flag-criterion {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-size, .flag-garbage {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .flag-garbage { color: #c0392b; }
+  .flag-card h3 {
+    margin: 0.3rem 0;
+    font-size: 1.1rem;
+  }
+  .flag-summary {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+  }
+  .flag-reason {
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0;
+  }
+  .theme-section {
+    margin: 2rem 0;
+  }
+  .theme-section h2 {
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+  .stats-bar {
+    display: flex;
+    gap: 2rem;
+    background: var(--sidebar-bg);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0 2rem;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .stats-bar .stat-num {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    columns: 2;
+    column-gap: 2rem;
+  }
+  .toc-list li {
+    padding: 0.3rem 0;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.95rem;
+  }
+  .toc-count {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  /* Sticky toolbar */
+  .review-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #1a1a2e;
+    border-bottom: 2px solid var(--accent, #e67e22);
+    padding: 0.7rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  .review-toolbar .toolbar-count {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff;
+    min-width: 140px;
+  }
+  .review-toolbar .toolbar-count .num { color: var(--accent, #e67e22); }
+  .review-toolbar button {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: #2a2a4a;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: -apple-system, sans-serif;
+    transition: background 0.15s;
+  }
+  .review-toolbar button:hover { background: #3a3a6a; }
+  .review-toolbar button.primary {
+    background: #c0392b;
+    border-color: #c0392b;
+    color: #fff;
+  }
+  .review-toolbar button.primary:hover { background: #e74c3c; }
+  .toolbar-spacer { flex: 1; }
+</style>
+
+</head>
+<body>
+
+<div class="review-toolbar">
+  <span class="toolbar-count"><span class="num">0</span> of 0 selected for exclusion</span>
+  <span class="toolbar-spacer"></span>
+  <button id="select-all">Select All</button>
+  <button id="deselect-all">Deselect All</button>
+  <button id="download-exclusions" class="primary">Download Exclusions</button>
+</div>
+
+<header class="site-header">
+  <h1>Review: Creative Writing</h1>
+  <div class="subtitle">11 documents flagged for review</div>
+</header>
+<main class="container">
+<div class="breadcrumb"><a href="index.html">Review Home</a> <span class="sep">&rsaquo;</span> Creative Writing</div>
+<div class="stats-bar">
+  <div><span class="stat-num">11</span> flagged</div>
+  <div><span class="stat-num">5</span> exclude</div>
+  <div><span class="stat-num">6</span> review</div>
+</div>
+<div class="flag-card flag-exclude" data-slug="high-tech-high-article-carolyn" data-theme="10-creative-writing">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="high-tech-high-article-carolyn" data-theme="10-creative-writing"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">21 KB</span>
+  </div>
+  <h3><a href="../10-creative-writing/read/high-tech-high-article-carolyn.html" target="_blank">high-tech-high-article-carolyn</a></h3>
+  <p class="flag-summary">Rob Riordan's detailed analysis of High Tech High (San Diego), a leading innovative charter school founded 2000 by Gary Jacobs and others. School features three key integrations: connecting school to community through 100+ hour student internships; integrating students across academic levels without tracking; linking hands and minds through project-based learning. School serves 2,000+ diverse students with exceptional college admission rates (99% of Class 2009, 80% to four-year universities including MIT, Stanford, Johns Hopkins). Teachers work in teams, spend morning time in professional collaboration. HTH achieves this within California's $7,000 per-pupil allocation. School emphasizes personalization, habits of mind, portfolio exhibitions, and community presentations.</p>
+  <p class="flag-reason"><strong>Reason:</strong> A detailed article authored by Rob Riordan (July 2009) about High Tech High school in San Diego, not Don's work. The title suggests it was received from someone named Carolyn; Don appears to have saved it as reference material for his education reform advocacy.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="humour-8" data-theme="10-creative-writing">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="humour-8" data-theme="10-creative-writing"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../10-creative-writing/read/humour-8.html" target="_blank">humour-8</a></h3>
+  <p class="flag-summary">Email from daughter Janet Glendenning (September 1998) forwarding a humorous legal document parodying how a lawyer would handle changing a lightbulb. Distributed to family, friends, and colleagues. NOT written by Don.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Forwarded internet joke email sent by daughter Janet Glendenning in September 1998, not written by Don. The content is a widely circulated parody legal document about changing a lightbulb with no connection to Don's own work.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="humxour-10" data-theme="10-creative-writing">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="humxour-10" data-theme="10-creative-writing"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">5 KB</span>
+  </div>
+  <h3><a href="../10-creative-writing/read/humxour-10.html" target="_blank">humxour-10</a></h3>
+  <p class="flag-summary">Email chain (September-October 1998) from daughter Janet forwarding &quot;Beauty is Only Skin Deep,&quot; a humorous story about a man donating skin from his buttocks to repair his wife's burned face, and his witty punchline about his mother-in-law kissing her cheek. NOT written by Don.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Forwarded chain email joke ('Beauty is Only Skin Deep') sent by daughter Janet Glendenning in October 1998, not written by Don. Content originated from multiple unrelated third parties and was forwarded through several email chains before reaching the family.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="i-have-a-question" data-theme="10-creative-writing">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="i-have-a-question" data-theme="10-creative-writing"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../10-creative-writing/read/i-have-a-question.html" target="_blank">i-have-a-question</a></h3>
+  <p class="flag-summary">Email from Andy Hennessey (September 2009) sharing humorous &quot;Children's Science Exam Answers,&quot; featuring absurd definitions and logical fallacies. Later addition to Don's humor collection from a friend. NOT written by Don.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Forwarded internet joke email from friend Andy Hennessey (September 2009) containing 'Children's Science Exam Answers,' not written by Don. Content is a widely circulated humor piece with no connection to Don's writing.</p>
+</div>
+<div class="flag-card flag-exclude" data-slug="m-home-school-constitution" data-theme="10-creative-writing">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox" checked data-slug="m-home-school-constitution" data-theme="10-creative-writing"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-exclude">EXCLUDE</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">29 KB</span>
+  </div>
+  <h3><a href="../10-creative-writing/read/m-home-school-constitution.html" target="_blank">m-home-school-constitution</a></h3>
+  <p class="flag-summary">(170-210 words):** This document is the constitution or bylaws of what appears to be a Prince Edward Island home schooling federation or organization. It includes navigational elements and structural references to an official website (edu.pe.ca), suggesting it's an officially recognized educational organization. The constitution establishes governance structures, membership terms, resources access, and organizational procedures for home school families in PEI. The presence of this document in Don's collection reflects interest in or awareness of alternative educational pathways and diverse learning environments within PEI's educational ecosystem. Home schooling represents a different approach to education outside traditional institutional settings, yet still contributing to the overall educational landscape. Don's interest in this material may reflect a commitment to understanding all educational options available to learners in the province and recognizing education occurs through multiple pathways.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Website content scraped or printed from the PEI Home and School Federation site (April 2011), including navigation elements, news items, and event listings. This is a third-party institutional publication saved as reference material, not Don's writing.</p>
+</div>
+<div class="flag-card flag-review" data-slug="63-graduation" data-theme="10-creative-writing">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="63-graduation" data-theme="10-creative-writing"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">7 KB</span>
+    <span class="flag-garbage">5.5% garbage</span>
+  </div>
+  <h3><a href="../10-creative-writing/read/63-graduation.html" target="_blank">63-graduation</a></h3>
+  <p class="flag-summary">French newsletter (No. 63, April 18, 2018) questioning diploma-grading calendar compatibility. Don reflects on 50-year challenge of balancing individual pacing with group instruction. Proposes six options including schools exiting certification role, independent diploma-granting bodies, adjusted time-based learning standards, and Canadian Certification Council establishment. References personal optometrist visit observing patient education approach. Includes haunting poem about teacher who taught poetry to student later convicted of murder. Reflects on teaching philosophy.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Garbage ratio of 0.0547 marginally exceeds the 0.05 threshold, and this French-language version of Open Education No. 63 appears to be a near-duplicate of the English version in slug '8-graduation'. Human review should confirm whether both versions need to be retained.</p>
+</div>
+<div class="flag-card flag-review" data-slug="d-00-project-ideas" data-theme="10-creative-writing">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="d-00-project-ideas" data-theme="10-creative-writing"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Corrupt/Garbage</span>
+    <span class="flag-size">5 KB</span>
+    <span class="flag-garbage">7.2% garbage</span>
+  </div>
+  <h3><a href="../10-creative-writing/read/d-00-project-ideas.html" target="_blank">d-00-project-ideas</a></h3>
+  <p class="flag-summary">This 2015-2018 document outlines diverse funding-eligible project proposals including independent information surveys, assessment services, greenfield school design competitions, learning cafes, student advisors, community education workers, educational events, non-credit technical courses, and strategic &quot;hook&quot; campaigns. Don proposes diverse revenue models including fee-for-service, workshops, educational trade shows, self-instructional materials, and for-profit development ventures. Projects emphasize independent information provision, stakeholder engagement, innovation support, and community-driven solutions. The breadth of concepts demonstrates Don's entrepreneurial thinking about educational improvement funding and his conviction that market-based and community-based models complement traditional education systems.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Garbage ratio of 0.0721 exceeds the 0.05 threshold, indicating possible encoding artifacts. Content is otherwise substantive (Don's Education 20/20 project brainstorming), so human review is warranted to confirm whether corruption is significant.</p>
+</div>
+<div class="flag-card flag-review" data-slug="exit-outcomes-haney" data-theme="10-creative-writing">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="exit-outcomes-haney" data-theme="10-creative-writing"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Not Don's Work</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../10-creative-writing/read/exit-outcomes-haney.html" target="_blank">exit-outcomes-haney</a></h3>
+  <p class="flag-summary">This document outlines the Exit Outcomes framework for Thomas Haney Secondary School in British Columbia, defining six categories of graduate competencies: High Quality Producers (create quality products/services, manage time effectively); Collaborative Workers (express and value ideas, work in changing environments); Global Citizens (interact with diverse cultures, promote environmental health); Socially Responsible Contributors (participate politically, process information ethically); Self-Actualized Individuals (value themselves positively, set goals, solve problems); and Communicative Persons (interact using multiple communication processes). The framework emphasizes Creative Contributors who develop solutions, experiment, take risks, and drive change. This comprehensive competency model reflects modern educational standards prioritizing both academic achievement and broader life skills development essential for student success.</p>
+  <p class="flag-reason"><strong>Reason:</strong> The Exit Outcomes framework for Thomas Haney Secondary School (BC) is a third-party school policy document, not Don's writing. However, Don may have adapted or cited this framework in his own education advocacy work, so borderline.</p>
+</div>
+<div class="flag-card flag-review" data-slug="panel-8" data-theme="10-creative-writing">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="panel-8" data-theme="10-creative-writing"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Private/Sensitive</span>
+    <span class="flag-size">8 KB</span>
+  </div>
+  <h3><a href="../10-creative-writing/read/panel-8.html" target="_blank">panel-8</a></h3>
+  <p class="flag-summary">Panel 8 participant list (October 7-8, 2019) with names, contact details, and organizational affiliations. Includes diverse participants such as Bipin Singh (Software Engineer, recent immigrant), Melissa Peter-Paul, Matt Brown, and ongoing core team members. Reflects Don's commitment to including varied demographic perspectives in curriculum design.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Contains identifiable contact information including phone numbers, email addresses, and street addresses for named individuals (Martina MacDonald, Mike Redmond, Melissa Peter-Paul, Matt Brown, Gloria Welt and others). This raises privacy concerns for living individuals listed as panel participants.</p>
+</div>
+<div class="flag-card flag-review" data-slug="untitled-1" data-theme="10-creative-writing">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="untitled-1" data-theme="10-creative-writing"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">2 KB</span>
+  </div>
+  <h3><a href="../10-creative-writing/read/untitled-1.html" target="_blank">untitled-1</a></h3>
+  <p class="flag-summary">A short poem titled 'Untitled' (circa 1973-74) exploring themes of problem-solving, time's passage, and the need for finding balance. The poem reflects philosophical concerns about decisions, time's fleeting nature, and learning to value life's precious moments.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Opening stanzas are nearly identical to slug 'untitled-9' (both begin 'Hyper / Perhaps / Problems are solved / In the Still of the night', both dated December 1973). The content preview notes 'Time is in…cannot decipher, see original,' suggesting this may be an incomplete transcription rather than a distinct poem.</p>
+</div>
+<div class="flag-card flag-review" data-slug="untitled-letter-1" data-theme="10-creative-writing">
+  <div class="flag-header">
+    <label class="flag-check"><input type="checkbox"  data-slug="untitled-letter-1" data-theme="10-creative-writing"><span class="checkmark"></span></label>
+    <span class="flag-badge badge-review">REVIEW</span>
+    <span class="flag-criterion">Exact Duplicate</span>
+    <span class="flag-size">4 KB</span>
+  </div>
+  <h3><a href="../10-creative-writing/read/untitled-letter-1.html" target="_blank">untitled-letter-1</a></h3>
+  <p class="flag-summary">A personal letter in verse form dated December 13, 1987, apologizing for not responding sooner to a friend's letter while noting that the friend's words are being published through a prestigious university (Cambridge, implied by &quot;Located on the Cam&quot;). Don expresses both personal reflection on his changing life circumstances and a broader philosophical pondering about identity and material trappings. The tone is warm, introspective, and shows Don in his post-Holland College consulting phase.</p>
+  <p class="flag-reason"><strong>Reason:</strong> Content is nearly identical to slug 'untitled-5': both are versions of the same December 13, 1987 letter-poem beginning 'Upon my desk, they sat / Opened, read and contents noted / But still unanswered.' Minor wording differences suggest one may be a draft and the other a fair copy.</p>
+</div>
+</main>
+<footer class="site-footer">
+  <a href="../index.html">Archive Home</a>
+</footer>
+
+<script>
+(function() {
+  const STORAGE_KEY = 'archiveReviewSelections';
+
+  function loadState() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    } catch(e) { return {}; }
+  }
+
+  function saveState(state) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function updateCounts() {
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+    const checked = document.querySelectorAll('.flag-card input[type="checkbox"]:checked');
+    const countEl = document.querySelector('.toolbar-count');
+    if (countEl) {
+      countEl.innerHTML = '<span class="num">' + checked.length + '</span> of ' + boxes.length + ' selected for exclusion';
+    }
+  }
+
+  function applyDimming() {
+    document.querySelectorAll('.flag-card').forEach(function(card) {
+      const cb = card.querySelector('input[type="checkbox"]');
+      if (cb) card.classList.toggle('dimmed', !cb.checked);
+    });
+  }
+
+  function init() {
+    const state = loadState();
+    const boxes = document.querySelectorAll('.flag-card input[type="checkbox"]');
+
+    // Restore saved state (overrides default checked/unchecked)
+    boxes.forEach(function(cb) {
+      const key = cb.dataset.theme + '/' + cb.dataset.slug;
+      if (key in state) cb.checked = state[key];
+    });
+
+    // Listen for changes
+    boxes.forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var st = loadState();
+        st[cb.dataset.theme + '/' + cb.dataset.slug] = cb.checked;
+        saveState(st);
+        updateCounts();
+        applyDimming();
+      });
+    });
+
+    applyDimming();
+    updateCounts();
+
+    // Select all / deselect all
+    var selAll = document.getElementById('select-all');
+    if (selAll) selAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = true; st[cb.dataset.theme + '/' + cb.dataset.slug] = true; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    var deselAll = document.getElementById('deselect-all');
+    if (deselAll) deselAll.addEventListener('click', function() {
+      var st = loadState();
+      boxes.forEach(function(cb) { cb.checked = false; st[cb.dataset.theme + '/' + cb.dataset.slug] = false; });
+      saveState(st);
+      updateCounts();
+      applyDimming();
+    });
+
+    // Download exclusion list
+    var dlBtn = document.getElementById('download-exclusions');
+    if (dlBtn) dlBtn.addEventListener('click', function() {
+      var exclusions = [];
+      document.querySelectorAll('.flag-card input[type="checkbox"]:checked').forEach(function(cb) {
+        exclusions.push({ slug: cb.dataset.slug, theme: cb.dataset.theme });
+      });
+      var blob = new Blob([JSON.stringify(exclusions, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'exclusions.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

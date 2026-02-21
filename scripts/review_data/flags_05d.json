@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "education-2020",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "The title prefix (~$) identifies this as a Word temporary/lock file with binary metadata only (CL=46, GR=0.022); no readable content was extracted beyond binary artifacts.",
+    "criterion": 1
+  },
+  {
+    "slug": "d-life-roles-documentation",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Content is only 90 characters \u2014 five bare words (Documentation, Personal satisfaction, Transcript, Credential, Qualification, Reference) with no narrative, context, or substantive meaning.",
+    "criterion": 2
+  },
+  {
+    "slug": "from-the-desk-of-don-glendenning",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "This is a blank letterhead template \u2014 the content is only the repeated header \"From the desk of Don Glendenning\" and Education 20/20 contact details, with no actual written content.",
+    "criterion": 2
+  },
+  {
+    "slug": "invoice-4-dg-mar-18-2015-2015-03-23t23-08-46",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of invoice-4-dg-mar-18-2015 (identical content_length of 2992 and identical content preview); the timestamped version is a redundant copy of the same invoice document.",
+    "criterion": 4
+  },
+  {
+    "slug": "invoice-8-dg-june-18-2015-2015-06-18t16-10-40",
+    "theme": "05-education-reform",
+    "recommendation": "EXCLUDE",
+    "reason": "Exact duplicate of invoice-8-dg-june-18-2015 (identical content_length of 3105 and identical content preview); the timestamped version is a redundant copy of the same invoice document.",
+    "criterion": 4
+  },
+  {
+    "slug": "hwc-update-for-dept-of-ed-and-ecd-and-national-team-re-hwc-updated-after-researc",
+    "theme": "05-education-reform",
+    "recommendation": "REVIEW",
+    "reason": "Garbage ratio of 0.057 slightly exceeds the 0.05 threshold; content is a program status report for the \"Handle with Care\" initiative from the Hincks-Dellcrest Centre, not authored by Don, though it is connected to his Education 20/20 work.",
+    "criterion": 1
+  }
+]
