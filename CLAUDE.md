@@ -1,107 +1,123 @@
-# Don Glendenning Archive
+# Don Glendenning Archive — Developer Guide
 
-## What This Is
-
-A browsable HTML archive of the personal writings of **Donald Ernest Malcolm Glendenning** (1929–2025, Black River Bridge, NB) — founding President of Holland College PEI (1969–1987), Order of Canada recipient, DACUM methodology pioneer, and education reformer.
-
-**3,857 documents** organized into 11 thematic collections, with 201 curated highlights and 200 Family Chronicle newsletter issues.
-
-## How to Browse
-
-Open `index.html` in any browser. No server required — everything is static HTML/CSS.
+Instructions for maintaining, updating, and regenerating the archive. See `README.md` for user-facing information.
 
 ## Archive Structure
 
 ```
-index.html                    # Main landing page
+index.html                    # Main landing page (3,612 documents, 11 themes)
 excluded.html                 # Excluded files list (for auditing)
 css/style.css                 # Shared stylesheet
-scripts/                      # Post-build enhancement scripts
-  add_images.py               # Extract images from source docs via LibreOffice
-  image_report.json           # Report from last add_images.py run
-01-autobiography/             # Theme directories (01-11)
-  index.html                  # Theme index page
+scripts/                      # Maintenance and build scripts
+01-autobiography/             # Theme directories (01 through 11)
+  index.html                  # Searchable theme index with summaries
   files/                      # Original .doc/.docx/.rtf source files
-  read/                       # HTML viewer pages (one per document)
+  read/                       # HTML reader pages (one per document)
     img/                      # Extracted images (per-document subdirectories)
-02-family-chronicle/
-  ...
 ```
 
-Each theme directory contains:
-- `index.html` — sortable file listing with summaries and tags
-- `files/` — original source documents (downloadable)
-- `read/` — HTML viewer pages showing extracted text with metadata
-- `read/img/` — extracted images organized by reader page slug (e.g. `img/chronicle-103/img001.png`)
+## Theme Index Page Format
 
-## Theme Categories (11)
+Each `{theme}/index.html` has:
+- A `<div class="stats-bar">` with three `<span class="stat-num">` values: document count, highlights count, files count
+- A `<table class="file-table">` with `<tbody>` containing one `<tr>` per document
+- Highlighted rows have `data-highlight="true"` attribute
+- Each row links to `read/{slug}.html` for reading and `files/{filename}` for download
+- A search box and highlights filter with JavaScript at the bottom
 
-1. **Autobiography & Personal Narrative** — Life stories, memoirs
-2. **The Family Chronicle** — 200-issue genealogical newsletter (1997–2010)
-3. **Family History & Genealogy** — Ancestry research, family trees
-4. **Holland College & Institutional Legacy** — Founding presidency
-5. **Education Philosophy & Reform** — Education 20/20 advocacy
-6. **Speeches & Presentations** — Talks, addresses, remarks
-7. **Professional Career & Consulting** — DACUM methodology, international work
-8. **Correspondence** — Personal and professional letters
-9. **Community Foundation & Civic Life** — CFPEI, civic involvement
-10. **Creative Writing** — Poetry, humour, literary works
-11. **Personal & Household** — Recipes, health, practical documents
+**Exception**: Theme 02 (Family Chronicle) uses "issues" instead of "documents" in its stats bar.
 
-## Images
+## Root index.html Format
 
-1,507 reader pages have embedded images (3,911 image files, 422 MB total). Images were extracted from source `.doc`/`.docx`/`.rtf` files using LibreOffice headless conversion (`scripts/add_images.py`). Reader pages with images are marked with `<!-- lo-images -->` in the HTML.
+- Global stats bar: `<span class="stat-num">N</span> documents archived`
+- Theme cards: `<div class="count">N documents · M highlights</div>`
+- The global document count must equal the sum of all theme card counts
 
-To re-run or update images:
+## Reader Pages
+
+Each `read/{slug}.html` contains:
+- Document metadata (title, date, tags, summary)
+- Extracted text content
+- A `<a class="file-link-btn" href="../files/{filename}">` link to the original source file
+- Embedded images (if extracted) marked with `<!-- lo-images -->` comment
+
+## Scripts in This Repo
+
+| Script | Purpose |
+|--------|---------|
+| `scripts/add_images.py` | Extract images from source .doc/.docx/.rtf into reader pages via LibreOffice |
+| `scripts/remove_exclusions.py` | Remove documents from archive given an `exclusions.json` file |
+| `scripts/generate_review.py` | Generate review HTML from flag files in `scripts/review_data/` |
+| `scripts/prep_review_pass2.py` | Prepare compact data chunks for AI review agents |
+| `scripts/extract_for_review.py` | Extract document data for review passes |
+
+### Extracting Images
+
+Requires LibreOffice installed. Extracts images from source documents into reader pages.
+
 ```bash
-python3 scripts/add_images.py --workers 4          # All themes
-python3 scripts/add_images.py --theme 02-family-chronicle  # One theme
+python3 scripts/add_images.py --workers 4          # All themes, 4 parallel workers
+python3 scripts/add_images.py --theme 02-family-chronicle  # Single theme
 python3 scripts/add_images.py --dry-run             # Preview only
 python3 scripts/add_images.py --force               # Re-process already-done pages
 ```
 
-## Build Pipeline
+### Removing Documents
 
-The archive is built from source files on a USB stick (`/Volumes/Lexar/`). Build scripts live on the USB at `/Volumes/Lexar/_summaries/`:
+To remove documents from the archive (reader pages, source files, images, index listings):
+
+1. Create an `exclusions.json` file — an array of `{"slug": "...", "theme": "..."}` objects
+2. Run: `python3 scripts/remove_exclusions.py exclusions.json`
+3. The script deletes files, updates all index page counts, and runs an audit
+
+## Build Pipeline (USB Stick)
+
+The archive is built from source files on a USB stick (`/Volumes/Lexar/`). Build scripts live at `/Volumes/Lexar/_summaries/`:
 
 | Script | Purpose |
 |--------|---------|
-| `extract_text.py` | Extract text from .doc/.docx/.rtf into SQLite |
-| `export_text_files.py` | Export extracted text to hash-bucketed .txt files + create `archive_metadata.db` |
-| `generate_missing_summaries.py` | Find unsummarized files, prepare AI batch work |
-| `build_archive.py` | Build HTML archive from metadata DB → `/tmp/DonGlendenningArchive/` → USB |
+| `extract_text.py` | Extract text from .doc/.docx/.rtf into SQLite (`extracted_text.db`) |
+| `export_text_files.py` | Export text to hash-bucketed .txt files + create `archive_metadata.db` |
+| `generate_missing_summaries.py` | Find unsummarized files, prepare AI batch summaries |
+| `build_archive.py` | Build HTML archive from metadata DB → `/tmp/DonGlendenningArchive/` |
 | `review_archive_entries.py` | AI review passes to prune/curate the archive |
-| `scripts/add_images.py` | Post-build: extract images from source docs into reader pages |
 
-### Rebuilding
+### Full Rebuild
 
 ```bash
 cd /Volumes/Lexar/_summaries
-python3 build_archive.py          # Builds to /tmp/, copies to USB
-# Then sync to git repo:
-rsync -a --delete /tmp/DonGlendenningArchive/ /path/to/git/repo/ --exclude=.git
-# Then add images:
+python3 build_archive.py          # Builds to /tmp/DonGlendenningArchive/
+# Sync to git repo:
+rsync -a --delete /tmp/DonGlendenningArchive/ /path/to/git/repo/ --exclude=.git --exclude=CLAUDE.md --exclude=README.md
+# Add images:
+cd /path/to/git/repo
 python3 scripts/add_images.py --workers 4
 ```
 
 ### Packaging for Distribution
 
 ```bash
-./package_archive.sh              # Creates ~/Desktop/DonGlendenningArchive.zip
+./package_archive.sh              # Creates ~/Desktop/DonGlendenningArchive.zip (~1 GB)
 ```
 
 ## Key Databases (not in repo)
 
 | Database | Location | Purpose |
 |----------|----------|---------|
-| `extracted_text.db` | `/tmp/` (working), USB (backup) | Full text extraction (32K+ docs) |
-| `archive_metadata.db` | `/tmp/` (working), USB (backup) | Summaries, tags, themes, curation decisions |
+| `extracted_text.db` | USB stick (`/Volumes/Lexar/`) | Full text extraction from 32K+ source documents (5.8 GB) |
+| `archive_metadata.db` | USB stick | Summaries, tags, themes, curation decisions |
 
 ## AI Review History
 
-- **Pass 1**: Haiku agents reviewed summaries + 800-char text snippets. Reduced 7,812 → 4,705 files.
-- **Pass 2**: Haiku agents reviewed full extracted text (up to 4,000 chars). Reduced 4,705 → 3,857 files. Whitelist protected 342 key files from exclusion.
+Three review passes have been performed:
+
+1. **Pass 1**: Haiku agents reviewed summaries + 800-char text snippets. Reduced 7,812 → 4,705 files.
+2. **Pass 2**: Haiku agents reviewed full extracted text (up to 4,000 chars). Reduced 4,705 → 3,857 files. A whitelist protected 342 key files from exclusion.
+3. **Pass 3**: 15 Haiku agents reviewed for privacy/sensitive content and low archival value. Flagged 264 documents, of which 245 were confirmed for removal. Reduced 3,857 → 3,612 files.
+
+Review data (flags, input chunks) is stored in `scripts/review_data/`.
 
 ## Future Improvements
 
-- **Image compression**: The 422 MB of images are uncompressed PNGs from LibreOffice. Converting to JPEG or using PNG optimization (pngquant/optipng) could significantly reduce archive size, especially for photographic content.
+- **Image compression**: The extracted images are uncompressed PNGs from LibreOffice. Converting to JPEG or using pngquant/optipng could significantly reduce archive size.
+- **GitHub Pages**: The repo can be hosted publicly via GitHub Pages (Settings → Pages → Deploy from main branch).
