@@ -43,6 +43,13 @@ EXCLUDE_PATTERNS = [
     r'topics for (?:potential |future )?letters',
 ]
 
+# Near-duplicate slugs to exclude (keep the best version of each cluster)
+DEDUP_EXCLUDE = {
+    ('04-holland-college', 'intro'),          # dup of 05/2-intro (shorter)
+    ('07-professional-career', 'clarity-4-docx'),  # dup of 05/clarity-7-docx
+    ('05-education-reform', 'd-clarity-1-docx'),   # shorter draft of clarity-7
+}
+
 COMPILED_INCLUDE = re.compile('|'.join(INCLUDE_PATTERNS), re.IGNORECASE)
 COMPILED_EXCLUDE = re.compile('|'.join(EXCLUDE_PATTERNS), re.IGNORECASE)
 
@@ -113,6 +120,8 @@ def extract_rows_from_index(index_path):
 
 def is_letter_to_editor(doc):
     """Check if a document is a letter to the editor based on summary text."""
+    if (doc['theme'], doc['slug']) in DEDUP_EXCLUDE:
+        return False
     text = doc['summary_text']
     if COMPILED_INCLUDE.search(text):
         if not COMPILED_EXCLUDE.search(text):
