@@ -52,13 +52,17 @@
 
 <script src="pagefind/pagefind-ui.js"></script>
 <script>
-new PagefindUI({
+var pf = new PagefindUI({
     element: "#search",
     showSubResults: true,
     showImages: false,
     showEmptyFilters: false,
     resetStyles: false
 });
+var q = new URLSearchParams(window.location.search).get('q');
+if (q) {
+    pf.triggerSearch(q);
+}
 </script>
 
 </body>
