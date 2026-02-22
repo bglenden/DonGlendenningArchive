@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search – Don Glendenning Archive</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="pagefind/pagefind-ui.css">
+<style>
+.pagefind-ui {
+    --pagefind-ui-primary: var(--accent);
+    --pagefind-ui-text: var(--text);
+    --pagefind-ui-background: var(--card-bg);
+    --pagefind-ui-border: var(--card-border);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 8px;
+    --pagefind-ui-font: Georgia, 'Times New Roman', serif;
+    --pagefind-ui-scale: 1;
+}
+.pagefind-ui .pagefind-ui__result-title {
+    color: var(--link);
+}
+.pagefind-ui .pagefind-ui__result-title:hover {
+    color: var(--link-hover);
+}
+.pagefind-ui .pagefind-ui__result-excerpt {
+    line-height: 1.6;
+}
+</style>
+</head>
+<body data-pagefind-ignore>
+
+<header class="site-header">
+  <h1>Search the Archive</h1>
+  <div class="subtitle">Full-text search across 3,612 documents</div>
+</header>
+
+<div class="container">
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a> <span class="sep">&rsaquo;</span> Search
+</div>
+
+<div id="search"></div>
+
+</div>
+
+<footer class="site-footer">
+  <a href="index.html">&larr; Back to Archive Home</a> &middot;
+  The Papers of Don Glendenning
+</footer>
+
+<script src="pagefind/pagefind-ui.js"></script>
+<script>
+new PagefindUI({
+    element: "#search",
+    showSubResults: true,
+    showImages: false,
+    showEmptyFilters: false,
+    resetStyles: false
+});
+</script>
+
+</body>
+</html>
