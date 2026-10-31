@@ -1,6 +1,6 @@
 # The Papers of Don Glendenning
 
-A browsable HTML archive of the personal writings of **Donald Ernest Malcolm Glendenning, C.M., Ph.D.** (1929–2025) — founding President of Holland College PEI (1969–1987), Order of Canada recipient, DACUM methodology pioneer, and education reformer.
+A browsable HTML archive of the personal writings of **Donald Ernest Malcolm Glendenning, C.M., Ph.D.** (1929–2026) — founding President of Holland College PEI (1969–1987), Order of Canada recipient, DACUM methodology pioneer, and education reformer.
 
 **3,695 catalog entries** in 11 primary collections, plus a Letters to the Editor cross-reference collection. There are 195 highlights and 200 Family Chronicle newsletter issues.
 
