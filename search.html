@@ -41,7 +41,9 @@
   <a href="index.html">Home</a> <span class="sep">&rsaquo;</span> Search
 </div>
 
+<p class="search-help">Exact and close title matches appear first, followed by matches in the text. Both neighbourhood and neighborhood spellings work.</p>
 <div id="search"></div>
+<noscript><p>Search requires JavaScript. You can also <a href="index.html">browse the collections</a>.</p></noscript>
 
 </div>
 
@@ -54,6 +56,7 @@
 <script>
 var pf = new PagefindUI({
     element: "#search",
+    bundlePath: new URL("search/", window.location.href).href,
     showSubResults: true,
     showImages: false,
     showEmptyFilters: false,

@@ -1,0 +1,8 @@
+{
+  "name": "don-glendenning-archive",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/test_search.mjs && python3 scripts/build_search_titles.py --check"
+  }
+}
