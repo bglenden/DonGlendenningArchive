@@ -2,7 +2,7 @@
 
 A browsable HTML archive of the personal writings of **Donald Ernest Malcolm Glendenning, C.M., Ph.D.** (1929–2025) — founding President of Holland College PEI (1969–1987), Order of Canada recipient, DACUM methodology pioneer, and education reformer.
 
-**3,612 documents** organized into 11 thematic collections, with 201 curated highlights and 200 Family Chronicle newsletter issues.
+**3,613 documents** organized into 11 thematic collections, with 202 curated highlights and 200 Family Chronicle newsletter issues.
 
 ## Browse Online
 
@@ -20,7 +20,7 @@ Items marked **HIGH** relevance are especially meaningful for understanding Don'
 |---|-----------|-----------|-------------|
 | 01 | Autobiography & Personal Narrative | 28 | Life stories, memoirs, and personal anecdotes |
 | 02 | The Family Chronicle | 118 | Self-published genealogical newsletter — 200 issues, 1997–2010 |
-| 03 | Family History & Genealogy | 209 | Ancestry research, family trees, and Christmas letters |
+| 03 | Family History & Genealogy | 210 | Ancestry research, family trees, and Christmas letters |
 | 04 | Holland College & Institutional Legacy | 186 | Founding, presidency, innovations, and institutional history |
 | 05 | Education Philosophy & Reform | 1,748 | Letters to editor, Education 20/20, advocacy for educational change |
 | 06 | Speeches & Presentations | 130 | Talks, addresses, ceremony remarks, and formal presentations |
@@ -29,6 +29,12 @@ Items marked **HIGH** relevance are especially meaningful for understanding Don'
 | 09 | Community Foundation & Civic Life | 220 | CFPEI, community involvement, and civic engagement |
 | 10 | Creative Writing | 94 | Poetry, humour, literary works, and personal reflections |
 | 11 | Personal & Household | 75 | Recipes, practical documents, and everyday life |
+
+## Recovered illustrated book
+
+[Read The Neighbourhood](03-family-genealogy/read/the-neighbourhood.html) or [download the illustrated PDF](03-family-genealogy/files/The%20Neighbourhood%20-%20illustrated%20edition.pdf) (403 pages, 20.75 MB).
+
+This October 2026 reconstruction uses Don's September 2015 Family Tree Maker project and 50 recovered source images. The import-message section includes an explanation of the reconstruction and its limitations. It preserves the recovered prose and section order in a new layout; it is not a facsimile of the earlier printed edition.
 
 ## About Don Glendenning
 

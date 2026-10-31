@@ -121,3 +121,9 @@ Review data (flags, input chunks) is stored in `scripts/review_data/`.
 
 - **Image compression**: The extracted images are uncompressed PNGs from LibreOffice. Converting to JPEG or using pngquant/optipng could significantly reduce archive size.
 - **GitHub Pages**: The repo can be hosted publicly via GitHub Pages (Settings → Pages → Deploy from main branch).
+
+## Recovered book addition (October 2026)
+
+The illustrated reconstruction of **The Neighbourhood** is maintained as an additional reader in `03-family-genealogy/read/the-neighbourhood.html`, with its 403-page PDF in `03-family-genealogy/files/The Neighbourhood - illustrated edition.pdf` and 50 unchanged JPEGs in `03-family-genealogy/read/img/the-neighbourhood/`. Its import-message section explains the recovery from the September 2015 saved project and the reconstruction's limitations. The raw Family Tree Maker database and source laptop backup are not part of the published archive.
+
+Preserve these added files during a full USB-source rebuild; the original metadata database does not contain this later reconstruction. The book is a highlighted entry in the genealogy index and linked from the home page and README. Its reader has Pagefind body/title/theme attributes. After content changes, rebuild the existing Pagefind 1.4.0 search bundle with `npx pagefind@1.4.0 --site .`. GitHub Pages deploys the repository root from `main`.
