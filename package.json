@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node scripts/test_search.mjs && python3 scripts/build_search_titles.py --check"
+    "test": "node scripts/test_search.mjs && python3 scripts/build_search_titles.py --check && python3 scripts/validate_archive.py",
+    "build:search": "npx --yes pagefind@1.4.0 --site . && python3 scripts/build_search_titles.py"
   }
 }

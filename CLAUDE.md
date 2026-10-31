@@ -5,7 +5,7 @@ Instructions for maintaining, updating, and regenerating the archive. See `READM
 ## Archive Structure
 
 ```
-index.html                    # Main landing page (3,612 documents, 11 themes)
+index.html                    # Main landing page (3,695 primary entries, 12 collection views)
 excluded.html                 # Excluded files list (for auditing)
 css/style.css                 # Shared stylesheet
 scripts/                      # Maintenance and build scripts
@@ -82,17 +82,11 @@ The archive is built from source files on a USB stick (`/Volumes/Lexar/`). Build
 | `build_archive.py` | Build HTML archive from metadata DB → `/tmp/DonGlendenningArchive/` |
 | `review_archive_entries.py` | AI review passes to prune/curate the archive |
 
-### Full Rebuild
+### Historical USB import — preservation required
 
-```bash
-cd /Volumes/Lexar/_summaries
-python3 build_archive.py          # Builds to /tmp/DonGlendenningArchive/
-# Sync to git repo:
-rsync -a --delete /tmp/DonGlendenningArchive/ /path/to/git/repo/ --exclude=.git --exclude=CLAUDE.md --exclude=README.md
-# Add images:
-cd /path/to/git/repo
-python3 scripts/add_images.py --workers 4
-```
+The USB build predates additions and repairs in this maintained repository. Generate any new import into a separate scratch directory, compare it with the current checkout, and merge reviewed changes. Do not synchronize it over this repository with deletion enabled: that would erase later books, navigation improvements, search code and notices. Preserve original files and existing URLs.
+
+For normal updates, edit the maintained HTML/indexes, run `npm run build:search`, then `npm test`. The validation checks collection links, reader images, accessible controls and count labels. Catalog totals count primary collection rows (including all 200 Chronicle issues); the 88 Letters to the Editor entries are cross-references, not additional documents.
 
 ### Packaging for Distribution
 
@@ -131,3 +125,7 @@ Preserve these added files during a full USB-source rebuild; the original metada
 ## Search title prioritization
 
 `search/pagefind.js` is a small adapter around the unchanged Pagefind 1.4.0 engine. It ranks normalized title matches first, merges both neighbourhood/neighborhood spellings, and preserves other full-text ordering. After rebuilding Pagefind or changing collection links, run `python3 scripts/build_search_titles.py`, then `npm test`. The generated `search/titles.json` includes active readers and download-only collection entries.
+
+## Collection controls and validation
+
+All collection indexes use `js/collections.js`, native summary buttons with `aria-expanded`/`aria-controls`, labeled input filters and visible mobile document actions. Preserve these when regenerating indexes. `scripts/validate_archive.py` checks reader-facing links/assets and count labels. Six pre-existing shared-reader URLs have variant notices linking both originals; do not silently merge or delete the originals. `package_archive.sh` defaults to this checkout, uses isolated temporary staging and packages reader-facing files only.

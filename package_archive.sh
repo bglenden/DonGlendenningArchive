@@ -1,70 +1,47 @@
 #!/bin/bash
-# package_archive.sh - Create a clean distributable zip of the archive.
-#
-# Usage:
-#   ./package_archive.sh                  # builds from /tmp/DonGlendenningArchive
-#   ./package_archive.sh /path/to/source  # builds from a custom source path
-#
-# Output: ~/Desktop/DonGlendenningArchive.zip
-
-set -e
-
-SOURCE="${1:-/tmp/DonGlendenningArchive}"
-STAGING="/tmp/_archive_pkg/DonGlendenningArchive"
-OUTPUT="$HOME/Desktop/DonGlendenningArchive.zip"
-
-if [ ! -d "$SOURCE" ]; then
-    echo "ERROR: Source directory not found: $SOURCE"
-    echo "Run build_archive.py first, or pass a custom source path."
+# Package the maintained checkout by default. Optional arguments: SOURCE OUTPUT.zip
+set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+SOURCE="${1:-$SCRIPT_DIR}"
+OUTPUT="${2:-$HOME/Desktop/DonGlendenningArchive.zip}"
+if [ ! -f "$SOURCE/index.html" ]; then
+    echo "ERROR: Archive index not found in $SOURCE" >&2
     exit 1
 fi
-
-echo "=== Packaging Don Glendenning Archive ==="
-echo "  Source: $SOURCE"
-
-# Clean staging area
-rm -rf /tmp/_archive_pkg
+mkdir -p "$(dirname "$OUTPUT")"
+OUTPUT_DIR="$(cd "$(dirname "$OUTPUT")" && pwd)"
+OUTPUT="$OUTPUT_DIR/$(basename "$OUTPUT")"
+WORK="$(mktemp -d "${TMPDIR:-/tmp}/don-archive-package.XXXXXX")"
+OUTPUT_TEMP="$(mktemp "$OUTPUT_DIR/.DonGlendenningArchive.XXXXXX")"
+trap 'rm -rf "$WORK"; rm -f "$OUTPUT_TEMP"' EXIT
+STAGING="$WORK/DonGlendenningArchive"
 mkdir -p "$STAGING"
+# Only reader-facing archive files belong in a distribution. Maintenance/review
+# data stays in the repository and is never copied into this ZIP.
+for entry in index.html search.html excluded.html README.md css js search pagefind Eulogy; do
+    if [ -e "$SOURCE/$entry" ]; then
+        rsync -a --exclude='.DS_Store' --exclude='._*' "$SOURCE/$entry" "$STAGING/"
+    fi
+done
+for collection in "$SOURCE"/[0-9][0-9]-*/; do
+    [ -d "$collection" ] || continue
+    rsync -a --exclude='.DS_Store' --exclude='._*' "$collection" "$STAGING/$(basename "$collection")/"
+done
+cat > "$STAGING/START-HERE.txt" <<'EOF'
+Don Glendenning Archive
 
-echo "  Copying to staging area..."
-rsync -a \
-    --exclude='.git' \
-    --exclude='.DS_Store' \
-    --exclude='._*' \
-    --exclude='*.py' \
-    --exclude='*.pyc' \
-    --exclude='__pycache__' \
-    --exclude='*.db' \
-    --exclude='*.sqlite' \
-    --exclude='*.log' \
-    --exclude='.gitignore' \
-    --exclude='CLAUDE.md' \
-    --exclude='package_archive.sh' \
-    --exclude='scripts/' \
-    "$SOURCE/" "$STAGING/"
+Open index.html to browse the collections and documents offline.
+Full-text search uses browser fetch requests and needs an HTTP server.
+If Python 3 is available, open a terminal in this folder and run:
 
-# Count what we have
-FILE_COUNT=$(find "$STAGING" -type f | wc -l | tr -d ' ')
-DIR_COUNT=$(find "$STAGING" -type d | wc -l | tr -d ' ')
-TOTAL_SIZE=$(du -sh "$STAGING" | cut -f1)
+  python3 -m http.server 8000 --bind 127.0.0.1
 
-echo "  Staged: $FILE_COUNT files in $DIR_COUNT directories ($TOTAL_SIZE)"
-
-# Create zip from parent so top-level dir is DonGlendenningArchive/
-rm -f "$OUTPUT"
-echo "  Creating zip..."
-cd /tmp/_archive_pkg
-zip -r -q "$OUTPUT" DonGlendenningArchive/
-
-ZIP_SIZE=$(du -sh "$OUTPUT" | cut -f1)
-
-# Clean up staging
-rm -rf /tmp/_archive_pkg
-
-echo ""
-echo "=== Done ==="
-echo "  Output: $OUTPUT"
-echo "  Size:   $ZIP_SIZE"
-echo "  Files:  $FILE_COUNT"
-echo ""
-echo "Recipients can unzip and open index.html in any browser."
+Then open http://127.0.0.1:8000/ in your browser.
+The online archive also provides search:
+https://bglenden.github.io/DonGlendenningArchive/
+EOF
+(cd "$WORK" && zip -r -q archive.zip DonGlendenningArchive)
+cp "$WORK/archive.zip" "$OUTPUT_TEMP"
+mv -f "$OUTPUT_TEMP" "$OUTPUT"
+echo "Packaged maintained archive: $OUTPUT"
+echo "Browse index.html offline; use a local HTTP server for search (see START-HERE.txt)."
